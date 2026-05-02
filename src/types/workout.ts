@@ -35,6 +35,7 @@ export interface Exercise {
   muscleGroupId: string;
   equipment?: string;
   notes?: string;
+  defaultUnit?: WeightUnit;
 }
 
 // ─── Muscle Group ─────────────────────────────────────────

@@ -25,6 +25,7 @@ const weightModeOptions: { value: WeightMode; label: string }[] = [
 export default function ExerciseLogger({ exerciseId, exerciseName, onBack }: Props) {
   const {
     activeWorkout, latestLogs, addSetToExercise, deleteSetFromExercise,
+    exercises, settings, updateExercise
   } = useWorkoutStore();
 
   const currentLog = activeWorkout?.exerciseLogs.find(l => l.exerciseId === exerciseId);
@@ -35,9 +36,12 @@ export default function ExerciseLogger({ exerciseId, exerciseName, onBack }: Pro
   const [showRef, setShowRef] = useState(true);
 
   // Form state
+  const exercise = exercises.find(e => e.id === exerciseId);
+  const initialUnit = exercise?.defaultUnit ?? settings.defaultUnit ?? 'kg';
+  
   const [weight, setWeight] = useState('');
   const [reps, setReps] = useState('');
-  const [unit, setUnit] = useState<WeightUnit>('kg');
+  const [unit, setUnit] = useState<WeightUnit>(initialUnit);
   const [weightMode, setWeightMode] = useState<WeightMode>('machine');
   const [notes, setNotes] = useState('');
   const [isDropSet, setIsDropSet] = useState(false);
@@ -89,6 +93,12 @@ export default function ExerciseLogger({ exerciseId, exerciseName, onBack }: Pro
     };
 
     addSetToExercise(exerciseId, newSet);
+    
+    // Automatically set defaultUnit for the exercise if it was not already set to this unit
+    if (exercise && exercise.defaultUnit !== unit) {
+      updateExercise({ ...exercise, defaultUnit: unit });
+    }
+
     resetForm();
     setIsAddingSet(false);
   };

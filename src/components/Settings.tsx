@@ -9,7 +9,7 @@ import { useWorkoutStore } from '../store/workoutStore';
 export default function Settings() {
   const {
     settings, updateSettings, exportData, importData, resetToSeed, rebuildPRs,
-    workoutHistory, exercises, muscleGroups, prRecords,
+    workoutHistory, exercises, muscleGroups, prRecords, updateExercise,
   } = useWorkoutStore();
 
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -89,7 +89,7 @@ export default function Settings() {
         <div className="flex items-center justify-between">
           <div>
             <p className="text-white font-medium text-sm">Default Weight Unit</p>
-            <p className="text-dark-300 text-xs mt-0.5">Used for new sets</p>
+            <p className="text-dark-300 text-xs mt-0.5">Used for new sets globally</p>
           </div>
           <div className="flex gap-1">
             {(['kg', 'lbs'] as const).map(u => (
@@ -106,6 +106,43 @@ export default function Settings() {
               </button>
             ))}
           </div>
+        </div>
+      </div>
+
+      {/* Exercise Units */}
+      <div className="glass-card p-4 mb-6">
+        <div className="mb-3">
+          <p className="text-white font-medium text-sm">Exercise Specific Units</p>
+          <p className="text-dark-300 text-xs mt-0.5">Override the global unit for specific exercises</p>
+        </div>
+        <div className="max-h-64 overflow-y-auto pr-2 space-y-1">
+          {exercises.map(ex => {
+            // If the exercise has no specific unit, it falls back to the global default
+            const currentUnit = ex.defaultUnit || settings.defaultUnit;
+            return (
+              <div key={ex.id} className="flex items-center justify-between py-2 border-b border-dark-600/50 last:border-0">
+                <span className="text-dark-100 text-sm truncate pr-2">{ex.name}</span>
+                <div className="flex gap-1 shrink-0">
+                  {(['kg', 'lbs'] as const).map(u => {
+                    const isActive = currentUnit === u;
+                    return (
+                      <button
+                        key={u}
+                        onClick={() => updateExercise({ ...ex, defaultUnit: u })}
+                        className={`px-3 py-1.5 rounded-md text-xs font-medium transition-all ${
+                          isActive
+                            ? 'bg-accent-500 text-white'
+                            : 'bg-dark-700 text-dark-300 hover:bg-dark-600'
+                        }`}
+                      >
+                        {u}
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
 
