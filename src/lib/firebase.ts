@@ -4,12 +4,12 @@ import { getFirestore, type Firestore } from 'firebase/firestore';
 
 // Replace these with your Firebase project config from the Firebase Console
 const firebaseConfig = {
-  apiKey: import.meta.env.VITE_FIREBASE_API_KEY || "",
-  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN || "",
-  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID || "",
-  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET || "",
-  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID || "",
-  appId: import.meta.env.VITE_FIREBASE_APP_ID || ""
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY || "AIzaSyCfbasxPZn17wMY_uKU2kkAJtVLM6qHL6U",
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN || "hadigymtracker.firebaseapp.com",
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID || "hadigymtracker",
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET || "hadigymtracker.firebasestorage.app",
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID || "816555252970",
+  appId: import.meta.env.VITE_FIREBASE_APP_ID || "1:816555252970:web:62071edeaa356c5975cb93"
 };
 
 const isConfigured = Boolean(firebaseConfig.apiKey && firebaseConfig.projectId);
