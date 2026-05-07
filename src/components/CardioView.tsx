@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { v4 as uuid } from 'uuid';
 import {
@@ -51,6 +51,12 @@ export default function CardioView() {
   const [formIncline, setFormIncline] = useState('');
   const [showPresets, setShowPresets] = useState(false);
 
+  useEffect(() => {
+    if (!formExId && cardioExercises.length > 0) {
+      setFormExId(cardioExercises[0].id);
+    }
+  }, [cardioExercises, formExId]);
+
   const data = useMemo(() => {
     return computeCardioProgress([...workoutHistory].reverse(), exercises);
   }, [workoutHistory, exercises]);
@@ -79,8 +85,10 @@ export default function CardioView() {
   };
 
   const handleSave = async () => {
-    if (!formExId) return;
-    await logStandaloneCardio(formExId, {
+    const targetExId = formExId || (cardioExercises.length > 0 ? cardioExercises[0].id : null);
+    if (!targetExId) return;
+
+    await logStandaloneCardio(targetExId, {
       id: uuid(),
       setNumber: 1,
       weight: null,
