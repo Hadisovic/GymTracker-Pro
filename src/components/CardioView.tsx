@@ -88,24 +88,32 @@ export default function CardioView() {
     const targetExId = formExId || (cardioExercises.length > 0 ? cardioExercises[0].id : null);
     if (!targetExId) return;
 
-    await logStandaloneCardio(targetExId, {
-      id: uuid(),
-      setNumber: 1,
-      weight: null,
-      reps: null,
-      unit: 'kg',
-      weightMode: 'machine',
-      time: formTime ? parseFloat(formTime) : undefined,
-      distance: formDistance ? parseFloat(formDistance) : undefined,
-      speed: formSpeed ? parseFloat(formSpeed) : undefined,
-      incline: formIncline ? parseFloat(formIncline) : undefined,
-    });
-    setIsLogging(false);
-    // Reset form
-    setFormTime('');
-    setFormDistance('');
-    setFormSpeed('');
-    setFormIncline('');
+    try {
+      const newSet: any = {
+        id: uuid(),
+        setNumber: 1,
+        weight: null,
+        reps: null,
+        unit: 'kg',
+        weightMode: 'machine',
+      };
+      
+      if (formTime) newSet.time = parseFloat(formTime);
+      if (formDistance) newSet.distance = parseFloat(formDistance);
+      if (formSpeed) newSet.speed = parseFloat(formSpeed);
+      if (formIncline) newSet.incline = parseFloat(formIncline);
+
+      await logStandaloneCardio(targetExId, newSet as WorkoutSet);
+    } catch (e) {
+      console.error('Failed to log cardio:', e);
+    } finally {
+      setIsLogging(false);
+      // Reset form
+      setFormTime('');
+      setFormDistance('');
+      setFormSpeed('');
+      setFormIncline('');
+    }
   };
 
   const stats = useMemo(() => {

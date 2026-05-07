@@ -438,9 +438,6 @@ export const useWorkoutStore = create<WorkoutStore>()(
       duration: Math.round(set.time ?? 0),
     };
 
-    // Save to DB
-    await db.workoutHistory.add(session);
-
     // Update latest logs
     const newLatestLogs = { ...state.latestLogs };
     const ll: LatestLog = {
@@ -452,7 +449,14 @@ export const useWorkoutStore = create<WorkoutStore>()(
       sessionLabel: session.sessionLabel,
     };
     newLatestLogs[exerciseId] = ll;
-    await db.latestLogs.put(ll);
+
+    try {
+      // Save to DB
+      await db.workoutHistory.add(session);
+      await db.latestLogs.put(ll);
+    } catch (e) {
+      console.error('Dexie save error:', e);
+    }
 
     // Update state
     set({
