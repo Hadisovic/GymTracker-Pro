@@ -24,6 +24,10 @@ export interface WorkoutSet {
   assistedReps?: number;
   restPause?: boolean;
   toFailure?: boolean;
+  time?: number;        // minutes
+  distance?: number;    // km or miles
+  speed?: number;       // km/h or mph
+  incline?: number;     // level
   timestamp?: string;
 }
 
@@ -35,6 +39,7 @@ export interface Exercise {
   muscleGroupId: string;
   equipment?: string;
   notes?: string;
+  category?: 'strength' | 'cardio';
   defaultUnit?: WeightUnit;
 }
 

@@ -1,0 +1,5440 @@
+{
+  "version": 1,
+  "exportedAt": "2026-05-07T15:49:21.402Z",
+  "muscleGroups": [
+    {
+      "id": "abs",
+      "name": "Abs",
+      "color": "#ec4899"
+    },
+    {
+      "id": "back",
+      "name": "Back",
+      "color": "#3b82f6"
+    },
+    {
+      "id": "biceps",
+      "name": "Biceps",
+      "color": "#f97316"
+    },
+    {
+      "id": "chest",
+      "name": "Chest",
+      "color": "#f43f5e"
+    },
+    {
+      "id": "forearms",
+      "name": "Forearms",
+      "color": "#64748b"
+    },
+    {
+      "id": "legs",
+      "name": "Legs",
+      "color": "#eab308"
+    },
+    {
+      "id": "shoulders",
+      "name": "Shoulders",
+      "color": "#a855f7"
+    },
+    {
+      "id": "triceps",
+      "name": "Triceps",
+      "color": "#14b8a6"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "cable-crunch",
+      "name": "Cable Crunch",
+      "aliases": [
+        "Kneeling Cable Crunch"
+      ],
+      "muscleGroupId": "abs",
+      "equipment": "Cable",
+      "defaultUnit": "kg"
+    },
+    {
+      "id": "cable-curl-behind",
+      "name": "Cable Curl Behind Body",
+      "aliases": [
+        "Behind Body Cable Curl",
+        "Bayesian Curl"
+      ],
+      "muscleGroupId": "biceps",
+      "equipment": "Cable",
+      "defaultUnit": "kg"
+    },
+    {
+      "id": "cable-fly",
+      "name": "Cable Fly",
+      "aliases": [
+        "Cable Chest Fly",
+        "Cable Crossover"
+      ],
+      "muscleGroupId": "chest",
+      "equipment": "Cable",
+      "defaultUnit": "kg"
+    },
+    {
+      "id": "cable-lateral-raises",
+      "name": "Cable Lateral Raises",
+      "aliases": [
+        "Cable Side Raise"
+      ],
+      "muscleGroupId": "shoulders",
+      "equipment": "Cable",
+      "defaultUnit": "kg"
+    },
+    {
+      "id": "cable-row-both",
+      "name": "Cable Row Both Arms",
+      "aliases": [
+        "Seated Cable Row",
+        "Cable Row"
+      ],
+      "muscleGroupId": "back",
+      "equipment": "Cable",
+      "defaultUnit": "kg"
+    },
+    {
+      "id": "cable-row-single",
+      "name": "Single-arm Cable Row",
+      "aliases": [
+        "Cable Row Single Arm",
+        "One Arm Cable Row"
+      ],
+      "muscleGroupId": "back",
+      "equipment": "Cable",
+      "defaultUnit": "kg"
+    },
+    {
+      "id": "calf-raises",
+      "name": "Calf Raises",
+      "aliases": [
+        "Standing Calf Raise",
+        "Seated Calf Raise"
+      ],
+      "muscleGroupId": "legs",
+      "equipment": "Machine / Bodyweight"
+    },
+    {
+      "id": "chest-fly",
+      "name": "Chest Fly",
+      "aliases": [
+        "Pec Fly",
+        "Machine Fly"
+      ],
+      "muscleGroupId": "chest",
+      "equipment": "Machine"
+    },
+    {
+      "id": "close-lat-pulldown",
+      "name": "Close Grip Lat Pulldown",
+      "aliases": [
+        "Close Lat Pulldown",
+        "Narrow Grip Pulldown"
+      ],
+      "muscleGroupId": "back",
+      "equipment": "Cable Machine",
+      "defaultUnit": "lbs"
+    },
+    {
+      "id": "ez-preacher-curl",
+      "name": "EZ Bar Preacher Curl",
+      "aliases": [
+        "Preacher Curl",
+        "EZ Curl"
+      ],
+      "muscleGroupId": "biceps",
+      "equipment": "EZ Bar"
+    },
+    {
+      "id": "face-pull",
+      "name": "Face Pull",
+      "aliases": [
+        "Cable Face Pull"
+      ],
+      "muscleGroupId": "shoulders",
+      "equipment": "Cable",
+      "defaultUnit": "kg"
+    },
+    {
+      "id": "flat-press",
+      "name": "Flat Press",
+      "aliases": [
+        "Flat Bench Press",
+        "Bench Press"
+      ],
+      "muscleGroupId": "chest",
+      "equipment": "Barbell / Dumbbells",
+      "defaultUnit": "kg"
+    },
+    {
+      "id": "hammer-curl",
+      "name": "Hammer Curl",
+      "aliases": [
+        "DB Hammer Curl"
+      ],
+      "muscleGroupId": "biceps",
+      "equipment": "Dumbbells",
+      "defaultUnit": "kg"
+    },
+    {
+      "id": "hanging-leg-raise",
+      "name": "Hanging Leg Raise",
+      "aliases": [
+        "Leg Raise"
+      ],
+      "muscleGroupId": "abs",
+      "equipment": "Bodyweight",
+      "defaultUnit": "kg"
+    },
+    {
+      "id": "incline-db-bench",
+      "name": "Incline DB Bench Press",
+      "aliases": [
+        "Incline Press",
+        "Incline Dumbbell Press"
+      ],
+      "muscleGroupId": "chest",
+      "equipment": "Dumbbells",
+      "defaultUnit": "kg"
+    },
+    {
+      "id": "lateral-raises",
+      "name": "Lateral Raises",
+      "aliases": [
+        "Side Raises",
+        "DB Lateral Raise"
+      ],
+      "muscleGroupId": "shoulders",
+      "equipment": "Dumbbells"
+    },
+    {
+      "id": "leg-curl",
+      "name": "Leg Curl",
+      "aliases": [
+        "Hamstring Curl",
+        "Lying Leg Curl"
+      ],
+      "muscleGroupId": "legs",
+      "equipment": "Machine"
+    },
+    {
+      "id": "leg-extension",
+      "name": "Leg Extension",
+      "aliases": [
+        "Quad Extension"
+      ],
+      "muscleGroupId": "legs",
+      "equipment": "Machine"
+    },
+    {
+      "id": "leg-press",
+      "name": "Leg Press",
+      "aliases": [
+        "Machine Leg Press"
+      ],
+      "muscleGroupId": "legs",
+      "equipment": "Machine"
+    },
+    {
+      "id": "overhead-triceps",
+      "name": "Overhead Triceps Cable",
+      "aliases": [
+        "Single Arm Overhead Triceps Cable",
+        "Overhead Triceps",
+        "Overhead Cable Extension"
+      ],
+      "muscleGroupId": "triceps",
+      "equipment": "Cable",
+      "defaultUnit": "kg"
+    },
+    {
+      "id": "rear-delt-cable",
+      "name": "Single-arm Rear Delt Cable",
+      "aliases": [
+        "Rear Delt Cable",
+        "Reverse Cable Fly"
+      ],
+      "muscleGroupId": "shoulders",
+      "equipment": "Cable",
+      "defaultUnit": "kg"
+    },
+    {
+      "id": "reverse-wrist-curl",
+      "name": "Reverse Wrist Curl",
+      "aliases": [
+        "Reverse Forearm Curl"
+      ],
+      "muscleGroupId": "forearms",
+      "equipment": "Barbell / Dumbbells"
+    },
+    {
+      "id": "shoulder-press",
+      "name": "Shoulder Press Machine",
+      "aliases": [
+        "Shoulder Press",
+        "Machine Shoulder Press"
+      ],
+      "muscleGroupId": "shoulders",
+      "equipment": "Machine",
+      "defaultUnit": "lbs"
+    },
+    {
+      "id": "single-arm-cable-tri",
+      "name": "Single Arm Triceps Cable",
+      "aliases": [
+        "Single Arm Cable",
+        "One Arm Pushdown"
+      ],
+      "muscleGroupId": "triceps",
+      "equipment": "Cable"
+    },
+    {
+      "id": "single-preacher-curl",
+      "name": "Single-arm Preacher Curl",
+      "aliases": [
+        "One Arm Preacher Curl",
+        "DB Preacher Curl"
+      ],
+      "muscleGroupId": "biceps",
+      "equipment": "Dumbbell",
+      "defaultUnit": "kg"
+    },
+    {
+      "id": "t-bar-row",
+      "name": "T-Bar Row",
+      "aliases": [
+        "T Bar Row",
+        "Landmine Row"
+      ],
+      "muscleGroupId": "back",
+      "equipment": "T-Bar",
+      "defaultUnit": "lbs"
+    },
+    {
+      "id": "triceps-machine",
+      "name": "Triceps Machine",
+      "aliases": [
+        "Tricep Machine",
+        "Machine Triceps Extension"
+      ],
+      "muscleGroupId": "triceps",
+      "equipment": "Machine"
+    },
+    {
+      "id": "triceps-pushdown",
+      "name": "Triceps Pushdown",
+      "aliases": [
+        "Cable Pushdown",
+        "Rope Pushdown"
+      ],
+      "muscleGroupId": "triceps",
+      "equipment": "Cable",
+      "defaultUnit": "kg"
+    },
+    {
+      "id": "wide-lat-pulldown",
+      "name": "Wide Lat Pulldown",
+      "aliases": [
+        "Wide Grip Lat Pulldown",
+        "Lat Pulldown Wide"
+      ],
+      "muscleGroupId": "back",
+      "equipment": "Cable Machine"
+    },
+    {
+      "id": "wrist-curl",
+      "name": "Wrist Curl",
+      "aliases": [
+        "Forearm Curl"
+      ],
+      "muscleGroupId": "forearms",
+      "equipment": "Barbell / Dumbbells"
+    }
+  ],
+  "workoutPresets": [
+    {
+      "id": "abs",
+      "name": "Abs",
+      "muscleGroupIds": [
+        "abs"
+      ]
+    },
+    {
+      "id": "chest-back",
+      "name": "Chest + Back",
+      "muscleGroupIds": [
+        "chest",
+        "back"
+      ]
+    },
+    {
+      "id": "legs-forearms",
+      "name": "Legs + Forearms",
+      "muscleGroupIds": [
+        "legs",
+        "forearms"
+      ]
+    },
+    {
+      "id": "shoulders-biceps-triceps",
+      "name": "Shoulders + Biceps + Triceps",
+      "muscleGroupIds": [
+        "shoulders",
+        "biceps",
+        "triceps"
+      ]
+    }
+  ],
+  "workoutHistory": [
+    {
+      "id": "session-1",
+      "name": "First Upper / General Comeback",
+      "date": null,
+      "sessionLabel": "Session 1",
+      "muscleGroupIds": [
+        "chest",
+        "back",
+        "shoulders",
+        "biceps",
+        "triceps"
+      ],
+      "createdAt": "2025-12-31T21:00:00.000Z",
+      "exercises": [
+        {
+          "exerciseId": "incline-db-bench",
+          "exerciseName": "Incline DB Bench Press",
+          "sets": [
+            {
+              "id": "4f4fe4bb-2948-4051-ba9d-455519d2879c",
+              "setNumber": 1,
+              "weight": 10,
+              "reps": 8,
+              "unit": "kg",
+              "weightMode": "dumbbell"
+            },
+            {
+              "id": "304819f0-e84d-4a2e-af45-891ad8ebe2b5",
+              "setNumber": 2,
+              "weight": 15,
+              "reps": 8,
+              "unit": "kg",
+              "weightMode": "dumbbell"
+            },
+            {
+              "id": "027fe59f-8c73-4ad5-afe5-ac4b7db960a7",
+              "setNumber": 3,
+              "weight": 20,
+              "reps": 8,
+              "unit": "kg",
+              "weightMode": "dumbbell"
+            }
+          ],
+          "completed": true
+        },
+        {
+          "exerciseId": "chest-fly",
+          "exerciseName": "Chest Fly",
+          "sets": [
+            {
+              "id": "fd8ef66c-5ae9-4be5-ae25-6676955aec1f",
+              "setNumber": 1,
+              "weight": 80,
+              "reps": null,
+              "unit": "lbs",
+              "weightMode": "machine",
+              "notes": "Reps unknown"
+            },
+            {
+              "id": "6d6dae25-2502-45ec-b476-c5a05a6008cd",
+              "setNumber": 2,
+              "weight": 80,
+              "reps": null,
+              "unit": "lbs",
+              "weightMode": "machine",
+              "notes": "Reps unknown"
+            }
+          ],
+          "completed": true
+        },
+        {
+          "exerciseId": "wide-lat-pulldown",
+          "exerciseName": "Wide Lat Pulldown",
+          "sets": [
+            {
+              "id": "558fd82a-2fd5-4d17-8214-6c1c0902f0f9",
+              "setNumber": 1,
+              "weight": 100,
+              "reps": 9,
+              "unit": "lbs",
+              "weightMode": "machine"
+            },
+            {
+              "id": "d188e254-121b-4375-8fa6-75f134fcc860",
+              "setNumber": 2,
+              "weight": 100,
+              "reps": 9,
+              "unit": "lbs",
+              "weightMode": "machine"
+            },
+            {
+              "id": "8a35e3a1-fac2-4a6c-b79c-d78227bd03f5",
+              "setNumber": 3,
+              "weight": 100,
+              "reps": 9,
+              "unit": "lbs",
+              "weightMode": "machine"
+            }
+          ],
+          "completed": true
+        },
+        {
+          "exerciseId": "cable-row-single",
+          "exerciseName": "Cable Row Single Arm",
+          "sets": [
+            {
+              "id": "46c52bf1-2ba8-4440-9b97-74291ba60711",
+              "setNumber": 1,
+              "weight": 50,
+              "reps": 9,
+              "unit": "kg",
+              "weightMode": "machine",
+              "notes": "Each arm"
+            },
+            {
+              "id": "c4412114-ff99-40b1-a65f-837b630002b8",
+              "setNumber": 2,
+              "weight": 50,
+              "reps": 9,
+              "unit": "kg",
+              "weightMode": "machine",
+              "notes": "Each arm"
+            }
+          ],
+          "completed": true
+        },
+        {
+          "exerciseId": "lateral-raises",
+          "exerciseName": "Lateral Raises",
+          "sets": [
+            {
+              "id": "6de44479-5feb-4370-a795-52134f341835",
+              "setNumber": 1,
+              "weight": 7.5,
+              "reps": 12,
+              "unit": "kg",
+              "weightMode": "dumbbell"
+            },
+            {
+              "id": "b69c507f-16c4-4be9-b4e4-659d5ddbba82",
+              "setNumber": 2,
+              "weight": 7.5,
+              "reps": 12,
+              "unit": "kg",
+              "weightMode": "dumbbell"
+            },
+            {
+              "id": "eacd1cfd-2e1b-44fe-8e12-07c7dd2d6405",
+              "setNumber": 3,
+              "weight": 7.5,
+              "reps": 12,
+              "unit": "kg",
+              "weightMode": "dumbbell"
+            }
+          ],
+          "completed": true
+        },
+        {
+          "exerciseId": "shoulder-press",
+          "exerciseName": "Shoulder Press Machine",
+          "sets": [
+            {
+              "id": "9239b8be-e3c0-482f-9961-40490fecc667",
+              "setNumber": 1,
+              "weight": 80,
+              "reps": 9,
+              "unit": "lbs",
+              "weightMode": "machine"
+            },
+            {
+              "id": "44cc4892-5413-446b-ad2c-869d604994a7",
+              "setNumber": 2,
+              "weight": 80,
+              "reps": 9,
+              "unit": "lbs",
+              "weightMode": "machine"
+            }
+          ],
+          "completed": true
+        },
+        {
+          "exerciseId": "ez-preacher-curl",
+          "exerciseName": "EZ Bar Preacher Curl",
+          "sets": [
+            {
+              "id": "380e1e96-2f5f-42fc-8eee-2e3c6e6bf4f2",
+              "setNumber": 1,
+              "weight": 15,
+              "reps": 10,
+              "unit": "kg",
+              "weightMode": "machine"
+            },
+            {
+              "id": "eefa508d-6973-4694-bcf9-90987f375d92",
+              "setNumber": 2,
+              "weight": 15,
+              "reps": 10,
+              "unit": "kg",
+              "weightMode": "machine"
+            }
+          ],
+          "completed": true
+        },
+        {
+          "exerciseId": "hammer-curl",
+          "exerciseName": "Hammer Curl",
+          "sets": [
+            {
+              "id": "502c1a8e-be5d-450a-a37d-5d197db4b534",
+              "setNumber": 1,
+              "weight": 7.5,
+              "reps": 12,
+              "unit": "kg",
+              "weightMode": "dumbbell"
+            },
+            {
+              "id": "13886e70-16aa-4d2c-9605-8bc4b8c5db50",
+              "setNumber": 2,
+              "weight": 7.5,
+              "reps": 12,
+              "unit": "kg",
+              "weightMode": "dumbbell"
+            },
+            {
+              "id": "c4a8e247-6d91-4fcb-be63-5fc0f94a1b99",
+              "setNumber": 3,
+              "weight": 7.5,
+              "reps": 12,
+              "unit": "kg",
+              "weightMode": "dumbbell"
+            }
+          ],
+          "completed": true
+        },
+        {
+          "exerciseId": "overhead-triceps",
+          "exerciseName": "Single Arm Overhead Triceps Cable",
+          "sets": [
+            {
+              "id": "a6a71aa2-886c-4241-87b5-1ce6f454b4bf",
+              "setNumber": 1,
+              "weight": 15,
+              "reps": 8,
+              "unit": "lbs",
+              "weightMode": "machine"
+            },
+            {
+              "id": "fb5bd385-8e40-431c-b505-d2f4661188b1",
+              "setNumber": 2,
+              "weight": 15,
+              "reps": 8,
+              "unit": "lbs",
+              "weightMode": "machine"
+            }
+          ],
+          "completed": true
+        },
+        {
+          "exerciseId": "triceps-machine",
+          "exerciseName": "Triceps Machine",
+          "sets": [
+            {
+              "id": "8ac031a9-9b81-4129-a698-781e68aae5e5",
+              "setNumber": 1,
+              "weight": 80,
+              "reps": 12,
+              "unit": "lbs",
+              "weightMode": "machine"
+            },
+            {
+              "id": "b2a0e998-8e12-43aa-b9f7-fe00bfc04579",
+              "setNumber": 2,
+              "weight": 80,
+              "reps": 12,
+              "unit": "lbs",
+              "weightMode": "machine"
+            }
+          ],
+          "completed": true
+        }
+      ]
+    },
+    {
+      "id": "session-2",
+      "name": "Legs",
+      "date": null,
+      "sessionLabel": "Session 2",
+      "muscleGroupIds": [
+        "legs"
+      ],
+      "createdAt": "2026-01-02T21:00:00.000Z",
+      "exercises": [
+        {
+          "exerciseId": "leg-press",
+          "exerciseName": "Leg Press",
+          "sets": [
+            {
+              "id": "d3d24998-7815-4723-aac6-4612f1d44d3e",
+              "setNumber": 1,
+              "weight": 40,
+              "reps": 10,
+              "unit": "kg",
+              "weightMode": "each_side"
+            },
+            {
+              "id": "7e83a0ff-cb49-4770-b410-1d3bf0731b37",
+              "setNumber": 2,
+              "weight": 40,
+              "reps": 10,
+              "unit": "kg",
+              "weightMode": "each_side"
+            }
+          ],
+          "completed": true
+        },
+        {
+          "exerciseId": "leg-curl",
+          "exerciseName": "Leg Curl",
+          "sets": [
+            {
+              "id": "1bd4d10d-bd7b-43d5-8609-14e57f8d8203",
+              "setNumber": 1,
+              "weight": 100,
+              "reps": 11,
+              "unit": "lbs",
+              "weightMode": "machine",
+              "notes": "10-12 reps range"
+            },
+            {
+              "id": "68a623c0-a797-4b00-96a9-aa273d3e2976",
+              "setNumber": 2,
+              "weight": 100,
+              "reps": 11,
+              "unit": "lbs",
+              "weightMode": "machine",
+              "notes": "10-12 reps range"
+            }
+          ],
+          "completed": true
+        },
+        {
+          "exerciseId": "leg-extension",
+          "exerciseName": "Leg Extension",
+          "sets": [
+            {
+              "id": "9b66f7c8-5477-4723-93c3-14e05631a9c8",
+              "setNumber": 1,
+              "weight": 100,
+              "reps": 12,
+              "unit": "lbs",
+              "weightMode": "machine",
+              "toFailure": true
+            }
+          ],
+          "completed": true
+        },
+        {
+          "exerciseId": "calf-raises",
+          "exerciseName": "Calf Raises",
+          "sets": [
+            {
+              "id": "46b2efc5-2d4a-4ab8-9426-4795ba895e88",
+              "setNumber": 1,
+              "weight": 20,
+              "reps": 15,
+              "unit": "kg",
+              "weightMode": "machine"
+            },
+            {
+              "id": "02fd757b-0e0f-4520-b34b-6316b012f844",
+              "setNumber": 2,
+              "weight": 30,
+              "reps": 15,
+              "unit": "kg",
+              "weightMode": "machine"
+            },
+            {
+              "id": "67398bf3-42a3-4e24-8455-da0cdb802a0c",
+              "setNumber": 3,
+              "weight": null,
+              "reps": 22,
+              "unit": "kg",
+              "weightMode": "bodyweight",
+              "notes": "Bodyweight"
+            }
+          ],
+          "completed": true
+        }
+      ]
+    },
+    {
+      "id": "session-3",
+      "name": "Back + Biceps",
+      "date": null,
+      "sessionLabel": "Session 3",
+      "muscleGroupIds": [
+        "back",
+        "biceps"
+      ],
+      "createdAt": "2026-01-04T21:00:00.000Z",
+      "exercises": [
+        {
+          "exerciseId": "t-bar-row",
+          "exerciseName": "T-Bar Row",
+          "sets": [
+            {
+              "id": "ded49794-1b20-418a-a6e3-8633d70fd036",
+              "setNumber": 1,
+              "weight": 110,
+              "reps": 12,
+              "unit": "lbs",
+              "weightMode": "machine"
+            },
+            {
+              "id": "7dc8f600-46e9-4966-bfeb-bd99e8e5fc64",
+              "setNumber": 2,
+              "weight": 110,
+              "reps": 11,
+              "unit": "lbs",
+              "weightMode": "machine"
+            },
+            {
+              "id": "2c3bd3f1-dd3b-4def-a6e3-746989cf994c",
+              "setNumber": 3,
+              "weight": 99,
+              "reps": 11,
+              "unit": "lbs",
+              "weightMode": "machine",
+              "isDropSet": true,
+              "drops": [
+                {
+                  "weight": 70,
+                  "reps": 8,
+                  "unit": "lbs"
+                }
+              ]
+            }
+          ],
+          "completed": true
+        },
+        {
+          "exerciseId": "close-lat-pulldown",
+          "exerciseName": "Close Grip Lat Pulldown",
+          "sets": [
+            {
+              "id": "8492fd3e-9297-4026-87f2-7890ff865248",
+              "setNumber": 1,
+              "weight": 130,
+              "reps": 10.5,
+              "unit": "lbs",
+              "weightMode": "machine"
+            },
+            {
+              "id": "c3040eaa-b9c8-46b7-9f79-f0481f45fd51",
+              "setNumber": 2,
+              "weight": 130,
+              "reps": 7.5,
+              "unit": "lbs",
+              "weightMode": "machine"
+            },
+            {
+              "id": "99602e52-bc11-4bb3-ab68-f52760eeaa0f",
+              "setNumber": 3,
+              "weight": 130,
+              "reps": 7.5,
+              "unit": "lbs",
+              "weightMode": "machine"
+            }
+          ],
+          "completed": true
+        },
+        {
+          "exerciseId": "wide-lat-pulldown",
+          "exerciseName": "Wide Grip Lat Pulldown",
+          "sets": [
+            {
+              "id": "b78bd3bb-a040-462d-bfb0-3ba309c450c4",
+              "setNumber": 1,
+              "weight": 100,
+              "reps": 10,
+              "unit": "lbs",
+              "weightMode": "machine"
+            },
+            {
+              "id": "95da5dfb-1ffe-4983-b789-cb0b0dc80179",
+              "setNumber": 2,
+              "weight": 100,
+              "reps": 8,
+              "unit": "lbs",
+              "weightMode": "machine"
+            },
+            {
+              "id": "00b96b47-86d3-46d5-a6e8-c39fcded237c",
+              "setNumber": 3,
+              "weight": 100,
+              "reps": 8,
+              "unit": "lbs",
+              "weightMode": "machine",
+              "isDropSet": true,
+              "drops": [
+                {
+                  "weight": 0,
+                  "reps": null,
+                  "toFailure": true
+                }
+              ],
+              "notes": "Drop set to failure"
+            }
+          ],
+          "completed": true
+        },
+        {
+          "exerciseId": "cable-row-single",
+          "exerciseName": "Single-arm Cable Row",
+          "sets": [
+            {
+              "id": "e7e13b0c-6210-4d59-8453-bc80cd907e5d",
+              "setNumber": 1,
+              "weight": 50,
+              "reps": 12,
+              "unit": "kg",
+              "weightMode": "machine"
+            },
+            {
+              "id": "d7ed03fc-56ac-4b0e-bf30-fcdc0579c67b",
+              "setNumber": 2,
+              "weight": 55,
+              "reps": 10.5,
+              "unit": "kg",
+              "weightMode": "machine"
+            }
+          ],
+          "completed": true
+        },
+        {
+          "exerciseId": "cable-row-both",
+          "exerciseName": "Cable Row Both Arms",
+          "sets": [
+            {
+              "id": "b4d9d43c-7e8e-4551-8b5a-b4005424fbc1",
+              "setNumber": 1,
+              "weight": 55,
+              "reps": 10,
+              "unit": "kg",
+              "weightMode": "machine",
+              "isDropSet": true,
+              "drops": [
+                {
+                  "weight": 0,
+                  "reps": null,
+                  "toFailure": true
+                }
+              ],
+              "notes": "Drop set to failure"
+            }
+          ],
+          "completed": true
+        },
+        {
+          "exerciseId": "single-preacher-curl",
+          "exerciseName": "Single-arm Preacher Curl",
+          "sets": [
+            {
+              "id": "4ee3ea53-acfa-4174-acdb-6d53d242a253",
+              "setNumber": 1,
+              "weight": 12.5,
+              "reps": 8,
+              "unit": "kg",
+              "weightMode": "dumbbell"
+            },
+            {
+              "id": "3e76e6cf-058d-446e-87aa-72a5f46928b8",
+              "setNumber": 2,
+              "weight": 12.5,
+              "reps": 8,
+              "unit": "kg",
+              "weightMode": "dumbbell",
+              "isDropSet": true,
+              "drops": [
+                {
+                  "weight": 10,
+                  "reps": null,
+                  "unit": "kg"
+                },
+                {
+                  "weight": 5,
+                  "reps": null,
+                  "unit": "kg"
+                }
+              ]
+            }
+          ],
+          "completed": true
+        },
+        {
+          "exerciseId": "cable-curl-behind",
+          "exerciseName": "Cable Curl Behind Body",
+          "sets": [
+            {
+              "id": "5d295af3-648a-4e5e-add5-20a3a42d2065",
+              "setNumber": 1,
+              "weight": 15,
+              "reps": 12,
+              "unit": "kg",
+              "weightMode": "machine"
+            },
+            {
+              "id": "6ce2047f-0989-41f7-bb4b-a1333da21400",
+              "setNumber": 2,
+              "weight": 15,
+              "reps": 9,
+              "unit": "kg",
+              "weightMode": "machine"
+            },
+            {
+              "id": "2c21e726-bcc7-4ff1-8fcc-d6ab98ba9b14",
+              "setNumber": 3,
+              "weight": 10,
+              "reps": null,
+              "unit": "kg",
+              "weightMode": "machine",
+              "isDropSet": true,
+              "drops": [
+                {
+                  "weight": 5,
+                  "reps": null,
+                  "unit": "kg"
+                }
+              ],
+              "notes": "Drop set"
+            }
+          ],
+          "completed": true
+        },
+        {
+          "exerciseId": "hammer-curl",
+          "exerciseName": "Hammer Curl",
+          "sets": [
+            {
+              "id": "1622bd7b-7e8d-41a1-97e7-f7615d32f9e0",
+              "setNumber": 1,
+              "weight": 15,
+              "reps": 6,
+              "unit": "kg",
+              "weightMode": "dumbbell"
+            },
+            {
+              "id": "22ef85f8-1b4d-45a4-821b-019eb9a6b0cd",
+              "setNumber": 2,
+              "weight": 10,
+              "reps": null,
+              "unit": "kg",
+              "weightMode": "dumbbell",
+              "isDropSet": true,
+              "notes": "Planned drop set"
+            }
+          ],
+          "completed": true
+        }
+      ]
+    },
+    {
+      "id": "session-4",
+      "name": "Chest + Triceps",
+      "date": null,
+      "sessionLabel": "Session 4",
+      "muscleGroupIds": [
+        "chest",
+        "triceps"
+      ],
+      "createdAt": "2026-01-06T21:00:00.000Z",
+      "exercises": [
+        {
+          "exerciseId": "incline-db-bench",
+          "exerciseName": "Incline Press",
+          "sets": [
+            {
+              "id": "a0fc948d-4e9f-4386-9fee-629f90b20ca1",
+              "setNumber": 1,
+              "weight": 20,
+              "reps": 10,
+              "unit": "kg",
+              "weightMode": "each_side"
+            },
+            {
+              "id": "203c52cb-4d02-48eb-929b-5dcb9e93a2a6",
+              "setNumber": 2,
+              "weight": 20,
+              "reps": 8,
+              "unit": "kg",
+              "weightMode": "each_side"
+            },
+            {
+              "id": "49b4afae-c340-4794-a0b2-4887280c458e",
+              "setNumber": 3,
+              "weight": 20,
+              "reps": 6,
+              "unit": "kg",
+              "weightMode": "each_side"
+            }
+          ],
+          "completed": true
+        },
+        {
+          "exerciseId": "flat-press",
+          "exerciseName": "Flat Press",
+          "sets": [
+            {
+              "id": "a2b659d5-6f8c-4d2a-9711-e75138df233a",
+              "setNumber": 1,
+              "weight": 20,
+              "reps": 12,
+              "unit": "kg",
+              "weightMode": "each_side"
+            }
+          ],
+          "completed": true
+        },
+        {
+          "exerciseId": "cable-fly",
+          "exerciseName": "Cable Fly",
+          "sets": [
+            {
+              "id": "aafb6541-1077-496d-8d79-dbd2446b1406",
+              "setNumber": 1,
+              "weight": 15,
+              "reps": 12,
+              "unit": "kg",
+              "weightMode": "machine"
+            },
+            {
+              "id": "9bf1155d-b273-41e1-ac37-73bdd57a2cd2",
+              "setNumber": 2,
+              "weight": 15,
+              "reps": 12,
+              "unit": "kg",
+              "weightMode": "machine"
+            },
+            {
+              "id": "934c3f73-54ed-4f0c-bf68-ccef0e757a6e",
+              "setNumber": 3,
+              "weight": 15,
+              "reps": null,
+              "unit": "kg",
+              "weightMode": "machine",
+              "isDropSet": true,
+              "drops": [
+                {
+                  "weight": 0,
+                  "reps": null,
+                  "toFailure": true
+                }
+              ],
+              "notes": "Drop set to failure"
+            }
+          ],
+          "completed": true
+        },
+        {
+          "exerciseId": "overhead-triceps",
+          "exerciseName": "Overhead Triceps",
+          "sets": [
+            {
+              "id": "0b80ce25-505b-4f9f-af64-7a1b4e6c5bc1",
+              "setNumber": 1,
+              "weight": 20,
+              "reps": 11,
+              "unit": "kg",
+              "weightMode": "machine"
+            }
+          ],
+          "completed": true
+        },
+        {
+          "exerciseId": "triceps-pushdown",
+          "exerciseName": "Triceps Pushdown",
+          "sets": [
+            {
+              "id": "f49d3595-e115-4029-b6c4-c9271bbb0803",
+              "setNumber": 1,
+              "weight": 60,
+              "reps": 12,
+              "unit": "kg",
+              "weightMode": "machine"
+            }
+          ],
+          "completed": true
+        },
+        {
+          "exerciseId": "single-arm-cable-tri",
+          "exerciseName": "Single Arm Cable",
+          "sets": [
+            {
+              "id": "c7fc240a-6dbf-4bef-a588-7c0e6c9581a7",
+              "setNumber": 1,
+              "weight": 60,
+              "reps": 12,
+              "unit": "kg",
+              "weightMode": "machine"
+            }
+          ],
+          "completed": true
+        }
+      ]
+    },
+    {
+      "id": "session-5",
+      "name": "Legs",
+      "date": null,
+      "sessionLabel": "Session 5",
+      "muscleGroupIds": [
+        "legs"
+      ],
+      "createdAt": "2026-01-08T21:00:00.000Z",
+      "exercises": [
+        {
+          "exerciseId": "leg-press",
+          "exerciseName": "Leg Press",
+          "sets": [
+            {
+              "id": "bca31270-03a9-4700-ab47-549d3385a134",
+              "setNumber": 1,
+              "weight": 65,
+              "reps": 12,
+              "unit": "kg",
+              "weightMode": "each_side"
+            }
+          ],
+          "completed": true
+        },
+        {
+          "exerciseId": "leg-curl",
+          "exerciseName": "Leg Curl",
+          "sets": [
+            {
+              "id": "4509b213-5541-480c-8f32-4a6fc9368e17",
+              "setNumber": 1,
+              "weight": 130,
+              "reps": 12,
+              "unit": "lbs",
+              "weightMode": "machine"
+            }
+          ],
+          "completed": true
+        },
+        {
+          "exerciseId": "leg-extension",
+          "exerciseName": "Leg Extension",
+          "sets": [
+            {
+              "id": "fc350b65-301c-43b3-8228-a00dfe3df5b0",
+              "setNumber": 1,
+              "weight": 130,
+              "reps": 12,
+              "unit": "lbs",
+              "weightMode": "machine"
+            }
+          ],
+          "completed": true
+        },
+        {
+          "exerciseId": "calf-raises",
+          "exerciseName": "Calf Raises",
+          "sets": [
+            {
+              "id": "c2cf9f26-e665-4438-ad88-b4dfc88f7416",
+              "setNumber": 1,
+              "weight": 45,
+              "reps": 12,
+              "unit": "kg",
+              "weightMode": "machine"
+            }
+          ],
+          "completed": true
+        }
+      ]
+    },
+    {
+      "id": "session-6",
+      "name": "Shoulders + Arms",
+      "date": null,
+      "sessionLabel": "Session 6",
+      "muscleGroupIds": [
+        "shoulders",
+        "biceps",
+        "triceps"
+      ],
+      "createdAt": "2026-01-10T21:00:00.000Z",
+      "exercises": [
+        {
+          "exerciseId": "shoulder-press",
+          "exerciseName": "Shoulder Press",
+          "sets": [
+            {
+              "id": "a8c52ecb-25ac-4a05-afe9-d9cdee4d2730",
+              "setNumber": 1,
+              "weight": 95,
+              "reps": 12,
+              "unit": "lbs",
+              "weightMode": "machine"
+            },
+            {
+              "id": "e633afb7-e0b0-4397-b337-ba96e1bfb6b9",
+              "setNumber": 2,
+              "weight": 95,
+              "reps": 10,
+              "unit": "lbs",
+              "weightMode": "machine"
+            },
+            {
+              "id": "2b7bf927-98b7-40bd-8b32-2136d617be52",
+              "setNumber": 3,
+              "weight": 95,
+              "reps": 8,
+              "unit": "lbs",
+              "weightMode": "machine",
+              "isDropSet": true,
+              "drops": [
+                {
+                  "weight": 50,
+                  "reps": null,
+                  "unit": "lbs",
+                  "toFailure": true
+                }
+              ],
+              "notes": "Drop to 50 lbs to failure"
+            }
+          ],
+          "completed": true
+        },
+        {
+          "exerciseId": "cable-lateral-raises",
+          "exerciseName": "Cable Lateral Raises",
+          "sets": [
+            {
+              "id": "03e8630d-f7a1-4dbe-8099-3bc1040ffa15",
+              "setNumber": 1,
+              "weight": 10,
+              "reps": 15,
+              "unit": "kg",
+              "weightMode": "machine"
+            },
+            {
+              "id": "f5c24349-620a-4ab1-8178-9f5485ff5220",
+              "setNumber": 2,
+              "weight": 15,
+              "reps": 9.5,
+              "unit": "kg",
+              "weightMode": "machine"
+            },
+            {
+              "id": "7550c919-25bb-45b4-9c37-637de2aa2698",
+              "setNumber": 3,
+              "weight": 15,
+              "reps": null,
+              "unit": "kg",
+              "weightMode": "machine",
+              "toFailure": true,
+              "notes": "To failure"
+            }
+          ],
+          "completed": true
+        },
+        {
+          "exerciseId": "face-pull",
+          "exerciseName": "Face Pull",
+          "sets": [
+            {
+              "id": "366957cb-c196-4932-a3b5-9f2841c210e2",
+              "setNumber": 1,
+              "weight": 70,
+              "reps": 12,
+              "unit": "kg",
+              "weightMode": "machine"
+            },
+            {
+              "id": "cc551400-0950-4b30-a910-33f10ed4846f",
+              "setNumber": 2,
+              "weight": 70,
+              "reps": 11,
+              "unit": "kg",
+              "weightMode": "machine"
+            },
+            {
+              "id": "d5a518b6-fd14-46c5-9aa3-038d22902ada",
+              "setNumber": 3,
+              "weight": 70,
+              "reps": 10,
+              "unit": "kg",
+              "weightMode": "machine"
+            }
+          ],
+          "completed": true
+        },
+        {
+          "exerciseId": "rear-delt-cable",
+          "exerciseName": "Single-arm Rear Delt Cable",
+          "sets": [
+            {
+              "id": "fa7599f7-49e4-495b-b823-e57bcc4dc922",
+              "setNumber": 1,
+              "weight": 10,
+              "reps": 15,
+              "unit": "kg",
+              "weightMode": "machine",
+              "notes": "Each arm"
+            }
+          ],
+          "completed": true
+        },
+        {
+          "exerciseId": "cable-curl-behind",
+          "exerciseName": "Cable Curl Behind Body",
+          "sets": [
+            {
+              "id": "a78a7008-db5d-42e1-b54a-acf24e77f885",
+              "setNumber": 1,
+              "weight": 15,
+              "reps": 12,
+              "unit": "kg",
+              "weightMode": "machine"
+            },
+            {
+              "id": "bc3912c5-7c77-4d1d-82bc-991674d83cd8",
+              "setNumber": 2,
+              "weight": 20,
+              "reps": 9,
+              "unit": "kg",
+              "weightMode": "machine"
+            },
+            {
+              "id": "40abf556-3ba5-4136-b0fd-ba740dea671c",
+              "setNumber": 3,
+              "weight": 20,
+              "reps": 9,
+              "unit": "kg",
+              "weightMode": "machine",
+              "isDropSet": true,
+              "drops": [
+                {
+                  "weight": 0,
+                  "reps": null,
+                  "toFailure": true
+                }
+              ],
+              "notes": "Drop set to failure"
+            }
+          ],
+          "completed": true
+        },
+        {
+          "exerciseId": "single-preacher-curl",
+          "exerciseName": "Single-arm Preacher Curl",
+          "sets": [
+            {
+              "id": "7dd44500-0dc8-4727-b288-f9ac98324988",
+              "setNumber": 1,
+              "weight": 12.5,
+              "reps": 8,
+              "unit": "kg",
+              "weightMode": "dumbbell"
+            },
+            {
+              "id": "8bec7d1e-9c04-4aa2-8c6b-da76fb9c5bfb",
+              "setNumber": 2,
+              "weight": 12.5,
+              "reps": 8,
+              "unit": "kg",
+              "weightMode": "dumbbell",
+              "isDropSet": true,
+              "drops": [
+                {
+                  "weight": 0,
+                  "reps": null
+                }
+              ],
+              "notes": "Drop set"
+            }
+          ],
+          "completed": true
+        },
+        {
+          "exerciseId": "hammer-curl",
+          "exerciseName": "Hammer Curl",
+          "sets": [
+            {
+              "id": "9711f759-96c9-48a6-a368-e1dcd16487e0",
+              "setNumber": 1,
+              "weight": 15,
+              "reps": 6,
+              "unit": "kg",
+              "weightMode": "dumbbell"
+            },
+            {
+              "id": "23b61c53-939d-4524-a605-caea1c5f9fbb",
+              "setNumber": 2,
+              "weight": 10,
+              "reps": null,
+              "unit": "kg",
+              "weightMode": "dumbbell",
+              "isDropSet": true,
+              "drops": [
+                {
+                  "weight": 5,
+                  "reps": null,
+                  "unit": "kg"
+                }
+              ],
+              "notes": "Drop set 10kg -> 5kg"
+            }
+          ],
+          "completed": true
+        },
+        {
+          "exerciseId": "overhead-triceps",
+          "exerciseName": "Overhead Triceps",
+          "sets": [
+            {
+              "id": "32e57ec6-59d4-4d51-a3e3-66fbe814d273",
+              "setNumber": 1,
+              "weight": 10,
+              "reps": 13,
+              "unit": "kg",
+              "weightMode": "machine"
+            },
+            {
+              "id": "4da0db98-ea02-4e0e-b55d-52200b17a25e",
+              "setNumber": 2,
+              "weight": 15,
+              "reps": 10,
+              "unit": "kg",
+              "weightMode": "machine",
+              "notes": "10 right / 9 left"
+            },
+            {
+              "id": "5ab1f3a3-6b5c-4025-9fc4-b4f1a5f6bfa8",
+              "setNumber": 3,
+              "weight": 15,
+              "reps": 8,
+              "unit": "kg",
+              "weightMode": "machine",
+              "isDropSet": true,
+              "drops": [
+                {
+                  "weight": 5,
+                  "reps": null,
+                  "unit": "kg",
+                  "toFailure": true
+                }
+              ],
+              "notes": "Drop to 5kg to failure"
+            }
+          ],
+          "completed": true
+        },
+        {
+          "exerciseId": "triceps-pushdown",
+          "exerciseName": "Triceps Pushdown",
+          "sets": [
+            {
+              "id": "7e2b280c-521e-4e82-9741-712d4373638a",
+              "setNumber": 1,
+              "weight": 50,
+              "reps": 12,
+              "unit": "kg",
+              "weightMode": "machine"
+            },
+            {
+              "id": "cd1072b1-6af1-4679-8ec6-b11bad8fac28",
+              "setNumber": 2,
+              "weight": 60,
+              "reps": 8,
+              "unit": "kg",
+              "weightMode": "machine"
+            },
+            {
+              "id": "429de17f-9b14-4537-ac5d-0599be469efe",
+              "setNumber": 3,
+              "weight": 55,
+              "reps": 9,
+              "unit": "kg",
+              "weightMode": "machine",
+              "isDropSet": true,
+              "drops": [
+                {
+                  "weight": 0,
+                  "reps": null,
+                  "toFailure": true
+                }
+              ],
+              "notes": "Drop set to failure"
+            }
+          ],
+          "completed": true
+        }
+      ]
+    },
+    {
+      "id": "97dc2ddf-77a7-4678-8a01-6dc292b95e6b",
+      "name": "Abs",
+      "date": "2026-05-03T10:08:35.152Z",
+      "sessionLabel": "Session 7",
+      "muscleGroupIds": [
+        "abs"
+      ],
+      "exercises": [
+        {
+          "exerciseId": "cable-crunch",
+          "exerciseName": "Cable Crunch",
+          "sets": [
+            {
+              "id": "ee970672-d888-44b2-947a-d6ebfd1f7a6b",
+              "setNumber": 1,
+              "weight": null,
+              "reps": 20,
+              "unit": "kg",
+              "weightMode": "bodyweight",
+              "timestamp": "2026-05-03T10:07:33.850Z"
+            },
+            {
+              "id": "a7d5fa33-cd37-4d12-8e6e-8e510a157f7f",
+              "setNumber": 2,
+              "weight": null,
+              "reps": 15,
+              "unit": "kg",
+              "weightMode": "bodyweight",
+              "toFailure": true,
+              "timestamp": "2026-05-03T10:07:44.331Z"
+            }
+          ],
+          "completed": false
+        },
+        {
+          "exerciseId": "hanging-leg-raise",
+          "exerciseName": "Hanging Leg Raise",
+          "sets": [
+            {
+              "id": "10707e22-0ba2-468c-b932-8e95ea6bd12d",
+              "setNumber": 1,
+              "weight": null,
+              "reps": 25,
+              "unit": "kg",
+              "weightMode": "bodyweight",
+              "toFailure": true,
+              "timestamp": "2026-05-03T10:08:22.253Z"
+            },
+            {
+              "id": "f39bd4bb-5e37-40e6-ad17-75c0dc828079",
+              "setNumber": 2,
+              "weight": null,
+              "reps": 20,
+              "unit": "kg",
+              "weightMode": "bodyweight",
+              "toFailure": true,
+              "timestamp": "2026-05-03T10:08:29.109Z"
+            }
+          ],
+          "completed": false
+        }
+      ],
+      "createdAt": "2026-05-03T10:08:35.152Z",
+      "duration": 2
+    },
+    {
+      "id": "14e1eb95-0ca2-4579-9f26-afd6c249f306",
+      "name": "Chest + Back",
+      "date": "2026-05-04T12:01:01.188Z",
+      "sessionLabel": "Session 8",
+      "muscleGroupIds": [
+        "chest",
+        "back"
+      ],
+      "exercises": [
+        {
+          "exerciseId": "cable-row-both",
+          "exerciseName": "Cable Row Both Arms",
+          "sets": [
+            {
+              "id": "e1e64369-b5ee-4c2c-860c-ad987298e549",
+              "setNumber": 1,
+              "weight": 55,
+              "reps": 10,
+              "unit": "kg",
+              "weightMode": "machine",
+              "isDropSet": true,
+              "drops": [
+                {
+                  "weight": 45,
+                  "reps": 10
+                },
+                {
+                  "weight": 35,
+                  "reps": 7,
+                  "toFailure": true
+                }
+              ],
+              "toFailure": true,
+              "timestamp": "2026-05-04T11:57:35.938Z"
+            }
+          ],
+          "completed": true
+        },
+        {
+          "exerciseId": "cable-row-single",
+          "exerciseName": "Single-arm Cable Row",
+          "sets": [
+            {
+              "id": "07248edd-f880-407d-989b-05713e6887f4",
+              "setNumber": 1,
+              "weight": 65,
+              "reps": 12,
+              "unit": "kg",
+              "weightMode": "machine",
+              "timestamp": "2026-05-04T11:53:25.832Z"
+            },
+            {
+              "id": "7bd1f8ff-f7c8-4c89-8c48-f232f7376b41",
+              "setNumber": 2,
+              "weight": 65,
+              "reps": 10,
+              "unit": "kg",
+              "weightMode": "machine",
+              "toFailure": true,
+              "timestamp": "2026-05-04T11:53:32.737Z"
+            }
+          ],
+          "completed": true
+        },
+        {
+          "exerciseId": "close-lat-pulldown",
+          "exerciseName": "Close Grip Lat Pulldown",
+          "sets": [
+            {
+              "id": "0ac8fd2f-728a-44ae-815d-9e0e90aec492",
+              "setNumber": 1,
+              "weight": 130,
+              "reps": 12,
+              "unit": "lbs",
+              "weightMode": "machine",
+              "timestamp": "2026-05-04T11:16:54.190Z"
+            },
+            {
+              "id": "116d10ad-0511-436b-9cd4-14c76eb5d122",
+              "setNumber": 2,
+              "weight": 130,
+              "reps": 10,
+              "unit": "lbs",
+              "weightMode": "machine",
+              "assistedReps": 2,
+              "timestamp": "2026-05-04T11:25:22.940Z"
+            },
+            {
+              "id": "2634a486-0e07-455b-b730-645ae7165419",
+              "setNumber": 3,
+              "weight": 130,
+              "reps": 6,
+              "unit": "lbs",
+              "weightMode": "machine",
+              "isDropSet": true,
+              "drops": [
+                {
+                  "weight": 100,
+                  "reps": 10
+                },
+                {
+                  "weight": 70,
+                  "reps": 12
+                }
+              ],
+              "assistedReps": 2,
+              "toFailure": true,
+              "timestamp": "2026-05-04T11:26:18.639Z"
+            }
+          ],
+          "completed": true
+        },
+        {
+          "exerciseId": "flat-press",
+          "exerciseName": "Flat Press",
+          "sets": [
+            {
+              "id": "4b79f2f5-6577-4b7f-91b2-ef7f8e3626ef",
+              "setNumber": 1,
+              "weight": 20,
+              "reps": 12,
+              "unit": "kg",
+              "weightMode": "machine",
+              "timestamp": "2026-05-04T11:30:20.757Z"
+            },
+            {
+              "id": "a4914d46-cf62-445b-8eee-80dc82d79165",
+              "setNumber": 2,
+              "weight": null,
+              "reps": 12,
+              "unit": "kg",
+              "weightMode": "bodyweight",
+              "toFailure": true,
+              "timestamp": "2026-05-04T11:39:57.095Z"
+            }
+          ],
+          "completed": true
+        },
+        {
+          "exerciseId": "incline-db-bench",
+          "exerciseName": "Incline DB Bench Press",
+          "sets": [
+            {
+              "id": "4cb84d22-a6a8-42e4-8808-295ee823df48",
+              "setNumber": 1,
+              "weight": 20,
+              "reps": 10,
+              "unit": "kg",
+              "weightMode": "each_side",
+              "timestamp": "2026-05-04T10:42:54.207Z"
+            },
+            {
+              "id": "6105498f-989f-4d7d-90ce-ab1816a17572",
+              "setNumber": 2,
+              "weight": 20,
+              "reps": 9,
+              "unit": "kg",
+              "weightMode": "each_side",
+              "timestamp": "2026-05-04T10:46:12.742Z"
+            },
+            {
+              "id": "a0836c1e-478f-497e-8f8b-2d68b6252ed4",
+              "setNumber": 3,
+              "weight": 20,
+              "reps": 4.5,
+              "unit": "kg",
+              "weightMode": "each_side",
+              "toFailure": true,
+              "timestamp": "2026-05-04T10:49:28.694Z"
+            }
+          ],
+          "completed": true
+        },
+        {
+          "exerciseId": "t-bar-row",
+          "exerciseName": "T-Bar Row",
+          "sets": [
+            {
+              "id": "45bc6106-4f9a-4a26-a85f-5171463191fc",
+              "setNumber": 1,
+              "weight": 132,
+              "reps": 12,
+              "unit": "lbs",
+              "weightMode": "machine",
+              "timestamp": "2026-05-04T10:52:45.048Z"
+            },
+            {
+              "id": "7588bca4-33ad-49bf-82ca-a4f6196cb7b6",
+              "setNumber": 2,
+              "weight": 132,
+              "reps": 10,
+              "unit": "lbs",
+              "weightMode": "machine",
+              "timestamp": "2026-05-04T10:55:14.002Z"
+            },
+            {
+              "id": "2f5164bb-f66e-4bbf-ad3d-f0736e08c394",
+              "setNumber": 3,
+              "weight": 132,
+              "reps": 8,
+              "unit": "lbs",
+              "weightMode": "machine",
+              "toFailure": true,
+              "timestamp": "2026-05-04T10:59:31.520Z"
+            }
+          ],
+          "completed": true
+        },
+        {
+          "exerciseId": "cable-fly",
+          "exerciseName": "Cable Fly",
+          "sets": [
+            {
+              "id": "76b9d3c7-f12e-480d-8dc4-61d15f670ade",
+              "setNumber": 1,
+              "weight": 20,
+              "reps": 12,
+              "unit": "kg",
+              "weightMode": "machine",
+              "timestamp": "2026-05-04T11:08:48.094Z"
+            },
+            {
+              "id": "19192525-81ca-4355-bd84-b101a63e6abd",
+              "setNumber": 2,
+              "weight": 20,
+              "reps": 10,
+              "unit": "kg",
+              "weightMode": "machine",
+              "timestamp": "2026-05-04T11:08:54.543Z"
+            },
+            {
+              "id": "202a8083-921d-4dca-a2ca-98b02803a60a",
+              "setNumber": 3,
+              "weight": 20,
+              "reps": 8,
+              "unit": "kg",
+              "weightMode": "machine",
+              "isDropSet": true,
+              "drops": [
+                {
+                  "weight": 10,
+                  "reps": 8,
+                  "toFailure": true
+                }
+              ],
+              "toFailure": true,
+              "timestamp": "2026-05-04T11:11:39.426Z"
+            }
+          ],
+          "completed": true
+        }
+      ],
+      "createdAt": "2026-05-04T12:01:01.188Z",
+      "duration": 80
+    },
+    {
+      "id": "12ca6d3a-29ed-4a10-a833-3a0c863f692e",
+      "name": "Shoulders + Biceps + Triceps",
+      "date": "2026-05-06T17:01:19.110Z",
+      "sessionLabel": "Session 9",
+      "muscleGroupIds": [
+        "shoulders",
+        "biceps",
+        "triceps"
+      ],
+      "exercises": [
+        {
+          "exerciseId": "cable-curl-behind",
+          "exerciseName": "Cable Curl Behind Body",
+          "sets": [
+            {
+              "id": "b33b8cfd-d6e1-4a03-a061-aa189ec29377",
+              "setNumber": 1,
+              "weight": 20,
+              "reps": 12,
+              "unit": "kg",
+              "weightMode": "machine",
+              "timestamp": "2026-05-06T16:55:41.338Z"
+            },
+            {
+              "id": "118bd4c2-b94e-4441-b006-cca3e2e81bab",
+              "setNumber": 2,
+              "weight": 20,
+              "reps": 10,
+              "unit": "kg",
+              "weightMode": "machine",
+              "timestamp": "2026-05-06T17:01:00.301Z"
+            },
+            {
+              "id": "a2f9e814-949f-4038-9274-d6d0397cb33f",
+              "setNumber": 3,
+              "weight": 20,
+              "reps": 6,
+              "unit": "kg",
+              "weightMode": "machine",
+              "isDropSet": true,
+              "drops": [
+                {
+                  "weight": 10,
+                  "reps": null,
+                  "toFailure": true
+                }
+              ],
+              "timestamp": "2026-05-06T17:01:10.469Z"
+            }
+          ],
+          "completed": true
+        },
+        {
+          "exerciseId": "cable-lateral-raises",
+          "exerciseName": "Cable Lateral Raises",
+          "sets": [
+            {
+              "id": "e7527e28-c207-4709-88a9-b5ca090c4a63",
+              "setNumber": 1,
+              "weight": 15,
+              "reps": 12,
+              "unit": "kg",
+              "weightMode": "machine",
+              "timestamp": "2026-05-06T16:54:11.298Z"
+            },
+            {
+              "id": "ff33ae27-976d-4703-8352-d5355bd32497",
+              "setNumber": 2,
+              "weight": 15,
+              "reps": 10,
+              "unit": "kg",
+              "weightMode": "machine",
+              "timestamp": "2026-05-06T16:54:17.034Z"
+            },
+            {
+              "id": "917cad27-3608-4f58-bef3-c544bed91326",
+              "setNumber": 3,
+              "weight": 15,
+              "reps": 10,
+              "unit": "kg",
+              "weightMode": "machine",
+              "isDropSet": true,
+              "drops": [
+                {
+                  "weight": 10,
+                  "reps": 12
+                },
+                {
+                  "weight": 5,
+                  "reps": 12
+                }
+              ],
+              "toFailure": true,
+              "timestamp": "2026-05-06T16:54:32.048Z"
+            }
+          ],
+          "completed": true
+        },
+        {
+          "exerciseId": "face-pull",
+          "exerciseName": "Face Pull",
+          "sets": [
+            {
+              "id": "da580b47-a64e-4fbc-83dd-0e47210ae4eb",
+              "setNumber": 1,
+              "weight": 70,
+              "reps": 12,
+              "unit": "kg",
+              "weightMode": "machine",
+              "timestamp": "2026-05-06T16:53:41.038Z"
+            },
+            {
+              "id": "aedb8899-d2b5-4ebc-93bd-b66e448e2152",
+              "setNumber": 2,
+              "weight": 70,
+              "reps": 12,
+              "unit": "kg",
+              "weightMode": "machine",
+              "timestamp": "2026-05-06T16:53:47.231Z"
+            }
+          ],
+          "completed": true
+        },
+        {
+          "exerciseId": "hammer-curl",
+          "exerciseName": "Hammer Curl",
+          "sets": [
+            {
+              "id": "a05eee0b-0e0d-4479-bd30-194a8469dc82",
+              "setNumber": 1,
+              "weight": 20,
+              "reps": 12,
+              "unit": "kg",
+              "weightMode": "machine",
+              "timestamp": "2026-05-06T16:52:19.979Z"
+            },
+            {
+              "id": "2e940a62-0ddc-4106-a279-898a675ccde2",
+              "setNumber": 2,
+              "weight": 20,
+              "reps": 12,
+              "unit": "kg",
+              "weightMode": "machine",
+              "timestamp": "2026-05-06T16:52:25.598Z"
+            },
+            {
+              "id": "d0533c30-fa5a-463a-80b5-52f003845deb",
+              "setNumber": 3,
+              "weight": 20,
+              "reps": 12,
+              "unit": "kg",
+              "weightMode": "machine",
+              "toFailure": true,
+              "timestamp": "2026-05-06T16:52:35.170Z"
+            }
+          ],
+          "completed": true
+        },
+        {
+          "exerciseId": "overhead-triceps",
+          "exerciseName": "Overhead Triceps Cable",
+          "sets": [
+            {
+              "id": "301dabea-a5aa-4ab1-badc-e184550d5f92",
+              "setNumber": 1,
+              "weight": 25,
+              "reps": 12,
+              "unit": "kg",
+              "weightMode": "dumbbell",
+              "timestamp": "2026-05-06T16:54:48.637Z"
+            },
+            {
+              "id": "a8f0295a-bf33-4522-8d97-6b3cfb5bd61f",
+              "setNumber": 2,
+              "weight": 25,
+              "reps": 11,
+              "unit": "kg",
+              "weightMode": "dumbbell",
+              "timestamp": "2026-05-06T16:54:54.755Z"
+            },
+            {
+              "id": "4c2fa742-b08f-4780-bc13-959fdc14071e",
+              "setNumber": 3,
+              "weight": 25,
+              "reps": 10,
+              "unit": "kg",
+              "weightMode": "dumbbell",
+              "toFailure": true,
+              "timestamp": "2026-05-06T16:55:00.098Z"
+            }
+          ],
+          "completed": true
+        },
+        {
+          "exerciseId": "rear-delt-cable",
+          "exerciseName": "Single-arm Rear Delt Cable",
+          "sets": [
+            {
+              "id": "7a880ccf-f374-4908-97aa-47d559b67b3f",
+              "setNumber": 1,
+              "weight": 15,
+              "reps": 12,
+              "unit": "kg",
+              "weightMode": "machine",
+              "isDropSet": true,
+              "drops": [
+                {
+                  "weight": 10,
+                  "reps": 12
+                },
+                {
+                  "weight": 5,
+                  "reps": 12
+                }
+              ],
+              "timestamp": "2026-05-06T16:55:22.679Z"
+            }
+          ],
+          "completed": true
+        },
+        {
+          "exerciseId": "shoulder-press",
+          "exerciseName": "Shoulder Press Machine",
+          "sets": [
+            {
+              "id": "c0810bdd-4fec-4789-8f82-776a9fafbb8a",
+              "setNumber": 1,
+              "weight": 110,
+              "reps": 12,
+              "unit": "lbs",
+              "weightMode": "machine",
+              "timestamp": "2026-05-06T16:52:50.544Z"
+            },
+            {
+              "id": "42db9507-d0ae-418b-8dee-6b48df960b0b",
+              "setNumber": 2,
+              "weight": 110,
+              "reps": 10,
+              "unit": "lbs",
+              "weightMode": "machine",
+              "notes": "Neutral grip",
+              "timestamp": "2026-05-06T16:53:00.441Z"
+            },
+            {
+              "id": "e327badd-e763-4456-8231-e092a83e401b",
+              "setNumber": 3,
+              "weight": 110,
+              "reps": 7,
+              "unit": "lbs",
+              "weightMode": "machine",
+              "notes": "Neutral grip",
+              "toFailure": true,
+              "timestamp": "2026-05-06T16:53:12.850Z"
+            }
+          ],
+          "completed": true
+        },
+        {
+          "exerciseId": "single-preacher-curl",
+          "exerciseName": "Single-arm Preacher Curl",
+          "sets": [
+            {
+              "id": "790e1476-10a5-468d-aa6f-46d6c2bd7ce2",
+              "setNumber": 1,
+              "weight": 12.5,
+              "reps": 12,
+              "unit": "kg",
+              "weightMode": "machine",
+              "timestamp": "2026-05-06T16:51:37.129Z"
+            },
+            {
+              "id": "fea50680-e3aa-4f58-bc66-eddbb13501e7",
+              "setNumber": 2,
+              "weight": 12.5,
+              "reps": 12,
+              "unit": "kg",
+              "weightMode": "machine",
+              "timestamp": "2026-05-06T16:51:43.716Z"
+            },
+            {
+              "id": "a46b1bb9-9ab9-4f57-80ee-2e6e7969c984",
+              "setNumber": 3,
+              "weight": 12.5,
+              "reps": 10,
+              "unit": "kg",
+              "weightMode": "machine",
+              "toFailure": true,
+              "timestamp": "2026-05-06T16:51:50.278Z"
+            }
+          ],
+          "completed": true
+        },
+        {
+          "exerciseId": "triceps-pushdown",
+          "exerciseName": "Triceps Pushdown",
+          "sets": [
+            {
+              "id": "2430b862-4634-4746-a360-ff72a12fa322",
+              "setNumber": 1,
+              "weight": 60,
+              "reps": 12,
+              "unit": "kg",
+              "weightMode": "machine",
+              "timestamp": "2026-05-06T16:50:57.982Z"
+            },
+            {
+              "id": "216fb079-b3cc-42fe-90c6-5b3a50519027",
+              "setNumber": 2,
+              "weight": 60,
+              "reps": 10,
+              "unit": "kg",
+              "weightMode": "machine",
+              "timestamp": "2026-05-06T16:51:04.611Z"
+            },
+            {
+              "id": "c8934519-05b7-40d9-98f1-9e8ed9f101b4",
+              "setNumber": 3,
+              "weight": 60,
+              "reps": 10,
+              "unit": "kg",
+              "weightMode": "machine",
+              "isDropSet": true,
+              "drops": [
+                {
+                  "weight": 45,
+                  "reps": 10
+                },
+                {
+                  "weight": 30,
+                  "reps": 10
+                }
+              ],
+              "toFailure": true,
+              "timestamp": "2026-05-06T16:51:21.172Z"
+            }
+          ],
+          "completed": true
+        }
+      ],
+      "createdAt": "2026-05-06T17:01:19.110Z",
+      "duration": 13
+    }
+  ],
+  "latestLogs": {
+    "cable-crunch": {
+      "exerciseId": "cable-crunch",
+      "exerciseName": "Cable Crunch",
+      "sets": [
+        {
+          "id": "ee970672-d888-44b2-947a-d6ebfd1f7a6b",
+          "setNumber": 1,
+          "weight": null,
+          "reps": 20,
+          "unit": "kg",
+          "weightMode": "bodyweight",
+          "timestamp": "2026-05-03T10:07:33.850Z"
+        },
+        {
+          "id": "a7d5fa33-cd37-4d12-8e6e-8e510a157f7f",
+          "setNumber": 2,
+          "weight": null,
+          "reps": 15,
+          "unit": "kg",
+          "weightMode": "bodyweight",
+          "toFailure": true,
+          "timestamp": "2026-05-03T10:07:44.331Z"
+        }
+      ],
+      "sessionId": "97dc2ddf-77a7-4678-8a01-6dc292b95e6b",
+      "sessionDate": "2026-05-03T10:08:35.152Z",
+      "sessionLabel": "Session 7"
+    },
+    "cable-curl-behind": {
+      "exerciseId": "cable-curl-behind",
+      "exerciseName": "Cable Curl Behind Body",
+      "sets": [
+        {
+          "id": "b33b8cfd-d6e1-4a03-a061-aa189ec29377",
+          "setNumber": 1,
+          "weight": 20,
+          "reps": 12,
+          "unit": "kg",
+          "weightMode": "machine",
+          "timestamp": "2026-05-06T16:55:41.338Z"
+        },
+        {
+          "id": "118bd4c2-b94e-4441-b006-cca3e2e81bab",
+          "setNumber": 2,
+          "weight": 20,
+          "reps": 10,
+          "unit": "kg",
+          "weightMode": "machine",
+          "timestamp": "2026-05-06T17:01:00.301Z"
+        },
+        {
+          "id": "a2f9e814-949f-4038-9274-d6d0397cb33f",
+          "setNumber": 3,
+          "weight": 20,
+          "reps": 6,
+          "unit": "kg",
+          "weightMode": "machine",
+          "isDropSet": true,
+          "drops": [
+            {
+              "weight": 10,
+              "reps": null,
+              "toFailure": true
+            }
+          ],
+          "timestamp": "2026-05-06T17:01:10.469Z"
+        }
+      ],
+      "sessionId": "12ca6d3a-29ed-4a10-a833-3a0c863f692e",
+      "sessionDate": "2026-05-06T17:01:19.110Z",
+      "sessionLabel": "Session 9"
+    },
+    "cable-fly": {
+      "exerciseId": "cable-fly",
+      "exerciseName": "Cable Fly",
+      "sets": [
+        {
+          "id": "76b9d3c7-f12e-480d-8dc4-61d15f670ade",
+          "setNumber": 1,
+          "weight": 20,
+          "reps": 12,
+          "unit": "kg",
+          "weightMode": "machine",
+          "timestamp": "2026-05-04T11:08:48.094Z"
+        },
+        {
+          "id": "19192525-81ca-4355-bd84-b101a63e6abd",
+          "setNumber": 2,
+          "weight": 20,
+          "reps": 10,
+          "unit": "kg",
+          "weightMode": "machine",
+          "timestamp": "2026-05-04T11:08:54.543Z"
+        },
+        {
+          "id": "202a8083-921d-4dca-a2ca-98b02803a60a",
+          "setNumber": 3,
+          "weight": 20,
+          "reps": 8,
+          "unit": "kg",
+          "weightMode": "machine",
+          "isDropSet": true,
+          "drops": [
+            {
+              "weight": 10,
+              "reps": 8,
+              "toFailure": true
+            }
+          ],
+          "toFailure": true,
+          "timestamp": "2026-05-04T11:11:39.426Z"
+        }
+      ],
+      "sessionId": "14e1eb95-0ca2-4579-9f26-afd6c249f306",
+      "sessionDate": "2026-05-04T12:01:01.188Z",
+      "sessionLabel": "Session 8"
+    },
+    "cable-lateral-raises": {
+      "exerciseId": "cable-lateral-raises",
+      "exerciseName": "Cable Lateral Raises",
+      "sets": [
+        {
+          "id": "e7527e28-c207-4709-88a9-b5ca090c4a63",
+          "setNumber": 1,
+          "weight": 15,
+          "reps": 12,
+          "unit": "kg",
+          "weightMode": "machine",
+          "timestamp": "2026-05-06T16:54:11.298Z"
+        },
+        {
+          "id": "ff33ae27-976d-4703-8352-d5355bd32497",
+          "setNumber": 2,
+          "weight": 15,
+          "reps": 10,
+          "unit": "kg",
+          "weightMode": "machine",
+          "timestamp": "2026-05-06T16:54:17.034Z"
+        },
+        {
+          "id": "917cad27-3608-4f58-bef3-c544bed91326",
+          "setNumber": 3,
+          "weight": 15,
+          "reps": 10,
+          "unit": "kg",
+          "weightMode": "machine",
+          "isDropSet": true,
+          "drops": [
+            {
+              "weight": 10,
+              "reps": 12
+            },
+            {
+              "weight": 5,
+              "reps": 12
+            }
+          ],
+          "toFailure": true,
+          "timestamp": "2026-05-06T16:54:32.048Z"
+        }
+      ],
+      "sessionId": "12ca6d3a-29ed-4a10-a833-3a0c863f692e",
+      "sessionDate": "2026-05-06T17:01:19.110Z",
+      "sessionLabel": "Session 9"
+    },
+    "cable-row-both": {
+      "exerciseId": "cable-row-both",
+      "exerciseName": "Cable Row Both Arms",
+      "sets": [
+        {
+          "id": "e1e64369-b5ee-4c2c-860c-ad987298e549",
+          "setNumber": 1,
+          "weight": 55,
+          "reps": 10,
+          "unit": "kg",
+          "weightMode": "machine",
+          "isDropSet": true,
+          "drops": [
+            {
+              "weight": 45,
+              "reps": 10
+            },
+            {
+              "weight": 35,
+              "reps": 7,
+              "toFailure": true
+            }
+          ],
+          "toFailure": true,
+          "timestamp": "2026-05-04T11:57:35.938Z"
+        }
+      ],
+      "sessionId": "14e1eb95-0ca2-4579-9f26-afd6c249f306",
+      "sessionDate": "2026-05-04T12:01:01.188Z",
+      "sessionLabel": "Session 8"
+    },
+    "cable-row-single": {
+      "exerciseId": "cable-row-single",
+      "exerciseName": "Single-arm Cable Row",
+      "sets": [
+        {
+          "id": "07248edd-f880-407d-989b-05713e6887f4",
+          "setNumber": 1,
+          "weight": 65,
+          "reps": 12,
+          "unit": "kg",
+          "weightMode": "machine",
+          "timestamp": "2026-05-04T11:53:25.832Z"
+        },
+        {
+          "id": "7bd1f8ff-f7c8-4c89-8c48-f232f7376b41",
+          "setNumber": 2,
+          "weight": 65,
+          "reps": 10,
+          "unit": "kg",
+          "weightMode": "machine",
+          "toFailure": true,
+          "timestamp": "2026-05-04T11:53:32.737Z"
+        }
+      ],
+      "sessionId": "14e1eb95-0ca2-4579-9f26-afd6c249f306",
+      "sessionDate": "2026-05-04T12:01:01.188Z",
+      "sessionLabel": "Session 8"
+    },
+    "calf-raises": {
+      "exerciseId": "calf-raises",
+      "exerciseName": "Calf Raises",
+      "sets": [
+        {
+          "id": "c2cf9f26-e665-4438-ad88-b4dfc88f7416",
+          "setNumber": 1,
+          "weight": 45,
+          "reps": 12,
+          "unit": "kg",
+          "weightMode": "machine"
+        }
+      ],
+      "sessionId": "session-5",
+      "sessionDate": null,
+      "sessionLabel": "Session 5"
+    },
+    "chest-fly": {
+      "exerciseId": "chest-fly",
+      "exerciseName": "Chest Fly",
+      "sets": [
+        {
+          "id": "fd8ef66c-5ae9-4be5-ae25-6676955aec1f",
+          "setNumber": 1,
+          "weight": 80,
+          "reps": null,
+          "unit": "lbs",
+          "weightMode": "machine",
+          "notes": "Reps unknown"
+        },
+        {
+          "id": "6d6dae25-2502-45ec-b476-c5a05a6008cd",
+          "setNumber": 2,
+          "weight": 80,
+          "reps": null,
+          "unit": "lbs",
+          "weightMode": "machine",
+          "notes": "Reps unknown"
+        }
+      ],
+      "sessionId": "session-1",
+      "sessionDate": null,
+      "sessionLabel": "Session 1"
+    },
+    "close-lat-pulldown": {
+      "exerciseId": "close-lat-pulldown",
+      "exerciseName": "Close Grip Lat Pulldown",
+      "sets": [
+        {
+          "id": "0ac8fd2f-728a-44ae-815d-9e0e90aec492",
+          "setNumber": 1,
+          "weight": 130,
+          "reps": 12,
+          "unit": "lbs",
+          "weightMode": "machine",
+          "timestamp": "2026-05-04T11:16:54.190Z"
+        },
+        {
+          "id": "116d10ad-0511-436b-9cd4-14c76eb5d122",
+          "setNumber": 2,
+          "weight": 130,
+          "reps": 10,
+          "unit": "lbs",
+          "weightMode": "machine",
+          "assistedReps": 2,
+          "timestamp": "2026-05-04T11:25:22.940Z"
+        },
+        {
+          "id": "2634a486-0e07-455b-b730-645ae7165419",
+          "setNumber": 3,
+          "weight": 130,
+          "reps": 6,
+          "unit": "lbs",
+          "weightMode": "machine",
+          "isDropSet": true,
+          "drops": [
+            {
+              "weight": 100,
+              "reps": 10
+            },
+            {
+              "weight": 70,
+              "reps": 12
+            }
+          ],
+          "assistedReps": 2,
+          "toFailure": true,
+          "timestamp": "2026-05-04T11:26:18.639Z"
+        }
+      ],
+      "sessionId": "14e1eb95-0ca2-4579-9f26-afd6c249f306",
+      "sessionDate": "2026-05-04T12:01:01.188Z",
+      "sessionLabel": "Session 8"
+    },
+    "ez-preacher-curl": {
+      "exerciseId": "ez-preacher-curl",
+      "exerciseName": "EZ Bar Preacher Curl",
+      "sets": [
+        {
+          "id": "380e1e96-2f5f-42fc-8eee-2e3c6e6bf4f2",
+          "setNumber": 1,
+          "weight": 15,
+          "reps": 10,
+          "unit": "kg",
+          "weightMode": "machine"
+        },
+        {
+          "id": "eefa508d-6973-4694-bcf9-90987f375d92",
+          "setNumber": 2,
+          "weight": 15,
+          "reps": 10,
+          "unit": "kg",
+          "weightMode": "machine"
+        }
+      ],
+      "sessionId": "session-1",
+      "sessionDate": null,
+      "sessionLabel": "Session 1"
+    },
+    "face-pull": {
+      "exerciseId": "face-pull",
+      "exerciseName": "Face Pull",
+      "sets": [
+        {
+          "id": "da580b47-a64e-4fbc-83dd-0e47210ae4eb",
+          "setNumber": 1,
+          "weight": 70,
+          "reps": 12,
+          "unit": "kg",
+          "weightMode": "machine",
+          "timestamp": "2026-05-06T16:53:41.038Z"
+        },
+        {
+          "id": "aedb8899-d2b5-4ebc-93bd-b66e448e2152",
+          "setNumber": 2,
+          "weight": 70,
+          "reps": 12,
+          "unit": "kg",
+          "weightMode": "machine",
+          "timestamp": "2026-05-06T16:53:47.231Z"
+        }
+      ],
+      "sessionId": "12ca6d3a-29ed-4a10-a833-3a0c863f692e",
+      "sessionDate": "2026-05-06T17:01:19.110Z",
+      "sessionLabel": "Session 9"
+    },
+    "flat-press": {
+      "exerciseId": "flat-press",
+      "exerciseName": "Flat Press",
+      "sets": [
+        {
+          "id": "4b79f2f5-6577-4b7f-91b2-ef7f8e3626ef",
+          "setNumber": 1,
+          "weight": 20,
+          "reps": 12,
+          "unit": "kg",
+          "weightMode": "machine",
+          "timestamp": "2026-05-04T11:30:20.757Z"
+        },
+        {
+          "id": "a4914d46-cf62-445b-8eee-80dc82d79165",
+          "setNumber": 2,
+          "weight": null,
+          "reps": 12,
+          "unit": "kg",
+          "weightMode": "bodyweight",
+          "toFailure": true,
+          "timestamp": "2026-05-04T11:39:57.095Z"
+        }
+      ],
+      "sessionId": "14e1eb95-0ca2-4579-9f26-afd6c249f306",
+      "sessionDate": "2026-05-04T12:01:01.188Z",
+      "sessionLabel": "Session 8"
+    },
+    "hammer-curl": {
+      "exerciseId": "hammer-curl",
+      "exerciseName": "Hammer Curl",
+      "sets": [
+        {
+          "id": "a05eee0b-0e0d-4479-bd30-194a8469dc82",
+          "setNumber": 1,
+          "weight": 20,
+          "reps": 12,
+          "unit": "kg",
+          "weightMode": "machine",
+          "timestamp": "2026-05-06T16:52:19.979Z"
+        },
+        {
+          "id": "2e940a62-0ddc-4106-a279-898a675ccde2",
+          "setNumber": 2,
+          "weight": 20,
+          "reps": 12,
+          "unit": "kg",
+          "weightMode": "machine",
+          "timestamp": "2026-05-06T16:52:25.598Z"
+        },
+        {
+          "id": "d0533c30-fa5a-463a-80b5-52f003845deb",
+          "setNumber": 3,
+          "weight": 20,
+          "reps": 12,
+          "unit": "kg",
+          "weightMode": "machine",
+          "toFailure": true,
+          "timestamp": "2026-05-06T16:52:35.170Z"
+        }
+      ],
+      "sessionId": "12ca6d3a-29ed-4a10-a833-3a0c863f692e",
+      "sessionDate": "2026-05-06T17:01:19.110Z",
+      "sessionLabel": "Session 9"
+    },
+    "hanging-leg-raise": {
+      "exerciseId": "hanging-leg-raise",
+      "exerciseName": "Hanging Leg Raise",
+      "sets": [
+        {
+          "id": "10707e22-0ba2-468c-b932-8e95ea6bd12d",
+          "setNumber": 1,
+          "weight": null,
+          "reps": 25,
+          "unit": "kg",
+          "weightMode": "bodyweight",
+          "toFailure": true,
+          "timestamp": "2026-05-03T10:08:22.253Z"
+        },
+        {
+          "id": "f39bd4bb-5e37-40e6-ad17-75c0dc828079",
+          "setNumber": 2,
+          "weight": null,
+          "reps": 20,
+          "unit": "kg",
+          "weightMode": "bodyweight",
+          "toFailure": true,
+          "timestamp": "2026-05-03T10:08:29.109Z"
+        }
+      ],
+      "sessionId": "97dc2ddf-77a7-4678-8a01-6dc292b95e6b",
+      "sessionDate": "2026-05-03T10:08:35.152Z",
+      "sessionLabel": "Session 7"
+    },
+    "incline-db-bench": {
+      "exerciseId": "incline-db-bench",
+      "exerciseName": "Incline DB Bench Press",
+      "sets": [
+        {
+          "id": "4cb84d22-a6a8-42e4-8808-295ee823df48",
+          "setNumber": 1,
+          "weight": 20,
+          "reps": 10,
+          "unit": "kg",
+          "weightMode": "each_side",
+          "timestamp": "2026-05-04T10:42:54.207Z"
+        },
+        {
+          "id": "6105498f-989f-4d7d-90ce-ab1816a17572",
+          "setNumber": 2,
+          "weight": 20,
+          "reps": 9,
+          "unit": "kg",
+          "weightMode": "each_side",
+          "timestamp": "2026-05-04T10:46:12.742Z"
+        },
+        {
+          "id": "a0836c1e-478f-497e-8f8b-2d68b6252ed4",
+          "setNumber": 3,
+          "weight": 20,
+          "reps": 4.5,
+          "unit": "kg",
+          "weightMode": "each_side",
+          "toFailure": true,
+          "timestamp": "2026-05-04T10:49:28.694Z"
+        }
+      ],
+      "sessionId": "14e1eb95-0ca2-4579-9f26-afd6c249f306",
+      "sessionDate": "2026-05-04T12:01:01.188Z",
+      "sessionLabel": "Session 8"
+    },
+    "lateral-raises": {
+      "exerciseId": "lateral-raises",
+      "exerciseName": "Lateral Raises",
+      "sets": [
+        {
+          "id": "6de44479-5feb-4370-a795-52134f341835",
+          "setNumber": 1,
+          "weight": 7.5,
+          "reps": 12,
+          "unit": "kg",
+          "weightMode": "dumbbell"
+        },
+        {
+          "id": "b69c507f-16c4-4be9-b4e4-659d5ddbba82",
+          "setNumber": 2,
+          "weight": 7.5,
+          "reps": 12,
+          "unit": "kg",
+          "weightMode": "dumbbell"
+        },
+        {
+          "id": "eacd1cfd-2e1b-44fe-8e12-07c7dd2d6405",
+          "setNumber": 3,
+          "weight": 7.5,
+          "reps": 12,
+          "unit": "kg",
+          "weightMode": "dumbbell"
+        }
+      ],
+      "sessionId": "session-1",
+      "sessionDate": null,
+      "sessionLabel": "Session 1"
+    },
+    "leg-curl": {
+      "exerciseId": "leg-curl",
+      "exerciseName": "Leg Curl",
+      "sets": [
+        {
+          "id": "4509b213-5541-480c-8f32-4a6fc9368e17",
+          "setNumber": 1,
+          "weight": 130,
+          "reps": 12,
+          "unit": "lbs",
+          "weightMode": "machine"
+        }
+      ],
+      "sessionId": "session-5",
+      "sessionDate": null,
+      "sessionLabel": "Session 5"
+    },
+    "leg-extension": {
+      "exerciseId": "leg-extension",
+      "exerciseName": "Leg Extension",
+      "sets": [
+        {
+          "id": "fc350b65-301c-43b3-8228-a00dfe3df5b0",
+          "setNumber": 1,
+          "weight": 130,
+          "reps": 12,
+          "unit": "lbs",
+          "weightMode": "machine"
+        }
+      ],
+      "sessionId": "session-5",
+      "sessionDate": null,
+      "sessionLabel": "Session 5"
+    },
+    "leg-press": {
+      "exerciseId": "leg-press",
+      "exerciseName": "Leg Press",
+      "sets": [
+        {
+          "id": "bca31270-03a9-4700-ab47-549d3385a134",
+          "setNumber": 1,
+          "weight": 65,
+          "reps": 12,
+          "unit": "kg",
+          "weightMode": "each_side"
+        }
+      ],
+      "sessionId": "session-5",
+      "sessionDate": null,
+      "sessionLabel": "Session 5"
+    },
+    "overhead-triceps": {
+      "exerciseId": "overhead-triceps",
+      "exerciseName": "Overhead Triceps Cable",
+      "sets": [
+        {
+          "id": "301dabea-a5aa-4ab1-badc-e184550d5f92",
+          "setNumber": 1,
+          "weight": 25,
+          "reps": 12,
+          "unit": "kg",
+          "weightMode": "dumbbell",
+          "timestamp": "2026-05-06T16:54:48.637Z"
+        },
+        {
+          "id": "a8f0295a-bf33-4522-8d97-6b3cfb5bd61f",
+          "setNumber": 2,
+          "weight": 25,
+          "reps": 11,
+          "unit": "kg",
+          "weightMode": "dumbbell",
+          "timestamp": "2026-05-06T16:54:54.755Z"
+        },
+        {
+          "id": "4c2fa742-b08f-4780-bc13-959fdc14071e",
+          "setNumber": 3,
+          "weight": 25,
+          "reps": 10,
+          "unit": "kg",
+          "weightMode": "dumbbell",
+          "toFailure": true,
+          "timestamp": "2026-05-06T16:55:00.098Z"
+        }
+      ],
+      "sessionId": "12ca6d3a-29ed-4a10-a833-3a0c863f692e",
+      "sessionDate": "2026-05-06T17:01:19.110Z",
+      "sessionLabel": "Session 9"
+    },
+    "rear-delt-cable": {
+      "exerciseId": "rear-delt-cable",
+      "exerciseName": "Single-arm Rear Delt Cable",
+      "sets": [
+        {
+          "id": "7a880ccf-f374-4908-97aa-47d559b67b3f",
+          "setNumber": 1,
+          "weight": 15,
+          "reps": 12,
+          "unit": "kg",
+          "weightMode": "machine",
+          "isDropSet": true,
+          "drops": [
+            {
+              "weight": 10,
+              "reps": 12
+            },
+            {
+              "weight": 5,
+              "reps": 12
+            }
+          ],
+          "timestamp": "2026-05-06T16:55:22.679Z"
+        }
+      ],
+      "sessionId": "12ca6d3a-29ed-4a10-a833-3a0c863f692e",
+      "sessionDate": "2026-05-06T17:01:19.110Z",
+      "sessionLabel": "Session 9"
+    },
+    "shoulder-press": {
+      "exerciseId": "shoulder-press",
+      "exerciseName": "Shoulder Press Machine",
+      "sets": [
+        {
+          "id": "c0810bdd-4fec-4789-8f82-776a9fafbb8a",
+          "setNumber": 1,
+          "weight": 110,
+          "reps": 12,
+          "unit": "lbs",
+          "weightMode": "machine",
+          "timestamp": "2026-05-06T16:52:50.544Z"
+        },
+        {
+          "id": "42db9507-d0ae-418b-8dee-6b48df960b0b",
+          "setNumber": 2,
+          "weight": 110,
+          "reps": 10,
+          "unit": "lbs",
+          "weightMode": "machine",
+          "notes": "Neutral grip",
+          "timestamp": "2026-05-06T16:53:00.441Z"
+        },
+        {
+          "id": "e327badd-e763-4456-8231-e092a83e401b",
+          "setNumber": 3,
+          "weight": 110,
+          "reps": 7,
+          "unit": "lbs",
+          "weightMode": "machine",
+          "notes": "Neutral grip",
+          "toFailure": true,
+          "timestamp": "2026-05-06T16:53:12.850Z"
+        }
+      ],
+      "sessionId": "12ca6d3a-29ed-4a10-a833-3a0c863f692e",
+      "sessionDate": "2026-05-06T17:01:19.110Z",
+      "sessionLabel": "Session 9"
+    },
+    "single-arm-cable-tri": {
+      "exerciseId": "single-arm-cable-tri",
+      "exerciseName": "Single Arm Cable",
+      "sets": [
+        {
+          "id": "c7fc240a-6dbf-4bef-a588-7c0e6c9581a7",
+          "setNumber": 1,
+          "weight": 60,
+          "reps": 12,
+          "unit": "kg",
+          "weightMode": "machine"
+        }
+      ],
+      "sessionId": "session-4",
+      "sessionDate": null,
+      "sessionLabel": "Session 4"
+    },
+    "single-preacher-curl": {
+      "exerciseId": "single-preacher-curl",
+      "exerciseName": "Single-arm Preacher Curl",
+      "sets": [
+        {
+          "id": "790e1476-10a5-468d-aa6f-46d6c2bd7ce2",
+          "setNumber": 1,
+          "weight": 12.5,
+          "reps": 12,
+          "unit": "kg",
+          "weightMode": "machine",
+          "timestamp": "2026-05-06T16:51:37.129Z"
+        },
+        {
+          "id": "fea50680-e3aa-4f58-bc66-eddbb13501e7",
+          "setNumber": 2,
+          "weight": 12.5,
+          "reps": 12,
+          "unit": "kg",
+          "weightMode": "machine",
+          "timestamp": "2026-05-06T16:51:43.716Z"
+        },
+        {
+          "id": "a46b1bb9-9ab9-4f57-80ee-2e6e7969c984",
+          "setNumber": 3,
+          "weight": 12.5,
+          "reps": 10,
+          "unit": "kg",
+          "weightMode": "machine",
+          "toFailure": true,
+          "timestamp": "2026-05-06T16:51:50.278Z"
+        }
+      ],
+      "sessionId": "12ca6d3a-29ed-4a10-a833-3a0c863f692e",
+      "sessionDate": "2026-05-06T17:01:19.110Z",
+      "sessionLabel": "Session 9"
+    },
+    "t-bar-row": {
+      "exerciseId": "t-bar-row",
+      "exerciseName": "T-Bar Row",
+      "sets": [
+        {
+          "id": "45bc6106-4f9a-4a26-a85f-5171463191fc",
+          "setNumber": 1,
+          "weight": 132,
+          "reps": 12,
+          "unit": "lbs",
+          "weightMode": "machine",
+          "timestamp": "2026-05-04T10:52:45.048Z"
+        },
+        {
+          "id": "7588bca4-33ad-49bf-82ca-a4f6196cb7b6",
+          "setNumber": 2,
+          "weight": 132,
+          "reps": 10,
+          "unit": "lbs",
+          "weightMode": "machine",
+          "timestamp": "2026-05-04T10:55:14.002Z"
+        },
+        {
+          "id": "2f5164bb-f66e-4bbf-ad3d-f0736e08c394",
+          "setNumber": 3,
+          "weight": 132,
+          "reps": 8,
+          "unit": "lbs",
+          "weightMode": "machine",
+          "toFailure": true,
+          "timestamp": "2026-05-04T10:59:31.520Z"
+        }
+      ],
+      "sessionId": "14e1eb95-0ca2-4579-9f26-afd6c249f306",
+      "sessionDate": "2026-05-04T12:01:01.188Z",
+      "sessionLabel": "Session 8"
+    },
+    "triceps-machine": {
+      "exerciseId": "triceps-machine",
+      "exerciseName": "Triceps Machine",
+      "sets": [
+        {
+          "id": "8ac031a9-9b81-4129-a698-781e68aae5e5",
+          "setNumber": 1,
+          "weight": 80,
+          "reps": 12,
+          "unit": "lbs",
+          "weightMode": "machine"
+        },
+        {
+          "id": "b2a0e998-8e12-43aa-b9f7-fe00bfc04579",
+          "setNumber": 2,
+          "weight": 80,
+          "reps": 12,
+          "unit": "lbs",
+          "weightMode": "machine"
+        }
+      ],
+      "sessionId": "session-1",
+      "sessionDate": null,
+      "sessionLabel": "Session 1"
+    },
+    "triceps-pushdown": {
+      "exerciseId": "triceps-pushdown",
+      "exerciseName": "Triceps Pushdown",
+      "sets": [
+        {
+          "id": "2430b862-4634-4746-a360-ff72a12fa322",
+          "setNumber": 1,
+          "weight": 60,
+          "reps": 12,
+          "unit": "kg",
+          "weightMode": "machine",
+          "timestamp": "2026-05-06T16:50:57.982Z"
+        },
+        {
+          "id": "216fb079-b3cc-42fe-90c6-5b3a50519027",
+          "setNumber": 2,
+          "weight": 60,
+          "reps": 10,
+          "unit": "kg",
+          "weightMode": "machine",
+          "timestamp": "2026-05-06T16:51:04.611Z"
+        },
+        {
+          "id": "c8934519-05b7-40d9-98f1-9e8ed9f101b4",
+          "setNumber": 3,
+          "weight": 60,
+          "reps": 10,
+          "unit": "kg",
+          "weightMode": "machine",
+          "isDropSet": true,
+          "drops": [
+            {
+              "weight": 45,
+              "reps": 10
+            },
+            {
+              "weight": 30,
+              "reps": 10
+            }
+          ],
+          "toFailure": true,
+          "timestamp": "2026-05-06T16:51:21.172Z"
+        }
+      ],
+      "sessionId": "12ca6d3a-29ed-4a10-a833-3a0c863f692e",
+      "sessionDate": "2026-05-06T17:01:19.110Z",
+      "sessionLabel": "Session 9"
+    },
+    "wide-lat-pulldown": {
+      "exerciseId": "wide-lat-pulldown",
+      "exerciseName": "Wide Grip Lat Pulldown",
+      "sets": [
+        {
+          "id": "b78bd3bb-a040-462d-bfb0-3ba309c450c4",
+          "setNumber": 1,
+          "weight": 100,
+          "reps": 10,
+          "unit": "lbs",
+          "weightMode": "machine"
+        },
+        {
+          "id": "95da5dfb-1ffe-4983-b789-cb0b0dc80179",
+          "setNumber": 2,
+          "weight": 100,
+          "reps": 8,
+          "unit": "lbs",
+          "weightMode": "machine"
+        },
+        {
+          "id": "00b96b47-86d3-46d5-a6e8-c39fcded237c",
+          "setNumber": 3,
+          "weight": 100,
+          "reps": 8,
+          "unit": "lbs",
+          "weightMode": "machine",
+          "isDropSet": true,
+          "drops": [
+            {
+              "weight": 0,
+              "reps": null,
+              "toFailure": true
+            }
+          ],
+          "notes": "Drop set to failure"
+        }
+      ],
+      "sessionId": "session-3",
+      "sessionDate": null,
+      "sessionLabel": "Session 3"
+    }
+  },
+  "prRecords": [
+    {
+      "id": "01d7bab0-a33b-4996-b89e-a27259554455",
+      "exerciseId": "single-arm-cable-tri",
+      "exerciseName": "Single Arm Cable",
+      "type": "weight",
+      "value": 60,
+      "weight": 60,
+      "sessionId": "session-4",
+      "sessionLabel": "Session 4",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "0213d15d-4dbc-4aa0-b241-075eb5674632",
+      "exerciseId": "shoulder-press",
+      "exerciseName": "Shoulder Press",
+      "type": "weight",
+      "value": 95,
+      "weight": 95,
+      "sessionId": "session-6",
+      "sessionLabel": "Session 6",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.043Z"
+    },
+    {
+      "id": "0305e5ef-fb2d-41ee-abe0-022a430d0914",
+      "exerciseId": "leg-curl",
+      "exerciseName": "Leg Curl",
+      "type": "volume",
+      "value": 2200,
+      "sessionId": "session-2",
+      "sessionLabel": "Session 2",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "03401841-4fb7-4696-b3ef-a3ef1acc76a7",
+      "exerciseId": "triceps-machine",
+      "exerciseName": "Triceps Machine",
+      "type": "reps",
+      "value": 12,
+      "weight": 80,
+      "reps": 12,
+      "sessionId": "session-1",
+      "sessionLabel": "Session 1",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "05ff27ab-b389-40e0-acd6-4b4010d6ee42",
+      "exerciseId": "overhead-triceps",
+      "exerciseName": "Single Arm Overhead Triceps Cable",
+      "type": "reps",
+      "value": 8,
+      "weight": 15,
+      "reps": 8,
+      "sessionId": "session-1",
+      "sessionLabel": "Session 1",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "060154c5-3929-4fd7-913a-3d11a54e0ce8",
+      "exerciseId": "triceps-pushdown",
+      "exerciseName": "Triceps Pushdown",
+      "type": "reps",
+      "value": 12,
+      "weight": 50,
+      "reps": 12,
+      "sessionId": "session-6",
+      "sessionLabel": "Session 6",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.043Z"
+    },
+    {
+      "id": "07ace77b-6112-4da0-83c6-9b0989cc7b4d",
+      "exerciseId": "cable-row-single",
+      "exerciseName": "Single-arm Cable Row",
+      "type": "weight",
+      "value": 55,
+      "weight": 55,
+      "sessionId": "session-3",
+      "sessionLabel": "Session 3",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "0853d41b-a303-43d2-afcd-cc542a7c895d",
+      "exerciseId": "leg-extension",
+      "exerciseName": "Leg Extension",
+      "type": "estimated",
+      "value": 144,
+      "sessionId": "session-2",
+      "sessionLabel": "Session 2",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "0afeeb9b-6c93-4148-9c02-2092f1fe3b72",
+      "exerciseId": "cable-row-single",
+      "exerciseName": "Single-arm Cable Row",
+      "type": "reps",
+      "value": 12,
+      "weight": 50,
+      "reps": 12,
+      "sessionId": "session-3",
+      "sessionLabel": "Session 3",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "0bb7f750-b94e-4ef3-bc0c-3b938b0f9f29",
+      "exerciseId": "cable-curl-behind",
+      "exerciseName": "Cable Curl Behind Body",
+      "type": "volume",
+      "value": 315,
+      "sessionId": "session-3",
+      "sessionLabel": "Session 3",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "0d11f61b-b368-4acd-aaee-8a1045d0cec5",
+      "exerciseId": "t-bar-row",
+      "exerciseName": "T-Bar Row",
+      "type": "estimated",
+      "value": 190.1,
+      "sessionId": "14e1eb95-0ca2-4579-9f26-afd6c249f306",
+      "sessionLabel": "Session 8",
+      "date": "2026-05-04T12:01:01.188Z",
+      "detectedAt": "2026-05-04T12:01:01.219Z"
+    },
+    {
+      "id": "0d64f32c-ff4d-482f-8ca7-c1d3602d9971",
+      "exerciseId": "incline-db-bench",
+      "exerciseName": "Incline DB Bench Press",
+      "type": "reps",
+      "value": 8,
+      "weight": 15,
+      "reps": 8,
+      "sessionId": "session-1",
+      "sessionLabel": "Session 1",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "1071e9ab-ade9-4420-9694-7949fff91fa6",
+      "exerciseId": "face-pull",
+      "exerciseName": "Face Pull",
+      "type": "estimated",
+      "value": 100.8,
+      "sessionId": "session-6",
+      "sessionLabel": "Session 6",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.043Z"
+    },
+    {
+      "id": "112b8200-e75d-4200-a89d-d034c2032301",
+      "exerciseId": "wide-lat-pulldown",
+      "exerciseName": "Wide Lat Pulldown",
+      "type": "estimated",
+      "value": 128.6,
+      "sessionId": "session-1",
+      "sessionLabel": "Session 1",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "117c7fd8-690e-467e-bad3-5cbd9bb9df42",
+      "exerciseId": "incline-db-bench",
+      "exerciseName": "Incline Press",
+      "type": "reps",
+      "value": 10,
+      "weight": 20,
+      "reps": 10,
+      "sessionId": "session-4",
+      "sessionLabel": "Session 4",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "128f732b-9ace-4bfb-8707-0bffc13a358e",
+      "exerciseId": "t-bar-row",
+      "exerciseName": "T-Bar Row",
+      "type": "volume",
+      "value": 4179,
+      "sessionId": "session-3",
+      "sessionLabel": "Session 3",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "1411e928-bd69-4252-ac49-0cc4be10db6b",
+      "exerciseId": "shoulder-press",
+      "exerciseName": "Shoulder Press Machine",
+      "type": "volume",
+      "value": 1440,
+      "sessionId": "session-1",
+      "sessionLabel": "Session 1",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "144c1ec1-f929-4245-a117-196c05dc9b20",
+      "exerciseId": "cable-fly",
+      "exerciseName": "Cable Fly",
+      "type": "volume",
+      "value": 360,
+      "sessionId": "session-4",
+      "sessionLabel": "Session 4",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "1506abbe-7203-4896-819c-35e42632aac5",
+      "exerciseId": "leg-press",
+      "exerciseName": "Leg Press",
+      "type": "reps",
+      "value": 10,
+      "weight": 40,
+      "reps": 10,
+      "sessionId": "session-2",
+      "sessionLabel": "Session 2",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "171c4610-684a-4311-be6a-3ac4e3094a7f",
+      "exerciseId": "single-preacher-curl",
+      "exerciseName": "Single-arm Preacher Curl",
+      "type": "estimated",
+      "value": 18,
+      "sessionId": "12ca6d3a-29ed-4a10-a833-3a0c863f692e",
+      "sessionLabel": "Session 9",
+      "date": "2026-05-06T17:01:19.110Z",
+      "detectedAt": "2026-05-06T17:01:19.149Z"
+    },
+    {
+      "id": "182747b3-2bcd-4c7d-a5eb-116b525578b7",
+      "exerciseId": "cable-curl-behind",
+      "exerciseName": "Cable Curl Behind Body",
+      "type": "reps",
+      "value": 12,
+      "weight": 20,
+      "reps": 12,
+      "sessionId": "12ca6d3a-29ed-4a10-a833-3a0c863f692e",
+      "sessionLabel": "Session 9",
+      "date": "2026-05-06T17:01:19.110Z",
+      "detectedAt": "2026-05-06T17:01:19.132Z"
+    },
+    {
+      "id": "1941d53b-d015-4548-bb4f-9ab3b43bacc2",
+      "exerciseId": "flat-press",
+      "exerciseName": "Flat Press",
+      "type": "reps",
+      "value": 12,
+      "weight": 20,
+      "reps": 12,
+      "sessionId": "session-4",
+      "sessionLabel": "Session 4",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "1a0754f3-4d47-4333-8020-8ad22eca1531",
+      "exerciseId": "close-lat-pulldown",
+      "exerciseName": "Close Grip Lat Pulldown",
+      "type": "estimated",
+      "value": 176.6,
+      "sessionId": "session-3",
+      "sessionLabel": "Session 3",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "1a3bda50-fa65-40e8-a6c4-b4f5440a758e",
+      "exerciseId": "triceps-pushdown",
+      "exerciseName": "Triceps Pushdown",
+      "type": "estimated",
+      "value": 86.4,
+      "sessionId": "session-4",
+      "sessionLabel": "Session 4",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "1be77f14-3efe-4f3f-a6c8-d4b9624452dd",
+      "exerciseId": "rear-delt-cable",
+      "exerciseName": "Single-arm Rear Delt Cable",
+      "type": "weight",
+      "value": 10,
+      "weight": 10,
+      "sessionId": "session-6",
+      "sessionLabel": "Session 6",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.043Z"
+    },
+    {
+      "id": "1cce77e5-4193-4eb2-ac8a-66a2373c722b",
+      "exerciseId": "leg-extension",
+      "exerciseName": "Leg Extension",
+      "type": "reps",
+      "value": 12,
+      "weight": 100,
+      "reps": 12,
+      "sessionId": "session-2",
+      "sessionLabel": "Session 2",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "1d408d8e-9197-4352-889d-980fad14048d",
+      "exerciseId": "overhead-triceps",
+      "exerciseName": "Overhead Triceps Cable",
+      "type": "estimated",
+      "value": 36,
+      "sessionId": "12ca6d3a-29ed-4a10-a833-3a0c863f692e",
+      "sessionLabel": "Session 9",
+      "date": "2026-05-06T17:01:19.110Z",
+      "detectedAt": "2026-05-06T17:01:19.143Z"
+    },
+    {
+      "id": "1e3af10a-b228-44a5-87e5-5a970f073930",
+      "exerciseId": "single-arm-cable-tri",
+      "exerciseName": "Single Arm Cable",
+      "type": "estimated",
+      "value": 86.4,
+      "sessionId": "session-4",
+      "sessionLabel": "Session 4",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "1f7af55d-55cc-47e0-9de5-a7a3f870aba5",
+      "exerciseId": "cable-curl-behind",
+      "exerciseName": "Cable Curl Behind Body",
+      "type": "estimated",
+      "value": 25.7,
+      "sessionId": "session-6",
+      "sessionLabel": "Session 6",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.043Z"
+    },
+    {
+      "id": "203a9a1d-58de-49bd-8e21-a288159434f2",
+      "exerciseId": "cable-row-both",
+      "exerciseName": "Cable Row Both Arms",
+      "type": "estimated",
+      "value": 73.3,
+      "sessionId": "14e1eb95-0ca2-4579-9f26-afd6c249f306",
+      "sessionLabel": "Session 8",
+      "date": "2026-05-04T12:01:01.188Z",
+      "detectedAt": "2026-05-04T12:01:01.210Z"
+    },
+    {
+      "id": "232a638d-65cf-4961-83ad-d505de34094a",
+      "exerciseId": "cable-fly",
+      "exerciseName": "Cable Fly",
+      "type": "reps",
+      "value": 12,
+      "weight": 15,
+      "reps": 12,
+      "sessionId": "session-4",
+      "sessionLabel": "Session 4",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "233cf039-4c24-41fd-8b4c-d5cbfd885c80",
+      "exerciseId": "lateral-raises",
+      "exerciseName": "Lateral Raises",
+      "type": "volume",
+      "value": 270,
+      "sessionId": "session-1",
+      "sessionLabel": "Session 1",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "234c1ee5-f864-4187-b20c-aa6455d1a583",
+      "exerciseId": "wide-lat-pulldown",
+      "exerciseName": "Wide Lat Pulldown",
+      "type": "weight",
+      "value": 100,
+      "weight": 100,
+      "sessionId": "session-1",
+      "sessionLabel": "Session 1",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "23be4149-7a32-458b-8ed7-a92cf0912a63",
+      "exerciseId": "ez-preacher-curl",
+      "exerciseName": "EZ Bar Preacher Curl",
+      "type": "volume",
+      "value": 300,
+      "sessionId": "session-1",
+      "sessionLabel": "Session 1",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "27e064b2-7796-4762-8e33-483d5648948b",
+      "exerciseId": "t-bar-row",
+      "exerciseName": "T-Bar Row",
+      "type": "reps",
+      "value": 12,
+      "weight": 110,
+      "reps": 12,
+      "sessionId": "session-3",
+      "sessionLabel": "Session 3",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "2833ff5a-d88f-43d0-8930-6f22d481cd9e",
+      "exerciseId": "leg-curl",
+      "exerciseName": "Leg Curl",
+      "type": "reps",
+      "value": 12,
+      "weight": 130,
+      "reps": 12,
+      "sessionId": "session-5",
+      "sessionLabel": "Session 5",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "28651f35-43d5-4702-bc59-4fa3df2b4d1a",
+      "exerciseId": "shoulder-press",
+      "exerciseName": "Shoulder Press",
+      "type": "reps",
+      "value": 12,
+      "weight": 95,
+      "reps": 12,
+      "sessionId": "session-6",
+      "sessionLabel": "Session 6",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.043Z"
+    },
+    {
+      "id": "287bd16d-b6b6-4334-8119-b04f4c836dbd",
+      "exerciseId": "overhead-triceps",
+      "exerciseName": "Overhead Triceps",
+      "type": "reps",
+      "value": 11,
+      "weight": 20,
+      "reps": 11,
+      "sessionId": "session-4",
+      "sessionLabel": "Session 4",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "29b1810d-ce93-495d-864b-a6c9353a0f5e",
+      "exerciseId": "hammer-curl",
+      "exerciseName": "Hammer Curl",
+      "type": "reps",
+      "value": 12,
+      "weight": 7.5,
+      "reps": 12,
+      "sessionId": "session-1",
+      "sessionLabel": "Session 1",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "2bd13606-b9fd-4771-9ec0-93dfe4c7de6e",
+      "exerciseId": "incline-db-bench",
+      "exerciseName": "Incline DB Bench Press",
+      "type": "volume",
+      "value": 360,
+      "sessionId": "session-1",
+      "sessionLabel": "Session 1",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "2fc7f41c-f304-4dac-9d41-d1d17385ab90",
+      "exerciseId": "cable-row-single",
+      "exerciseName": "Single-arm Cable Row",
+      "type": "reps",
+      "value": 12,
+      "weight": 65,
+      "reps": 12,
+      "sessionId": "14e1eb95-0ca2-4579-9f26-afd6c249f306",
+      "sessionLabel": "Session 8",
+      "date": "2026-05-04T12:01:01.188Z",
+      "detectedAt": "2026-05-04T12:01:01.214Z"
+    },
+    {
+      "id": "31497ede-72b8-49a0-88ec-358886f8e076",
+      "exerciseId": "flat-press",
+      "exerciseName": "Flat Press",
+      "type": "estimated",
+      "value": 28.8,
+      "sessionId": "session-4",
+      "sessionLabel": "Session 4",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "33d78477-54b7-4bed-80cd-4a3ffdee80a3",
+      "exerciseId": "cable-fly",
+      "exerciseName": "Cable Fly",
+      "type": "weight",
+      "value": 20,
+      "weight": 20,
+      "sessionId": "14e1eb95-0ca2-4579-9f26-afd6c249f306",
+      "sessionLabel": "Session 8",
+      "date": "2026-05-04T12:01:01.188Z",
+      "detectedAt": "2026-05-04T12:01:01.221Z"
+    },
+    {
+      "id": "3511200d-ef3d-4a54-a048-b17b5f353ba5",
+      "exerciseId": "cable-row-single",
+      "exerciseName": "Single-arm Cable Row",
+      "type": "volume",
+      "value": 1430,
+      "sessionId": "14e1eb95-0ca2-4579-9f26-afd6c249f306",
+      "sessionLabel": "Session 8",
+      "date": "2026-05-04T12:01:01.188Z",
+      "detectedAt": "2026-05-04T12:01:01.214Z"
+    },
+    {
+      "id": "35345d22-7eb5-4b41-92cf-c855142e91b8",
+      "exerciseId": "incline-db-bench",
+      "exerciseName": "Incline Press",
+      "type": "volume",
+      "value": 480,
+      "sessionId": "session-4",
+      "sessionLabel": "Session 4",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "3947718c-e8ed-4c01-9289-57118bf4c4fd",
+      "exerciseId": "chest-fly",
+      "exerciseName": "Chest Fly",
+      "type": "weight",
+      "value": 80,
+      "weight": 80,
+      "sessionId": "session-1",
+      "sessionLabel": "Session 1",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "3a0186b9-72a2-47a3-8c6f-2471b010802c",
+      "exerciseId": "triceps-machine",
+      "exerciseName": "Triceps Machine",
+      "type": "estimated",
+      "value": 115.2,
+      "sessionId": "session-1",
+      "sessionLabel": "Session 1",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "3c4f0dde-0fd0-462e-99d9-40f519bc7ea7",
+      "exerciseId": "leg-press",
+      "exerciseName": "Leg Press",
+      "type": "volume",
+      "value": 800,
+      "sessionId": "session-2",
+      "sessionLabel": "Session 2",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "3cb403de-ec38-49c7-984e-a4c09b43399f",
+      "exerciseId": "rear-delt-cable",
+      "exerciseName": "Single-arm Rear Delt Cable",
+      "type": "estimated",
+      "value": 16.4,
+      "sessionId": "session-6",
+      "sessionLabel": "Session 6",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.043Z"
+    },
+    {
+      "id": "3d782fa5-c2b5-4dc0-9038-2add1092588f",
+      "exerciseId": "leg-press",
+      "exerciseName": "Leg Press",
+      "type": "weight",
+      "value": 65,
+      "weight": 65,
+      "sessionId": "session-5",
+      "sessionLabel": "Session 5",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "3d979b4d-0e62-40a5-a649-8502e1f3ab0b",
+      "exerciseId": "rear-delt-cable",
+      "exerciseName": "Single-arm Rear Delt Cable",
+      "type": "volume",
+      "value": 360,
+      "sessionId": "12ca6d3a-29ed-4a10-a833-3a0c863f692e",
+      "sessionLabel": "Session 9",
+      "date": "2026-05-06T17:01:19.110Z",
+      "detectedAt": "2026-05-06T17:01:19.145Z"
+    },
+    {
+      "id": "3dc28418-bda1-491f-b712-ca35b7059568",
+      "exerciseId": "cable-row-both",
+      "exerciseName": "Cable Row Both Arms",
+      "type": "estimated",
+      "value": 73.3,
+      "sessionId": "session-3",
+      "sessionLabel": "Session 3",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "41cd0350-d13a-48a1-b34c-643927178d6f",
+      "exerciseId": "cable-row-single",
+      "exerciseName": "Cable Row Single Arm",
+      "type": "weight",
+      "value": 50,
+      "weight": 50,
+      "sessionId": "session-1",
+      "sessionLabel": "Session 1",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "4345455a-0b4a-4d32-952b-568e555ce2b7",
+      "exerciseId": "overhead-triceps",
+      "exerciseName": "Overhead Triceps Cable",
+      "type": "reps",
+      "value": 12,
+      "weight": 25,
+      "reps": 12,
+      "sessionId": "12ca6d3a-29ed-4a10-a833-3a0c863f692e",
+      "sessionLabel": "Session 9",
+      "date": "2026-05-06T17:01:19.110Z",
+      "detectedAt": "2026-05-06T17:01:19.143Z"
+    },
+    {
+      "id": "43bf3d3b-6c5c-4a32-82bc-a70f92830251",
+      "exerciseId": "triceps-pushdown",
+      "exerciseName": "Triceps Pushdown",
+      "type": "volume",
+      "value": 720,
+      "sessionId": "session-4",
+      "sessionLabel": "Session 4",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "45059786-5aba-4e51-ae98-5b3f9330ffb0",
+      "exerciseId": "rear-delt-cable",
+      "exerciseName": "Single-arm Rear Delt Cable",
+      "type": "volume",
+      "value": 150,
+      "sessionId": "session-6",
+      "sessionLabel": "Session 6",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.043Z"
+    },
+    {
+      "id": "457cfb8a-5cbd-4b9b-8fae-503852469033",
+      "exerciseId": "t-bar-row",
+      "exerciseName": "T-Bar Row",
+      "type": "estimated",
+      "value": 158.4,
+      "sessionId": "session-3",
+      "sessionLabel": "Session 3",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "45f72710-5e99-4148-a8c1-56df6e8ff2e0",
+      "exerciseId": "calf-raises",
+      "exerciseName": "Calf Raises",
+      "type": "estimated",
+      "value": 49.1,
+      "sessionId": "session-2",
+      "sessionLabel": "Session 2",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "47b31eb4-8881-4a71-839f-b128ac1f9a00",
+      "exerciseId": "shoulder-press",
+      "exerciseName": "Shoulder Press Machine",
+      "type": "weight",
+      "value": 110,
+      "weight": 110,
+      "sessionId": "12ca6d3a-29ed-4a10-a833-3a0c863f692e",
+      "sessionLabel": "Session 9",
+      "date": "2026-05-06T17:01:19.110Z",
+      "detectedAt": "2026-05-06T17:01:19.147Z"
+    },
+    {
+      "id": "4849451a-1833-4f45-a833-872ebc33c470",
+      "exerciseId": "leg-extension",
+      "exerciseName": "Leg Extension",
+      "type": "volume",
+      "value": 1560,
+      "sessionId": "session-5",
+      "sessionLabel": "Session 5",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "4fbaed42-b628-4e60-bfe4-b85b681f1a8e",
+      "exerciseId": "shoulder-press",
+      "exerciseName": "Shoulder Press Machine",
+      "type": "reps",
+      "value": 9,
+      "weight": 80,
+      "reps": 9,
+      "sessionId": "session-1",
+      "sessionLabel": "Session 1",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "53015f3f-6069-4bab-a6c6-6acd22c76781",
+      "exerciseId": "close-lat-pulldown",
+      "exerciseName": "Close Grip Lat Pulldown",
+      "type": "volume",
+      "value": 3315,
+      "sessionId": "session-3",
+      "sessionLabel": "Session 3",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "558ef584-7c5a-4028-bc71-278066d62e50",
+      "exerciseId": "leg-press",
+      "exerciseName": "Leg Press",
+      "type": "reps",
+      "value": 12,
+      "weight": 65,
+      "reps": 12,
+      "sessionId": "session-5",
+      "sessionLabel": "Session 5",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "559ccfee-23e3-4e93-b409-fac70a81fa11",
+      "exerciseId": "calf-raises",
+      "exerciseName": "Calf Raises",
+      "type": "weight",
+      "value": 45,
+      "weight": 45,
+      "sessionId": "session-5",
+      "sessionLabel": "Session 5",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.043Z"
+    },
+    {
+      "id": "55aab21a-dcd8-4b12-9c0e-52d371f684fe",
+      "exerciseId": "flat-press",
+      "exerciseName": "Flat Press",
+      "type": "weight",
+      "value": 20,
+      "weight": 20,
+      "sessionId": "session-4",
+      "sessionLabel": "Session 4",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "55eef116-cbfa-4822-9439-8a3fa755e01e",
+      "exerciseId": "shoulder-press",
+      "exerciseName": "Shoulder Press Machine",
+      "type": "estimated",
+      "value": 158.4,
+      "sessionId": "12ca6d3a-29ed-4a10-a833-3a0c863f692e",
+      "sessionLabel": "Session 9",
+      "date": "2026-05-06T17:01:19.110Z",
+      "detectedAt": "2026-05-06T17:01:19.147Z"
+    },
+    {
+      "id": "57b945dc-144b-4859-90c9-b096f53d7c8e",
+      "exerciseId": "single-arm-cable-tri",
+      "exerciseName": "Single Arm Cable",
+      "type": "reps",
+      "value": 12,
+      "weight": 60,
+      "reps": 12,
+      "sessionId": "session-4",
+      "sessionLabel": "Session 4",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "58897213-f9c1-4b05-8865-2ca3ab47ebe6",
+      "exerciseId": "lateral-raises",
+      "exerciseName": "Lateral Raises",
+      "type": "weight",
+      "value": 7.5,
+      "weight": 7.5,
+      "sessionId": "session-1",
+      "sessionLabel": "Session 1",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "597d5e36-702b-482a-9d1c-9eb8a931bccc",
+      "exerciseId": "single-preacher-curl",
+      "exerciseName": "Single-arm Preacher Curl",
+      "type": "volume",
+      "value": 200,
+      "sessionId": "session-3",
+      "sessionLabel": "Session 3",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "59e0a6ac-8102-446e-82d8-c6fc4ea33d96",
+      "exerciseId": "close-lat-pulldown",
+      "exerciseName": "Close Grip Lat Pulldown",
+      "type": "reps",
+      "value": 10.5,
+      "weight": 130,
+      "reps": 10.5,
+      "sessionId": "session-3",
+      "sessionLabel": "Session 3",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "5d35a299-ae0a-40ed-b70d-b098d0e79dae",
+      "exerciseId": "face-pull",
+      "exerciseName": "Face Pull",
+      "type": "volume",
+      "value": 2310,
+      "sessionId": "session-6",
+      "sessionLabel": "Session 6",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.043Z"
+    },
+    {
+      "id": "5e6e1528-7ac7-4171-a2ea-b0b2bc1c1d26",
+      "exerciseId": "hammer-curl",
+      "exerciseName": "Hammer Curl",
+      "type": "weight",
+      "value": 7.5,
+      "weight": 7.5,
+      "sessionId": "session-1",
+      "sessionLabel": "Session 1",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "5f35d8ca-4f2e-4cba-b7ef-4c9e250ad017",
+      "exerciseId": "cable-curl-behind",
+      "exerciseName": "Cable Curl Behind Body",
+      "type": "weight",
+      "value": 15,
+      "weight": 15,
+      "sessionId": "session-3",
+      "sessionLabel": "Session 3",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "605c3123-0bf8-411c-8077-7ef497276d2a",
+      "exerciseId": "cable-row-both",
+      "exerciseName": "Cable Row Both Arms",
+      "type": "weight",
+      "value": 55,
+      "weight": 55,
+      "sessionId": "session-3",
+      "sessionLabel": "Session 3",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "610327ef-3672-40c4-90a7-2e671849c1a8",
+      "exerciseId": "leg-press",
+      "exerciseName": "Leg Press",
+      "type": "estimated",
+      "value": 93.6,
+      "sessionId": "session-5",
+      "sessionLabel": "Session 5",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "62ed30ef-d15f-41b8-9a49-c42be754c7e3",
+      "exerciseId": "close-lat-pulldown",
+      "exerciseName": "Close Grip Lat Pulldown",
+      "type": "estimated",
+      "value": 187.2,
+      "sessionId": "14e1eb95-0ca2-4579-9f26-afd6c249f306",
+      "sessionLabel": "Session 8",
+      "date": "2026-05-04T12:01:01.188Z",
+      "detectedAt": "2026-05-04T12:01:01.217Z"
+    },
+    {
+      "id": "63508679-9a93-4fb4-b310-0266f27dcf47",
+      "exerciseId": "leg-curl",
+      "exerciseName": "Leg Curl",
+      "type": "estimated",
+      "value": 138.5,
+      "sessionId": "session-2",
+      "sessionLabel": "Session 2",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "63dfd421-7bec-427c-a28b-1f8a396d9b69",
+      "exerciseId": "cable-row-single",
+      "exerciseName": "Cable Row Single Arm",
+      "type": "volume",
+      "value": 900,
+      "sessionId": "session-1",
+      "sessionLabel": "Session 1",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "650c772f-d3ea-4208-8bcd-a99cd2b6069b",
+      "exerciseId": "cable-fly",
+      "exerciseName": "Cable Fly",
+      "type": "volume",
+      "value": 680,
+      "sessionId": "14e1eb95-0ca2-4579-9f26-afd6c249f306",
+      "sessionLabel": "Session 8",
+      "date": "2026-05-04T12:01:01.188Z",
+      "detectedAt": "2026-05-04T12:01:01.221Z"
+    },
+    {
+      "id": "66173fd5-165f-4195-9fe9-c9e21d3bbfdb",
+      "exerciseId": "single-preacher-curl",
+      "exerciseName": "Single-arm Preacher Curl",
+      "type": "estimated",
+      "value": 15.5,
+      "sessionId": "session-6",
+      "sessionLabel": "Session 6",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.043Z"
+    },
+    {
+      "id": "66416057-01e5-4405-b2d7-2ab1859894fd",
+      "exerciseId": "hammer-curl",
+      "exerciseName": "Hammer Curl",
+      "type": "reps",
+      "value": 12,
+      "weight": 20,
+      "reps": 12,
+      "sessionId": "12ca6d3a-29ed-4a10-a833-3a0c863f692e",
+      "sessionLabel": "Session 9",
+      "date": "2026-05-06T17:01:19.110Z",
+      "detectedAt": "2026-05-06T17:01:19.140Z"
+    },
+    {
+      "id": "6cfc3dc0-bf63-4073-b90c-4bfc9aae911f",
+      "exerciseId": "rear-delt-cable",
+      "exerciseName": "Single-arm Rear Delt Cable",
+      "type": "reps",
+      "value": 15,
+      "weight": 10,
+      "reps": 15,
+      "sessionId": "session-6",
+      "sessionLabel": "Session 6",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.043Z"
+    },
+    {
+      "id": "6df962c3-7a50-4b3f-ac7a-942a311f1f8e",
+      "exerciseId": "ez-preacher-curl",
+      "exerciseName": "EZ Bar Preacher Curl",
+      "type": "weight",
+      "value": 15,
+      "weight": 15,
+      "sessionId": "session-1",
+      "sessionLabel": "Session 1",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "6e55b899-b3a4-402a-b2bb-660a74377521",
+      "exerciseId": "triceps-pushdown",
+      "exerciseName": "Triceps Pushdown",
+      "type": "reps",
+      "value": 12,
+      "weight": 60,
+      "reps": 12,
+      "sessionId": "session-4",
+      "sessionLabel": "Session 4",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "6f842ca7-fd1a-423e-acdb-2dfddee0b01a",
+      "exerciseId": "cable-row-single",
+      "exerciseName": "Single-arm Cable Row",
+      "type": "weight",
+      "value": 65,
+      "weight": 65,
+      "sessionId": "14e1eb95-0ca2-4579-9f26-afd6c249f306",
+      "sessionLabel": "Session 8",
+      "date": "2026-05-04T12:01:01.188Z",
+      "detectedAt": "2026-05-04T12:01:01.214Z"
+    },
+    {
+      "id": "7034bc73-6fbc-45bb-8ddb-4e95bcdddbd8",
+      "exerciseId": "rear-delt-cable",
+      "exerciseName": "Single-arm Rear Delt Cable",
+      "type": "weight",
+      "value": 15,
+      "weight": 15,
+      "sessionId": "12ca6d3a-29ed-4a10-a833-3a0c863f692e",
+      "sessionLabel": "Session 9",
+      "date": "2026-05-06T17:01:19.110Z",
+      "detectedAt": "2026-05-06T17:01:19.145Z"
+    },
+    {
+      "id": "71ce9006-1789-4a41-a79b-3c069ebb8ae9",
+      "exerciseId": "cable-row-both",
+      "exerciseName": "Cable Row Both Arms",
+      "type": "volume",
+      "value": 1245,
+      "sessionId": "14e1eb95-0ca2-4579-9f26-afd6c249f306",
+      "sessionLabel": "Session 8",
+      "date": "2026-05-04T12:01:01.188Z",
+      "detectedAt": "2026-05-04T12:01:01.210Z"
+    },
+    {
+      "id": "72a2953c-8738-45e4-8e17-defd9f292272",
+      "exerciseId": "leg-curl",
+      "exerciseName": "Leg Curl",
+      "type": "estimated",
+      "value": 187.2,
+      "sessionId": "session-5",
+      "sessionLabel": "Session 5",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "735e845b-73dd-4cd5-b87a-703bb1a1a112",
+      "exerciseId": "overhead-triceps",
+      "exerciseName": "Single Arm Overhead Triceps Cable",
+      "type": "estimated",
+      "value": 18.6,
+      "sessionId": "session-1",
+      "sessionLabel": "Session 1",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "74557f87-869d-4e8f-ad49-5202c64df1e6",
+      "exerciseId": "shoulder-press",
+      "exerciseName": "Shoulder Press Machine",
+      "type": "reps",
+      "value": 12,
+      "weight": 110,
+      "reps": 12,
+      "sessionId": "12ca6d3a-29ed-4a10-a833-3a0c863f692e",
+      "sessionLabel": "Session 9",
+      "date": "2026-05-06T17:01:19.110Z",
+      "detectedAt": "2026-05-06T17:01:19.147Z"
+    },
+    {
+      "id": "76024dc2-44d3-4123-9c81-8d89a4d1e6aa",
+      "exerciseId": "leg-extension",
+      "exerciseName": "Leg Extension",
+      "type": "estimated",
+      "value": 187.2,
+      "sessionId": "session-5",
+      "sessionLabel": "Session 5",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "76f504d6-7e11-4a2f-bd72-c2e8c56bc835",
+      "exerciseId": "cable-lateral-raises",
+      "exerciseName": "Cable Lateral Raises",
+      "type": "weight",
+      "value": 15,
+      "weight": 15,
+      "sessionId": "session-6",
+      "sessionLabel": "Session 6",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.043Z"
+    },
+    {
+      "id": "7787145d-a1d4-4641-af58-a3f89eeecb2b",
+      "exerciseId": "cable-row-single",
+      "exerciseName": "Single-arm Cable Row",
+      "type": "volume",
+      "value": 1177.5,
+      "sessionId": "session-3",
+      "sessionLabel": "Session 3",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "7886e31f-e875-48da-905e-ef95256fabfe",
+      "exerciseId": "leg-curl",
+      "exerciseName": "Leg Curl",
+      "type": "reps",
+      "value": 11,
+      "weight": 100,
+      "reps": 11,
+      "sessionId": "session-2",
+      "sessionLabel": "Session 2",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "78b8e2fb-054d-4fee-936f-08a79989a906",
+      "exerciseId": "cable-fly",
+      "exerciseName": "Cable Fly",
+      "type": "reps",
+      "value": 12,
+      "weight": 20,
+      "reps": 12,
+      "sessionId": "14e1eb95-0ca2-4579-9f26-afd6c249f306",
+      "sessionLabel": "Session 8",
+      "date": "2026-05-04T12:01:01.188Z",
+      "detectedAt": "2026-05-04T12:01:01.221Z"
+    },
+    {
+      "id": "796a50de-bc57-4513-9242-39668d836d8f",
+      "exerciseId": "cable-row-single",
+      "exerciseName": "Cable Row Single Arm",
+      "type": "reps",
+      "value": 9,
+      "weight": 50,
+      "reps": 9,
+      "sessionId": "session-1",
+      "sessionLabel": "Session 1",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "79d477fe-818c-4433-8f3d-333e5c2a5fd8",
+      "exerciseId": "shoulder-press",
+      "exerciseName": "Shoulder Press Machine",
+      "type": "estimated",
+      "value": 102.9,
+      "sessionId": "session-1",
+      "sessionLabel": "Session 1",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "7af32bbe-e279-43ab-b98f-548a7d22d4f6",
+      "exerciseId": "incline-db-bench",
+      "exerciseName": "Incline DB Bench Press",
+      "type": "weight",
+      "value": 20,
+      "weight": 20,
+      "sessionId": "session-1",
+      "sessionLabel": "Session 1",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "7d541f39-3c21-4967-9337-cd4ccb6d2061",
+      "exerciseId": "cable-lateral-raises",
+      "exerciseName": "Cable Lateral Raises",
+      "type": "estimated",
+      "value": 19.6,
+      "sessionId": "session-6",
+      "sessionLabel": "Session 6",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.043Z"
+    },
+    {
+      "id": "7e10d653-0008-4222-86fb-888f59aebd04",
+      "exerciseId": "overhead-triceps",
+      "exerciseName": "Overhead Triceps",
+      "type": "weight",
+      "value": 20,
+      "weight": 20,
+      "sessionId": "session-4",
+      "sessionLabel": "Session 4",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "7e5fd61d-95de-4bb4-a098-1e88e88d325c",
+      "exerciseId": "cable-row-single",
+      "exerciseName": "Single-arm Cable Row",
+      "type": "estimated",
+      "value": 93.6,
+      "sessionId": "14e1eb95-0ca2-4579-9f26-afd6c249f306",
+      "sessionLabel": "Session 8",
+      "date": "2026-05-04T12:01:01.188Z",
+      "detectedAt": "2026-05-04T12:01:01.214Z"
+    },
+    {
+      "id": "822408d5-ede4-4479-a72b-3807fea8b1ce",
+      "exerciseId": "cable-row-both",
+      "exerciseName": "Cable Row Both Arms",
+      "type": "reps",
+      "value": 10,
+      "weight": 55,
+      "reps": 10,
+      "sessionId": "session-3",
+      "sessionLabel": "Session 3",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "823cd359-1247-4ce5-a09c-af33e84a936f",
+      "exerciseId": "ez-preacher-curl",
+      "exerciseName": "EZ Bar Preacher Curl",
+      "type": "reps",
+      "value": 10,
+      "weight": 15,
+      "reps": 10,
+      "sessionId": "session-1",
+      "sessionLabel": "Session 1",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "83a5152d-3c3d-4699-8d63-520ad89f6f45",
+      "exerciseId": "cable-curl-behind",
+      "exerciseName": "Cable Curl Behind Body",
+      "type": "estimated",
+      "value": 28.8,
+      "sessionId": "12ca6d3a-29ed-4a10-a833-3a0c863f692e",
+      "sessionLabel": "Session 9",
+      "date": "2026-05-06T17:01:19.110Z",
+      "detectedAt": "2026-05-06T17:01:19.132Z"
+    },
+    {
+      "id": "8626792a-f066-4b69-84c5-fc1049ee7ff8",
+      "exerciseId": "overhead-triceps",
+      "exerciseName": "Overhead Triceps Cable",
+      "type": "weight",
+      "value": 25,
+      "weight": 25,
+      "sessionId": "12ca6d3a-29ed-4a10-a833-3a0c863f692e",
+      "sessionLabel": "Session 9",
+      "date": "2026-05-06T17:01:19.110Z",
+      "detectedAt": "2026-05-06T17:01:19.143Z"
+    },
+    {
+      "id": "87b3b6f7-fe94-47eb-9693-6a7bbab76f5d",
+      "exerciseId": "hammer-curl",
+      "exerciseName": "Hammer Curl",
+      "type": "volume",
+      "value": 270,
+      "sessionId": "session-1",
+      "sessionLabel": "Session 1",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "92387ffe-4ef7-4c72-adb9-945b27bb0f99",
+      "exerciseId": "cable-fly",
+      "exerciseName": "Cable Fly",
+      "type": "weight",
+      "value": 15,
+      "weight": 15,
+      "sessionId": "session-4",
+      "sessionLabel": "Session 4",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "92d6beb3-2730-4527-ade6-53bf87e10ded",
+      "exerciseId": "wide-lat-pulldown",
+      "exerciseName": "Wide Grip Lat Pulldown",
+      "type": "estimated",
+      "value": 133.3,
+      "sessionId": "session-3",
+      "sessionLabel": "Session 3",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "93a0fbda-7a9d-45ce-9573-d4169d6e2fb6",
+      "exerciseId": "leg-extension",
+      "exerciseName": "Leg Extension",
+      "type": "weight",
+      "value": 100,
+      "weight": 100,
+      "sessionId": "session-2",
+      "sessionLabel": "Session 2",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "9497299b-15ba-406b-96f3-28af04dd8e49",
+      "exerciseId": "incline-db-bench",
+      "exerciseName": "Incline DB Bench Press",
+      "type": "estimated",
+      "value": 24.8,
+      "sessionId": "session-1",
+      "sessionLabel": "Session 1",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "95d9f877-9b53-47cf-9763-f96fe4b65200",
+      "exerciseId": "triceps-pushdown",
+      "exerciseName": "Triceps Pushdown",
+      "type": "weight",
+      "value": 60,
+      "weight": 60,
+      "sessionId": "session-4",
+      "sessionLabel": "Session 4",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "95fda6fb-3757-4269-ab88-558108f63c9c",
+      "exerciseId": "single-preacher-curl",
+      "exerciseName": "Single-arm Preacher Curl",
+      "type": "reps",
+      "value": 12,
+      "weight": 12.5,
+      "reps": 12,
+      "sessionId": "12ca6d3a-29ed-4a10-a833-3a0c863f692e",
+      "sessionLabel": "Session 9",
+      "date": "2026-05-06T17:01:19.110Z",
+      "detectedAt": "2026-05-06T17:01:19.149Z"
+    },
+    {
+      "id": "96b9f877-447d-461c-b196-8a9d1759e531",
+      "exerciseId": "cable-curl-behind",
+      "exerciseName": "Cable Curl Behind Body",
+      "type": "volume",
+      "value": 540,
+      "sessionId": "session-6",
+      "sessionLabel": "Session 6",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.043Z"
+    },
+    {
+      "id": "996ec0e7-eb6e-4b95-8987-ec9d56b3b33e",
+      "exerciseId": "incline-db-bench",
+      "exerciseName": "Incline DB Bench Press",
+      "type": "reps",
+      "value": 8,
+      "weight": 20,
+      "reps": 8,
+      "sessionId": "session-1",
+      "sessionLabel": "Session 1",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "9ad427ed-1241-4dac-8d1a-589475039eda",
+      "exerciseId": "leg-extension",
+      "exerciseName": "Leg Extension",
+      "type": "volume",
+      "value": 1200,
+      "sessionId": "session-2",
+      "sessionLabel": "Session 2",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "9bd0a75c-e204-450e-b76b-e5e227b3400a",
+      "exerciseId": "triceps-pushdown",
+      "exerciseName": "Triceps Pushdown",
+      "type": "reps",
+      "value": 9,
+      "weight": 55,
+      "reps": 9,
+      "sessionId": "session-6",
+      "sessionLabel": "Session 6",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.043Z"
+    },
+    {
+      "id": "9c40e3ed-04d7-4799-9263-8ddb3d4ca57e",
+      "exerciseId": "hammer-curl",
+      "exerciseName": "Hammer Curl",
+      "type": "weight",
+      "value": 15,
+      "weight": 15,
+      "sessionId": "session-3",
+      "sessionLabel": "Session 3",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "9ca72877-61e5-4dc7-a4f0-daa07b742e2c",
+      "exerciseId": "cable-lateral-raises",
+      "exerciseName": "Cable Lateral Raises",
+      "type": "estimated",
+      "value": 21.6,
+      "sessionId": "12ca6d3a-29ed-4a10-a833-3a0c863f692e",
+      "sessionLabel": "Session 9",
+      "date": "2026-05-06T17:01:19.110Z",
+      "detectedAt": "2026-05-06T17:01:19.138Z"
+    },
+    {
+      "id": "9de82627-7f25-4f09-a834-b8f3d893b358",
+      "exerciseId": "overhead-triceps",
+      "exerciseName": "Overhead Triceps",
+      "type": "reps",
+      "value": 10,
+      "weight": 15,
+      "reps": 10,
+      "sessionId": "session-6",
+      "sessionLabel": "Session 6",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.043Z"
+    },
+    {
+      "id": "9df45299-acce-4b59-b673-91c4487cfe49",
+      "exerciseId": "close-lat-pulldown",
+      "exerciseName": "Close Grip Lat Pulldown",
+      "type": "weight",
+      "value": 130,
+      "weight": 130,
+      "sessionId": "session-3",
+      "sessionLabel": "Session 3",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "9f11c061-3f82-451a-be76-df96ed800ad5",
+      "exerciseId": "shoulder-press",
+      "exerciseName": "Shoulder Press",
+      "type": "volume",
+      "value": 2850,
+      "sessionId": "session-6",
+      "sessionLabel": "Session 6",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.043Z"
+    },
+    {
+      "id": "9f2bf718-1f0b-4990-b79e-4ccb527a7f1c",
+      "exerciseId": "calf-raises",
+      "exerciseName": "Calf Raises",
+      "type": "weight",
+      "value": 30,
+      "weight": 30,
+      "sessionId": "session-2",
+      "sessionLabel": "Session 2",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "9f4054a8-5500-4fe4-980b-91c343dcbf76",
+      "exerciseId": "overhead-triceps",
+      "exerciseName": "Overhead Triceps",
+      "type": "reps",
+      "value": 13,
+      "weight": 10,
+      "reps": 13,
+      "sessionId": "session-6",
+      "sessionLabel": "Session 6",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.043Z"
+    },
+    {
+      "id": "9fdc5064-f610-4efa-b167-c6201816657c",
+      "exerciseId": "cable-fly",
+      "exerciseName": "Cable Fly",
+      "type": "estimated",
+      "value": 28.8,
+      "sessionId": "14e1eb95-0ca2-4579-9f26-afd6c249f306",
+      "sessionLabel": "Session 8",
+      "date": "2026-05-04T12:01:01.188Z",
+      "detectedAt": "2026-05-04T12:01:01.221Z"
+    },
+    {
+      "id": "9fdddbca-2b30-42c8-abcf-e7b67dbbb7fe",
+      "exerciseId": "cable-row-single",
+      "exerciseName": "Single-arm Cable Row",
+      "type": "estimated",
+      "value": 74.7,
+      "sessionId": "session-3",
+      "sessionLabel": "Session 3",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "a0922544-be01-4fa1-bf40-b3b28fa3c66b",
+      "exerciseId": "calf-raises",
+      "exerciseName": "Calf Raises",
+      "type": "reps",
+      "value": 15,
+      "weight": 20,
+      "reps": 15,
+      "sessionId": "session-2",
+      "sessionLabel": "Session 2",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "a095039d-fac1-49ce-83e7-e506c2511ad4",
+      "exerciseId": "hammer-curl",
+      "exerciseName": "Hammer Curl",
+      "type": "estimated",
+      "value": 10.8,
+      "sessionId": "session-1",
+      "sessionLabel": "Session 1",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "a3af3785-1b72-4cbb-9105-e12d84aba24d",
+      "exerciseId": "incline-db-bench",
+      "exerciseName": "Incline Press",
+      "type": "estimated",
+      "value": 26.7,
+      "sessionId": "session-4",
+      "sessionLabel": "Session 4",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "a400a71d-91b6-46b3-af78-051ccfe71d28",
+      "exerciseId": "calf-raises",
+      "exerciseName": "Calf Raises",
+      "type": "reps",
+      "value": 15,
+      "weight": 30,
+      "reps": 15,
+      "sessionId": "session-2",
+      "sessionLabel": "Session 2",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "a753b585-f472-426e-b3a0-2da8652f8b35",
+      "exerciseId": "cable-row-single",
+      "exerciseName": "Single-arm Cable Row",
+      "type": "reps",
+      "value": 10.5,
+      "weight": 55,
+      "reps": 10.5,
+      "sessionId": "session-3",
+      "sessionLabel": "Session 3",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "a8fa6f6f-b4b0-4e66-957f-9d93deeacb3f",
+      "exerciseId": "cable-row-single",
+      "exerciseName": "Cable Row Single Arm",
+      "type": "estimated",
+      "value": 64.3,
+      "sessionId": "session-1",
+      "sessionLabel": "Session 1",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "ab418689-edac-4508-beb0-3ece5ce45ae6",
+      "exerciseId": "single-preacher-curl",
+      "exerciseName": "Single-arm Preacher Curl",
+      "type": "estimated",
+      "value": 15.5,
+      "sessionId": "session-3",
+      "sessionLabel": "Session 3",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "ab96a98f-4ebd-4d31-88ef-5990a4cbd518",
+      "exerciseId": "leg-press",
+      "exerciseName": "Leg Press",
+      "type": "weight",
+      "value": 40,
+      "weight": 40,
+      "sessionId": "session-2",
+      "sessionLabel": "Session 2",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "ac9ae96e-559c-43b1-b202-bd8a34e0e1a6",
+      "exerciseId": "cable-curl-behind",
+      "exerciseName": "Cable Curl Behind Body",
+      "type": "reps",
+      "value": 9,
+      "weight": 20,
+      "reps": 9,
+      "sessionId": "session-6",
+      "sessionLabel": "Session 6",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.043Z"
+    },
+    {
+      "id": "acede735-d427-45a9-ba3c-73a075785032",
+      "exerciseId": "ez-preacher-curl",
+      "exerciseName": "EZ Bar Preacher Curl",
+      "type": "estimated",
+      "value": 20,
+      "sessionId": "session-1",
+      "sessionLabel": "Session 1",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "afdff4bb-7321-4690-a61a-1ded9ff22026",
+      "exerciseId": "cable-curl-behind",
+      "exerciseName": "Cable Curl Behind Body",
+      "type": "weight",
+      "value": 20,
+      "weight": 20,
+      "sessionId": "session-6",
+      "sessionLabel": "Session 6",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.043Z"
+    },
+    {
+      "id": "b1bfca29-7e8c-4ff1-b82e-d201f50c735d",
+      "exerciseId": "incline-db-bench",
+      "exerciseName": "Incline DB Bench Press",
+      "type": "reps",
+      "value": 8,
+      "weight": 10,
+      "reps": 8,
+      "sessionId": "session-1",
+      "sessionLabel": "Session 1",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "b257efa1-a983-44f3-b938-ddf3bd015097",
+      "exerciseId": "calf-raises",
+      "exerciseName": "Calf Raises",
+      "type": "reps",
+      "value": 12,
+      "weight": 45,
+      "reps": 12,
+      "sessionId": "session-5",
+      "sessionLabel": "Session 5",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.043Z"
+    },
+    {
+      "id": "b2c8e86c-df40-4171-9732-99596fd5ecbd",
+      "exerciseId": "flat-press",
+      "exerciseName": "Flat Press",
+      "type": "volume",
+      "value": 240,
+      "sessionId": "session-4",
+      "sessionLabel": "Session 4",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "b5d2afdd-83f9-44a4-8db3-560d01da1364",
+      "exerciseId": "overhead-triceps",
+      "exerciseName": "Single Arm Overhead Triceps Cable",
+      "type": "weight",
+      "value": 15,
+      "weight": 15,
+      "sessionId": "session-1",
+      "sessionLabel": "Session 1",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "b894ed2d-9bc0-4efd-b903-7fa4d20dc013",
+      "exerciseId": "overhead-triceps",
+      "exerciseName": "Overhead Triceps",
+      "type": "volume",
+      "value": 400,
+      "sessionId": "session-6",
+      "sessionLabel": "Session 6",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.043Z"
+    },
+    {
+      "id": "bbc090eb-5247-4213-ac42-7846e6739bbc",
+      "exerciseId": "cable-fly",
+      "exerciseName": "Cable Fly",
+      "type": "estimated",
+      "value": 21.6,
+      "sessionId": "session-4",
+      "sessionLabel": "Session 4",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "bc583bc1-f074-4014-a382-3a0cae6c6179",
+      "exerciseId": "cable-lateral-raises",
+      "exerciseName": "Cable Lateral Raises",
+      "type": "reps",
+      "value": 12,
+      "weight": 15,
+      "reps": 12,
+      "sessionId": "12ca6d3a-29ed-4a10-a833-3a0c863f692e",
+      "sessionLabel": "Session 9",
+      "date": "2026-05-06T17:01:19.110Z",
+      "detectedAt": "2026-05-06T17:01:19.138Z"
+    },
+    {
+      "id": "befdada0-2a30-4c5d-822e-1de46bbe9ccb",
+      "exerciseId": "cable-curl-behind",
+      "exerciseName": "Cable Curl Behind Body",
+      "type": "estimated",
+      "value": 21.6,
+      "sessionId": "session-3",
+      "sessionLabel": "Session 3",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "c3d62e90-da16-4dbf-a91d-76c890fab742",
+      "exerciseId": "lateral-raises",
+      "exerciseName": "Lateral Raises",
+      "type": "estimated",
+      "value": 10.8,
+      "sessionId": "session-1",
+      "sessionLabel": "Session 1",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "c41e2519-792d-42bb-ab13-158a46312b4d",
+      "exerciseId": "overhead-triceps",
+      "exerciseName": "Overhead Triceps Cable",
+      "type": "volume",
+      "value": 825,
+      "sessionId": "12ca6d3a-29ed-4a10-a833-3a0c863f692e",
+      "sessionLabel": "Session 9",
+      "date": "2026-05-06T17:01:19.110Z",
+      "detectedAt": "2026-05-06T17:01:19.143Z"
+    },
+    {
+      "id": "c883c259-43ed-40a7-bf68-0cbcd46d0644",
+      "exerciseId": "triceps-pushdown",
+      "exerciseName": "Triceps Pushdown",
+      "type": "volume",
+      "value": 2670,
+      "sessionId": "12ca6d3a-29ed-4a10-a833-3a0c863f692e",
+      "sessionLabel": "Session 9",
+      "date": "2026-05-06T17:01:19.110Z",
+      "detectedAt": "2026-05-06T17:01:19.152Z"
+    },
+    {
+      "id": "c93556c3-650c-4f64-bd03-a62f97209e3f",
+      "exerciseId": "hammer-curl",
+      "exerciseName": "Hammer Curl",
+      "type": "weight",
+      "value": 20,
+      "weight": 20,
+      "sessionId": "12ca6d3a-29ed-4a10-a833-3a0c863f692e",
+      "sessionLabel": "Session 9",
+      "date": "2026-05-06T17:01:19.110Z",
+      "detectedAt": "2026-05-06T17:01:19.140Z"
+    },
+    {
+      "id": "cc0cb7a9-8f63-435f-8d31-ea8205aea4a6",
+      "exerciseId": "cable-row-both",
+      "exerciseName": "Cable Row Both Arms",
+      "type": "volume",
+      "value": 550,
+      "sessionId": "session-3",
+      "sessionLabel": "Session 3",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "cdc5c960-9dfc-4035-9f1b-b73066e929f1",
+      "exerciseId": "wide-lat-pulldown",
+      "exerciseName": "Wide Lat Pulldown",
+      "type": "reps",
+      "value": 9,
+      "weight": 100,
+      "reps": 9,
+      "sessionId": "session-1",
+      "sessionLabel": "Session 1",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "ce364951-5a22-4bcd-8050-d3166f037a7b",
+      "exerciseId": "t-bar-row",
+      "exerciseName": "T-Bar Row",
+      "type": "weight",
+      "value": 132,
+      "weight": 132,
+      "sessionId": "14e1eb95-0ca2-4579-9f26-afd6c249f306",
+      "sessionLabel": "Session 8",
+      "date": "2026-05-04T12:01:01.188Z",
+      "detectedAt": "2026-05-04T12:01:01.219Z"
+    },
+    {
+      "id": "d03e618b-52b7-40da-9fed-715d7ac09ab9",
+      "exerciseId": "rear-delt-cable",
+      "exerciseName": "Single-arm Rear Delt Cable",
+      "type": "estimated",
+      "value": 21.6,
+      "sessionId": "12ca6d3a-29ed-4a10-a833-3a0c863f692e",
+      "sessionLabel": "Session 9",
+      "date": "2026-05-06T17:01:19.110Z",
+      "detectedAt": "2026-05-06T17:01:19.145Z"
+    },
+    {
+      "id": "d16f7964-1804-4a26-acd3-2605d4815206",
+      "exerciseId": "leg-curl",
+      "exerciseName": "Leg Curl",
+      "type": "weight",
+      "value": 100,
+      "weight": 100,
+      "sessionId": "session-2",
+      "sessionLabel": "Session 2",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "d269bbbb-2753-403e-ba4b-335a2146dfd0",
+      "exerciseId": "overhead-triceps",
+      "exerciseName": "Single Arm Overhead Triceps Cable",
+      "type": "volume",
+      "value": 240,
+      "sessionId": "session-1",
+      "sessionLabel": "Session 1",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "d3c6bfe6-5a5d-49cf-abd2-57e482233ef9",
+      "exerciseId": "t-bar-row",
+      "exerciseName": "T-Bar Row",
+      "type": "reps",
+      "value": 11,
+      "weight": 99,
+      "reps": 11,
+      "sessionId": "session-3",
+      "sessionLabel": "Session 3",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "d5ce7956-fc9c-4b00-a076-3b9b39f0ab18",
+      "exerciseId": "triceps-machine",
+      "exerciseName": "Triceps Machine",
+      "type": "volume",
+      "value": 1920,
+      "sessionId": "session-1",
+      "sessionLabel": "Session 1",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "d6bf2db4-5813-4070-acf8-8a435ee17cef",
+      "exerciseId": "leg-extension",
+      "exerciseName": "Leg Extension",
+      "type": "reps",
+      "value": 12,
+      "weight": 130,
+      "reps": 12,
+      "sessionId": "session-5",
+      "sessionLabel": "Session 5",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "d73dfe4d-5a98-43ff-8b5a-c3b7dce95065",
+      "exerciseId": "single-preacher-curl",
+      "exerciseName": "Single-arm Preacher Curl",
+      "type": "weight",
+      "value": 12.5,
+      "weight": 12.5,
+      "sessionId": "session-3",
+      "sessionLabel": "Session 3",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "d7c5d3d9-9e1c-4133-b5a9-191c5f6b4704",
+      "exerciseId": "leg-press",
+      "exerciseName": "Leg Press",
+      "type": "estimated",
+      "value": 53.3,
+      "sessionId": "session-2",
+      "sessionLabel": "Session 2",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "d90bcb30-b6fd-4ebb-89e6-d5f4565e5e47",
+      "exerciseId": "hammer-curl",
+      "exerciseName": "Hammer Curl",
+      "type": "estimated",
+      "value": 17.4,
+      "sessionId": "session-3",
+      "sessionLabel": "Session 3",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "d92ba2e4-a820-4aa5-9c3d-7a530b89029b",
+      "exerciseId": "wide-lat-pulldown",
+      "exerciseName": "Wide Lat Pulldown",
+      "type": "volume",
+      "value": 2700,
+      "sessionId": "session-1",
+      "sessionLabel": "Session 1",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "da8916da-77b4-4486-bf43-637d5e15e048",
+      "exerciseId": "overhead-triceps",
+      "exerciseName": "Overhead Triceps",
+      "type": "estimated",
+      "value": 27.7,
+      "sessionId": "session-4",
+      "sessionLabel": "Session 4",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "db52e663-194a-450c-8cd2-cc920dcc7681",
+      "exerciseId": "triceps-pushdown",
+      "exerciseName": "Triceps Pushdown",
+      "type": "volume",
+      "value": 1575,
+      "sessionId": "session-6",
+      "sessionLabel": "Session 6",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.043Z"
+    },
+    {
+      "id": "dc4aa4a8-3da3-4264-b759-67071042d7a0",
+      "exerciseId": "hammer-curl",
+      "exerciseName": "Hammer Curl",
+      "type": "estimated",
+      "value": 17.4,
+      "sessionId": "session-6",
+      "sessionLabel": "Session 6",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.043Z"
+    },
+    {
+      "id": "dddc459a-752e-4ffb-a96b-4715d69ea0dc",
+      "exerciseId": "single-preacher-curl",
+      "exerciseName": "Single-arm Preacher Curl",
+      "type": "volume",
+      "value": 425,
+      "sessionId": "12ca6d3a-29ed-4a10-a833-3a0c863f692e",
+      "sessionLabel": "Session 9",
+      "date": "2026-05-06T17:01:19.110Z",
+      "detectedAt": "2026-05-06T17:01:19.149Z"
+    },
+    {
+      "id": "df4608af-c053-4ea5-9573-e9c512114714",
+      "exerciseId": "leg-extension",
+      "exerciseName": "Leg Extension",
+      "type": "weight",
+      "value": 130,
+      "weight": 130,
+      "sessionId": "session-5",
+      "sessionLabel": "Session 5",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "df62e6e6-e198-4c7f-bd06-a498da04e78b",
+      "exerciseId": "hammer-curl",
+      "exerciseName": "Hammer Curl",
+      "type": "reps",
+      "value": 6,
+      "weight": 15,
+      "reps": 6,
+      "sessionId": "session-3",
+      "sessionLabel": "Session 3",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "e1df14da-b16e-4620-ac8e-097900c6b75b",
+      "exerciseId": "cable-curl-behind",
+      "exerciseName": "Cable Curl Behind Body",
+      "type": "volume",
+      "value": 560,
+      "sessionId": "12ca6d3a-29ed-4a10-a833-3a0c863f692e",
+      "sessionLabel": "Session 9",
+      "date": "2026-05-06T17:01:19.110Z",
+      "detectedAt": "2026-05-06T17:01:19.132Z"
+    },
+    {
+      "id": "e36d75d3-d129-43bc-afae-e3475b6d82ac",
+      "exerciseId": "shoulder-press",
+      "exerciseName": "Shoulder Press Machine",
+      "type": "weight",
+      "value": 80,
+      "weight": 80,
+      "sessionId": "session-1",
+      "sessionLabel": "Session 1",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "e39ed8e4-fe48-4c72-ab6a-267c79f1d0dc",
+      "exerciseId": "cable-lateral-raises",
+      "exerciseName": "Cable Lateral Raises",
+      "type": "reps",
+      "value": 9.5,
+      "weight": 15,
+      "reps": 9.5,
+      "sessionId": "session-6",
+      "sessionLabel": "Session 6",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.043Z"
+    },
+    {
+      "id": "e4b7b505-e5be-418c-bdab-a6be7844cf76",
+      "exerciseId": "single-arm-cable-tri",
+      "exerciseName": "Single Arm Cable",
+      "type": "volume",
+      "value": 720,
+      "sessionId": "session-4",
+      "sessionLabel": "Session 4",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "e61aaa05-b600-496c-a06d-538e7c891b64",
+      "exerciseId": "triceps-machine",
+      "exerciseName": "Triceps Machine",
+      "type": "weight",
+      "value": 80,
+      "weight": 80,
+      "sessionId": "session-1",
+      "sessionLabel": "Session 1",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "e64716f7-dfa2-42c5-8b8d-a726fa3d58f3",
+      "exerciseId": "leg-curl",
+      "exerciseName": "Leg Curl",
+      "type": "weight",
+      "value": 130,
+      "weight": 130,
+      "sessionId": "session-5",
+      "sessionLabel": "Session 5",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "e6eeb6c0-0da7-47f0-ae82-4c8e7ce51d2b",
+      "exerciseId": "shoulder-press",
+      "exerciseName": "Shoulder Press",
+      "type": "estimated",
+      "value": 136.8,
+      "sessionId": "session-6",
+      "sessionLabel": "Session 6",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.043Z"
+    },
+    {
+      "id": "e753f6b7-9b7f-4e96-b220-dc02e2318499",
+      "exerciseId": "face-pull",
+      "exerciseName": "Face Pull",
+      "type": "weight",
+      "value": 70,
+      "weight": 70,
+      "sessionId": "session-6",
+      "sessionLabel": "Session 6",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.043Z"
+    },
+    {
+      "id": "ea1dab81-2ae0-439f-ab17-96334fd1c615",
+      "exerciseId": "t-bar-row",
+      "exerciseName": "T-Bar Row",
+      "type": "weight",
+      "value": 110,
+      "weight": 110,
+      "sessionId": "session-3",
+      "sessionLabel": "Session 3",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "ec2df285-ee9e-44d3-9b79-5af15c99bfea",
+      "exerciseId": "face-pull",
+      "exerciseName": "Face Pull",
+      "type": "reps",
+      "value": 12,
+      "weight": 70,
+      "reps": 12,
+      "sessionId": "session-6",
+      "sessionLabel": "Session 6",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.043Z"
+    },
+    {
+      "id": "ec92d84e-c7e7-4b0c-bf17-498259cf6a99",
+      "exerciseId": "rear-delt-cable",
+      "exerciseName": "Single-arm Rear Delt Cable",
+      "type": "reps",
+      "value": 12,
+      "weight": 15,
+      "reps": 12,
+      "sessionId": "12ca6d3a-29ed-4a10-a833-3a0c863f692e",
+      "sessionLabel": "Session 9",
+      "date": "2026-05-06T17:01:19.110Z",
+      "detectedAt": "2026-05-06T17:01:19.145Z"
+    },
+    {
+      "id": "ee15a9a0-dca4-4023-9806-1a770a3d602f",
+      "exerciseId": "wide-lat-pulldown",
+      "exerciseName": "Wide Grip Lat Pulldown",
+      "type": "reps",
+      "value": 10,
+      "weight": 100,
+      "reps": 10,
+      "sessionId": "session-3",
+      "sessionLabel": "Session 3",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "ee8558c8-c06e-4cb4-a603-c07884eb9f69",
+      "exerciseId": "t-bar-row",
+      "exerciseName": "T-Bar Row",
+      "type": "reps",
+      "value": 12,
+      "weight": 132,
+      "reps": 12,
+      "sessionId": "14e1eb95-0ca2-4579-9f26-afd6c249f306",
+      "sessionLabel": "Session 8",
+      "date": "2026-05-04T12:01:01.188Z",
+      "detectedAt": "2026-05-04T12:01:01.219Z"
+    },
+    {
+      "id": "ef708288-3feb-44fd-bbcb-50117059e0e6",
+      "exerciseId": "cable-curl-behind",
+      "exerciseName": "Cable Curl Behind Body",
+      "type": "reps",
+      "value": 12,
+      "weight": 15,
+      "reps": 12,
+      "sessionId": "session-3",
+      "sessionLabel": "Session 3",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "f03d7128-2b33-4eb4-8141-db0e7a0a2d5f",
+      "exerciseId": "hammer-curl",
+      "exerciseName": "Hammer Curl",
+      "type": "volume",
+      "value": 720,
+      "sessionId": "12ca6d3a-29ed-4a10-a833-3a0c863f692e",
+      "sessionLabel": "Session 9",
+      "date": "2026-05-06T17:01:19.110Z",
+      "detectedAt": "2026-05-06T17:01:19.140Z"
+    },
+    {
+      "id": "f17a5e5e-8c45-4e96-a995-76b2f3d6a631",
+      "exerciseId": "single-preacher-curl",
+      "exerciseName": "Single-arm Preacher Curl",
+      "type": "reps",
+      "value": 8,
+      "weight": 12.5,
+      "reps": 8,
+      "sessionId": "session-3",
+      "sessionLabel": "Session 3",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "f1a3b5ea-2005-49bf-845a-efde23f9c4fc",
+      "exerciseId": "lateral-raises",
+      "exerciseName": "Lateral Raises",
+      "type": "reps",
+      "value": 12,
+      "weight": 7.5,
+      "reps": 12,
+      "sessionId": "session-1",
+      "sessionLabel": "Session 1",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "f1b50fb0-b3d4-448d-8118-544f7b98ab31",
+      "exerciseId": "shoulder-press",
+      "exerciseName": "Shoulder Press Machine",
+      "type": "volume",
+      "value": 3190,
+      "sessionId": "12ca6d3a-29ed-4a10-a833-3a0c863f692e",
+      "sessionLabel": "Session 9",
+      "date": "2026-05-06T17:01:19.110Z",
+      "detectedAt": "2026-05-06T17:01:19.147Z"
+    },
+    {
+      "id": "f1d8d400-3810-459a-9b4e-6e8cbd0531ba",
+      "exerciseId": "calf-raises",
+      "exerciseName": "Calf Raises",
+      "type": "estimated",
+      "value": 64.8,
+      "sessionId": "session-5",
+      "sessionLabel": "Session 5",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.043Z"
+    },
+    {
+      "id": "f46f30e6-8e0e-4440-80b4-772dd0f2d289",
+      "exerciseId": "cable-lateral-raises",
+      "exerciseName": "Cable Lateral Raises",
+      "type": "reps",
+      "value": 15,
+      "weight": 10,
+      "reps": 15,
+      "sessionId": "session-6",
+      "sessionLabel": "Session 6",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.043Z"
+    },
+    {
+      "id": "f6009b47-343a-407c-b3c2-7c93e7ef1b75",
+      "exerciseId": "cable-lateral-raises",
+      "exerciseName": "Cable Lateral Raises",
+      "type": "volume",
+      "value": 660,
+      "sessionId": "12ca6d3a-29ed-4a10-a833-3a0c863f692e",
+      "sessionLabel": "Session 9",
+      "date": "2026-05-06T17:01:19.110Z",
+      "detectedAt": "2026-05-06T17:01:19.138Z"
+    },
+    {
+      "id": "f9259976-cf1e-41df-8fd3-f6a87b6fd8ae",
+      "exerciseId": "cable-lateral-raises",
+      "exerciseName": "Cable Lateral Raises",
+      "type": "volume",
+      "value": 292.5,
+      "sessionId": "session-6",
+      "sessionLabel": "Session 6",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.043Z"
+    },
+    {
+      "id": "fa43c2b4-8e13-45a9-acb4-2eb9342944a8",
+      "exerciseId": "calf-raises",
+      "exerciseName": "Calf Raises",
+      "type": "volume",
+      "value": 750,
+      "sessionId": "session-2",
+      "sessionLabel": "Session 2",
+      "date": null,
+      "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "fde5b627-03b4-4d38-862b-5fa86c493349",
+      "exerciseId": "close-lat-pulldown",
+      "exerciseName": "Close Grip Lat Pulldown",
+      "type": "volume",
+      "value": 5480,
+      "sessionId": "14e1eb95-0ca2-4579-9f26-afd6c249f306",
+      "sessionLabel": "Session 8",
+      "date": "2026-05-04T12:01:01.188Z",
+      "detectedAt": "2026-05-04T12:01:01.217Z"
+    },
+    {
+      "id": "ff1d44ac-5c7d-4a00-b21c-bd6fa0ad2143",
+      "exerciseId": "close-lat-pulldown",
+      "exerciseName": "Close Grip Lat Pulldown",
+      "type": "reps",
+      "value": 12,
+      "weight": 130,
+      "reps": 12,
+      "sessionId": "14e1eb95-0ca2-4579-9f26-afd6c249f306",
+      "sessionLabel": "Session 8",
+      "date": "2026-05-04T12:01:01.188Z",
+      "detectedAt": "2026-05-04T12:01:01.217Z"
+    },
+    {
+      "id": "ff4f41e9-5e07-4b32-939d-1121ddca2f44",
+      "exerciseId": "hammer-curl",
+      "exerciseName": "Hammer Curl",
+      "type": "estimated",
+      "value": 28.8,
+      "sessionId": "12ca6d3a-29ed-4a10-a833-3a0c863f692e",
+      "sessionLabel": "Session 9",
+      "date": "2026-05-06T17:01:19.110Z",
+      "detectedAt": "2026-05-06T17:01:19.140Z"
+    }
+  ],
+  "settings": {
+    "id": "main",
+    "defaultUnit": "kg",
+    "theme": "dark"
+  }
+}

@@ -10,15 +10,42 @@ import History from './components/History';
 import Analytics from './components/Analytics';
 import Settings from './components/Settings';
 import LockScreen from './components/LockScreen';
+import WorkoutSummary from './components/WorkoutSummary';
+import CardioView from './components/CardioView';
+import backupData from './data/backup.json';
+import { auth } from './lib/firebase';
+import { onAuthStateChanged } from 'firebase/auth';
 
 export default function App() {
-  const { initialize, isInitialized, currentView, activeWorkout } = useWorkoutStore();
+  const { 
+    initialize, isInitialized, currentView, activeWorkout, setUser 
+  } = useWorkoutStore();
   const [isAuthenticated, setIsAuthenticated] = useState(() => {
     return localStorage.getItem('gymtracker_auth') === 'true';
   });
 
   useEffect(() => {
-    initialize();
+    if (!auth) return;
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      setUser(user);
+    });
+    return () => unsubscribe();
+  }, [setUser]);
+
+  useEffect(() => {
+    const init = async () => {
+      await initialize();
+      if (!localStorage.getItem('gymtracker_data_imported')) {
+        const { importData } = useWorkoutStore.getState();
+        try {
+          await importData(JSON.stringify(backupData));
+          localStorage.setItem('gymtracker_data_imported', 'true');
+        } catch (e) {
+          console.error("Failed to auto-import backup data", e);
+        }
+      }
+    };
+    init();
   }, [initialize]);
 
   if (!isAuthenticated) {
@@ -48,7 +75,9 @@ export default function App() {
         {view === 'exercises' && <ExerciseLibrary key="exercises" />}
         {view === 'history' && <History key="history" />}
         {view === 'analytics' && <Analytics key="analytics" />}
+        {view === 'cardio' && <CardioView key="cardio" />}
         {view === 'settings' && <Settings key="settings" />}
+        {view === 'workout-summary' && <WorkoutSummary key="summary" />}
       </AnimatePresence>
     </Layout>
   );

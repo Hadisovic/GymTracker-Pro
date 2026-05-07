@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+import { persist } from 'zustand/middleware';
 import { v4 as uuid } from 'uuid';
 import { db } from '../db';
 import type {
@@ -9,6 +10,9 @@ import type {
 import { defaultMuscleGroups, defaultExercises, defaultWorkoutPresets } from '../data/seedWorkoutData';
 import { seedWorkoutHistory, buildLatestLogs } from '../data/seedWorkoutHistory';
 import { detectPRs, rebuildAllPRs } from '../utils/prDetection';
+import type { User } from 'firebase/auth';
+import { loginWithGoogle, logout as firebaseLogout, db as firestoreDb } from '../lib/firebase';
+import { doc, setDoc, getDoc } from 'firebase/firestore';
 
 interface WorkoutStore {
   // Data
@@ -22,9 +26,16 @@ interface WorkoutStore {
   isInitialized: boolean;
   settings: AppSettings;
   currentView: string;
+  lastCompletedSessionId: string | null;
+  user: User | null;
 
   // Init
   initialize: () => Promise<void>;
+  setUser: (user: User | null) => void;
+  login: () => Promise<void>;
+  logout: () => Promise<void>;
+  syncToCloud: () => Promise<void>;
+  syncFromCloud: () => Promise<void>;
 
   // Navigation
   setCurrentView: (view: string) => void;
@@ -46,6 +57,7 @@ interface WorkoutStore {
 
   // Active Workout
   startWorkout: (presetName: string, muscleGroupIds: string[], exerciseIds: string[]) => void;
+  addExerciseToActiveWorkout: (exerciseId: string) => void;
   setCurrentExercise: (exerciseId: string) => void;
   addSetToExercise: (exerciseId: string, set: WorkoutSet) => void;
   updateSetInExercise: (exerciseId: string, setId: string, set: Partial<WorkoutSet>) => void;
@@ -53,6 +65,7 @@ interface WorkoutStore {
   finishExercise: (exerciseId: string) => void;
   finishWorkout: () => Promise<void>;
   cancelWorkout: () => void;
+  dismissSummary: () => void;
 
   // History
   updateSession: (session: WorkoutSession) => Promise<void>;
@@ -73,9 +86,11 @@ interface WorkoutStore {
   updateSettings: (settings: Partial<AppSettings>) => Promise<void>;
 }
 
-export const useWorkoutStore = create<WorkoutStore>((set, get) => ({
-  muscleGroups: [],
-  exercises: [],
+export const useWorkoutStore = create<WorkoutStore>()(
+  persist(
+    (set, get) => ({
+      muscleGroups: [],
+      exercises: [],
   workoutPresets: [],
   workoutHistory: [],
   latestLogs: {},
@@ -84,8 +99,46 @@ export const useWorkoutStore = create<WorkoutStore>((set, get) => ({
   isInitialized: false,
   settings: { defaultUnit: 'kg', theme: 'dark' },
   currentView: 'dashboard',
+  lastCompletedSessionId: null,
+  user: null,
 
   // ─── Initialize from IndexedDB ──────────────────────────
+  setUser: (user) => set({ user }),
+  
+  login: async () => {
+    const user = await loginWithGoogle();
+    set({ user });
+  },
+
+  logout: async () => {
+    await firebaseLogout();
+    set({ user: null });
+  },
+
+  syncToCloud: async () => {
+    const state = get();
+    if (!state.user) throw new Error("Not logged in");
+    if (!firestoreDb) throw new Error("Firebase not configured");
+    const jsonStr = await state.exportData();
+    await setDoc(doc(firestoreDb, "users", state.user.uid), {
+      data: jsonStr,
+      updatedAt: new Date().toISOString()
+    });
+  },
+
+  syncFromCloud: async () => {
+    const state = get();
+    if (!state.user) throw new Error("Not logged in");
+    if (!firestoreDb) throw new Error("Firebase not configured");
+    const docRef = doc(firestoreDb, "users", state.user.uid);
+    const snap = await getDoc(docRef);
+    if (snap.exists() && snap.data().data) {
+      await state.importData(snap.data().data);
+    } else {
+      throw new Error("No cloud backup found");
+    }
+  },
+
   initialize: async () => {
     try {
       const [mgs, exs, presets, history, logs, prs, settingsArr] = await Promise.all([
@@ -192,6 +245,30 @@ export const useWorkoutStore = create<WorkoutStore>((set, get) => ({
         exerciseLogs,
         startedAt: new Date().toISOString(),
       },
+    });
+  },
+
+  addExerciseToActiveWorkout: (exerciseId) => {
+    set(s => {
+      if (!s.activeWorkout) return {};
+      // Prevent duplicates
+      if (s.activeWorkout.exerciseIds.includes(exerciseId)) return {};
+      
+      const ex = get().exercises.find(e => e.id === exerciseId);
+      const newLog: ExerciseLog = {
+        exerciseId,
+        exerciseName: ex?.name ?? exerciseId,
+        sets: [],
+        completed: false,
+      };
+
+      return {
+        activeWorkout: {
+          ...s.activeWorkout,
+          exerciseIds: [...s.activeWorkout.exerciseIds, exerciseId],
+          exerciseLogs: [...s.activeWorkout.exerciseLogs, newLog],
+        }
+      };
     });
   },
 
@@ -312,10 +389,13 @@ export const useWorkoutStore = create<WorkoutStore>((set, get) => ({
       latestLogs: newLatestLogs,
       prRecords: newPRs,
       activeWorkout: null,
+      lastCompletedSessionId: session.id,
     });
   },
 
   cancelWorkout: () => set({ activeWorkout: null }),
+
+  dismissSummary: () => set({ lastCompletedSessionId: null, currentView: 'dashboard' }),
 
   // ─── History ────────────────────────────────────────────
   updateSession: async (session) => {
@@ -466,4 +546,7 @@ export const useWorkoutStore = create<WorkoutStore>((set, get) => ({
     await db.settings.put({ id: 'main', ...newSettings });
     set({ settings: newSettings });
   },
+}), {
+  name: 'gymtracker-active-workout',
+  partialize: (state) => ({ activeWorkout: state.activeWorkout }),
 }));

@@ -16,6 +16,7 @@ export default function ExerciseLibrary() {
   // Form state
   const [formName, setFormName] = useState('');
   const [formMuscle, setFormMuscle] = useState('');
+  const [formCategory, setFormCategory] = useState<'strength' | 'cardio'>('strength');
   const [formEquipment, setFormEquipment] = useState('');
   const [formAliases, setFormAliases] = useState('');
 
@@ -36,6 +37,7 @@ export default function ExerciseLibrary() {
     setEditingEx(ex);
     setFormName(ex.name);
     setFormMuscle(ex.muscleGroupId);
+    setFormCategory(ex.category || 'strength');
     setFormEquipment(ex.equipment ?? '');
     setFormAliases(ex.aliases?.join(', ') ?? '');
     setIsAdding(false);
@@ -45,6 +47,7 @@ export default function ExerciseLibrary() {
     setEditingEx(null);
     setFormName('');
     setFormMuscle(muscleGroups[0]?.id ?? '');
+    setFormCategory('strength');
     setFormEquipment('');
     setFormAliases('');
     setIsAdding(true);
@@ -57,6 +60,7 @@ export default function ExerciseLibrary() {
         ...editingEx,
         name: formName,
         muscleGroupId: formMuscle,
+        category: formCategory,
         equipment: formEquipment || undefined,
         aliases: aliases.length > 0 ? aliases : undefined,
       });
@@ -65,6 +69,7 @@ export default function ExerciseLibrary() {
         id: uuid(),
         name: formName,
         muscleGroupId: formMuscle,
+        category: formCategory,
         equipment: formEquipment || undefined,
         aliases: aliases.length > 0 ? aliases : undefined,
       });
@@ -168,15 +173,25 @@ export default function ExerciseLibrary() {
                 placeholder="Exercise name"
                 className="input-field text-sm"
               />
-              <select
-                value={formMuscle}
-                onChange={e => setFormMuscle(e.target.value)}
-                className="input-field text-sm"
-              >
-                {muscleGroups.map(mg => (
-                  <option key={mg.id} value={mg.id}>{mg.name}</option>
-                ))}
-              </select>
+              <div className="grid grid-cols-2 gap-2">
+                <select
+                  value={formMuscle}
+                  onChange={e => setFormMuscle(e.target.value)}
+                  className="input-field text-sm"
+                >
+                  {muscleGroups.map(mg => (
+                    <option key={mg.id} value={mg.id}>{mg.name}</option>
+                  ))}
+                </select>
+                <select
+                  value={formCategory}
+                  onChange={e => setFormCategory(e.target.value as 'strength' | 'cardio')}
+                  className="input-field text-sm"
+                >
+                  <option value="strength">Strength</option>
+                  <option value="cardio">Cardio</option>
+                </select>
+              </div>
               <input
                 type="text"
                 value={formEquipment}

@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import {
   LayoutDashboard, Dumbbell, BookOpen, Clock, BarChart3, Settings,
-  Flame
+  Flame, Activity
 } from 'lucide-react';
 import { useWorkoutStore } from '../store/workoutStore';
 
@@ -11,6 +11,7 @@ const navItems = [
   { id: 'workout-builder', label: 'Workout', icon: Dumbbell },
   { id: 'history', label: 'History', icon: Clock },
   { id: 'analytics', label: 'Charts', icon: BarChart3 },
+  { id: 'cardio', label: 'Cardio', icon: Activity },
   { id: 'settings', label: 'Settings', icon: Settings },
 ];
 
@@ -67,8 +68,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <button
                 key={item.id}
                 onClick={() => setCurrentView(item.id)}
-                className="flex flex-col items-center gap-0.5 py-1 px-2 rounded-xl transition-all duration-200 relative"
-                style={{ minWidth: '3.5rem' }}
+                className="flex flex-col items-center gap-0.5 py-1 px-1 rounded-xl transition-all duration-200 relative"
+                style={{ minWidth: '3rem' }}
               >
                 {isActive && (
                   <motion.div

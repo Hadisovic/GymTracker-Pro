@@ -57,6 +57,15 @@ export default function History() {
   };
 
   const formatSet = (set: WorkoutSet) => {
+    if (set.time !== undefined || set.distance !== undefined) {
+      const parts: string[] = [];
+      if (set.time) parts.push(`${set.time}m`);
+      if (set.distance) parts.push(`${set.distance}${set.unit === 'kg' ? 'km' : 'mi'}`);
+      if (set.speed) parts.push(`@ ${set.speed}${set.unit === 'kg' ? 'km/h' : 'mph'}`);
+      if (set.incline) parts.push(`Inc: ${set.incline}`);
+      return parts.length > 0 ? parts.join(' ') : 'Completed';
+    }
+
     const parts: string[] = [];
     if (set.weightMode === 'bodyweight') {
       parts.push('BW');

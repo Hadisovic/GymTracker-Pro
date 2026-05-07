@@ -2,9 +2,10 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   ChevronLeft, Plus, Save, Trash2, ChevronDown, ChevronUp,
-  Zap, AlertTriangle
+  Zap, AlertTriangle, Check
 } from 'lucide-react';
 import { v4 as uuid } from 'uuid';
+import confetti from 'canvas-confetti';
 import { useWorkoutStore } from '../store/workoutStore';
 import type { WorkoutSet, WeightMode, WeightUnit, DropEntry } from '../types/workout';
 
@@ -25,7 +26,7 @@ const weightModeOptions: { value: WeightMode; label: string }[] = [
 export default function ExerciseLogger({ exerciseId, exerciseName, onBack }: Props) {
   const {
     activeWorkout, latestLogs, addSetToExercise, deleteSetFromExercise,
-    exercises, settings, updateExercise
+    exercises, settings, updateExercise, finishExercise
   } = useWorkoutStore();
 
   const currentLog = activeWorkout?.exerciseLogs.find(l => l.exerciseId === exerciseId);
@@ -51,6 +52,14 @@ export default function ExerciseLogger({ exerciseId, exerciseName, onBack }: Pro
   const [restPause, setRestPause] = useState(false);
   const [toFailure, setToFailure] = useState(false);
 
+  // Cardio state
+  const [time, setTime] = useState('');
+  const [distance, setDistance] = useState('');
+  const [speed, setSpeed] = useState('');
+  const [incline, setIncline] = useState('');
+
+  const isCardio = exercise?.category === 'cardio';
+
   const resetForm = () => {
     setWeight('');
     setReps('');
@@ -61,6 +70,10 @@ export default function ExerciseLogger({ exerciseId, exerciseName, onBack }: Pro
     setHasAssistedReps(false);
     setRestPause(false);
     setToFailure(false);
+    setTime('');
+    setDistance('');
+    setSpeed('');
+    setIncline('');
   };
 
   const addDrop = () => {
@@ -89,6 +102,10 @@ export default function ExerciseLogger({ exerciseId, exerciseName, onBack }: Pro
       assistedReps: hasAssistedReps && assistedReps ? parseInt(assistedReps) : undefined,
       restPause: restPause || undefined,
       toFailure: toFailure || undefined,
+      time: time ? parseFloat(time) : undefined,
+      distance: distance ? parseFloat(distance) : undefined,
+      speed: speed ? parseFloat(speed) : undefined,
+      incline: incline ? parseFloat(incline) : undefined,
       timestamp: new Date().toISOString(),
     };
 
@@ -99,11 +116,46 @@ export default function ExerciseLogger({ exerciseId, exerciseName, onBack }: Pro
       updateExercise({ ...exercise, defaultUnit: unit });
     }
 
+    // Haptic feedback for completing a set
+    if (navigator.vibrate) {
+      navigator.vibrate(50);
+    }
+
+    // Quick PR check (beat latest session's max weight or reps)
+    if (latestLog) {
+      const maxPrevWeight = Math.max(0, ...latestLog.sets.map(s => s.weight || 0));
+      const maxPrevReps = Math.max(0, ...latestLog.sets.map(s => s.reps || 0));
+      
+      const beatWeight = newSet.weight && newSet.weight > maxPrevWeight;
+      const beatReps = newSet.reps && newSet.reps > maxPrevReps && (newSet.weight || 0) >= maxPrevWeight;
+      
+      if (beatWeight || beatReps) {
+        confetti({
+          particleCount: 100,
+          spread: 70,
+          origin: { y: 0.6 },
+          colors: ['#6366f1', '#a855f7', '#ec4899', '#facc15']
+        });
+        if (navigator.vibrate) {
+          navigator.vibrate([200, 100, 200]);
+        }
+      }
+    }
+
     resetForm();
     setIsAddingSet(false);
   };
 
   const formatSetDisplay = (set: WorkoutSet) => {
+    if (isCardio || set.time !== undefined || set.distance !== undefined) {
+      const parts: string[] = [];
+      if (set.time) parts.push(`${set.time}m`);
+      if (set.distance) parts.push(`${set.distance}${set.unit === 'kg' ? 'km' : 'mi'}`);
+      if (set.speed) parts.push(`@ ${set.speed}${set.unit === 'kg' ? 'km/h' : 'mph'}`);
+      if (set.incline) parts.push(`Inc: ${set.incline}`);
+      return parts.length > 0 ? parts.join(' ') : 'Completed';
+    }
+
     const parts: string[] = [];
     if (set.weightMode === 'bodyweight') {
       parts.push('BW');
@@ -114,6 +166,18 @@ export default function ExerciseLogger({ exerciseId, exerciseName, onBack }: Pro
     if (set.reps !== null) parts.push(`× ${set.reps}`);
     else parts.push('× ?');
     return parts.join(' ');
+  };
+
+  const copyPreviousLog = () => {
+    if (!latestLog) return;
+    latestLog.sets.forEach((set, index) => {
+      addSetToExercise(exerciseId, {
+        ...set,
+        id: uuid(),
+        setNumber: index + 1,
+        timestamp: new Date().toISOString(),
+      });
+    });
   };
 
   return (
@@ -134,13 +198,20 @@ export default function ExerciseLogger({ exerciseId, exerciseName, onBack }: Pro
       {/* Latest Log Reference */}
       {latestLog && (
         <div className="mb-4">
-          <button
-            onClick={() => setShowRef(!showRef)}
-            className="flex items-center gap-2 text-dark-300 text-xs font-medium mb-2"
-          >
-            Previous Log ({latestLog.sessionLabel})
-            {showRef ? <ChevronUp className="w-3 h-3" /> : <ChevronDown className="w-3 h-3" />}
-          </button>
+          <div className="flex items-center justify-between mb-2">
+            <button
+              onClick={() => setShowRef(!showRef)}
+              className="flex items-center gap-2 text-dark-300 text-xs font-medium"
+            >
+              Previous Log ({latestLog.sessionLabel})
+              {showRef ? <ChevronUp className="w-3 h-3" /> : <ChevronDown className="w-3 h-3" />}
+            </button>
+            {currentSets.length === 0 && (
+              <button onClick={copyPreviousLog} className="text-accent-400 text-xs font-medium bg-accent-500/10 px-2 py-1 rounded-md transition-colors hover:bg-accent-500/20">
+                Copy All Sets
+              </button>
+            )}
+          </div>
           <AnimatePresence>
             {showRef && (
               <motion.div
@@ -172,13 +243,15 @@ export default function ExerciseLogger({ exerciseId, exerciseName, onBack }: Pro
 
       {/* Current Sets */}
       <div className="space-y-2 mb-4">
-        {currentSets.map((set) => (
-          <motion.div
-            key={set.id}
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="glass-card p-3 flex items-start justify-between"
-          >
+        <AnimatePresence>
+          {currentSets.map((set) => (
+            <motion.div
+              key={set.id}
+              initial={{ opacity: 0, height: 0, scale: 0.9 }}
+              animate={{ opacity: 1, height: 'auto', scale: 1 }}
+              exit={{ opacity: 0, height: 0, scale: 0.9 }}
+              className="glass-card p-3 flex items-start justify-between"
+            >
             <div>
               <div className="flex items-center gap-2">
                 <span className="text-accent-400 font-bold text-sm">Set {set.setNumber}</span>
@@ -210,6 +283,7 @@ export default function ExerciseLogger({ exerciseId, exerciseName, onBack }: Pro
             </button>
           </motion.div>
         ))}
+        </AnimatePresence>
       </div>
 
       {/* Add Set Form */}
@@ -226,32 +300,81 @@ export default function ExerciseLogger({ exerciseId, exerciseName, onBack }: Pro
                 Set {currentSets.length + 1}
               </h3>
 
-              {/* Weight + Reps */}
-              <div className="grid grid-cols-2 gap-3">
-                <div>
-                  <label className="text-dark-300 text-xs font-medium mb-1 block">Weight</label>
-                  <input
-                    type="number"
-                    inputMode="decimal"
-                    value={weight}
-                    onChange={e => setWeight(e.target.value)}
-                    placeholder="0"
-                    className="input-field text-center text-lg font-bold"
-                    disabled={weightMode === 'bodyweight'}
-                  />
+              {/* Inputs based on category */}
+              {isCardio ? (
+                <div className="grid grid-cols-2 gap-3">
+                  <div>
+                    <label className="text-dark-300 text-xs font-medium mb-1 block">Time (min)</label>
+                    <input
+                      type="number"
+                      inputMode="decimal"
+                      value={time}
+                      onChange={e => setTime(e.target.value)}
+                      placeholder="0"
+                      className="input-field text-center text-lg font-bold"
+                    />
+                  </div>
+                  <div>
+                    <label className="text-dark-300 text-xs font-medium mb-1 block">Distance</label>
+                    <input
+                      type="number"
+                      inputMode="decimal"
+                      value={distance}
+                      onChange={e => setDistance(e.target.value)}
+                      placeholder="0"
+                      className="input-field text-center text-lg font-bold"
+                    />
+                  </div>
+                  <div>
+                    <label className="text-dark-300 text-xs font-medium mb-1 block">Speed</label>
+                    <input
+                      type="number"
+                      inputMode="decimal"
+                      value={speed}
+                      onChange={e => setSpeed(e.target.value)}
+                      placeholder="0"
+                      className="input-field text-center text-lg font-bold"
+                    />
+                  </div>
+                  <div>
+                    <label className="text-dark-300 text-xs font-medium mb-1 block">Incline</label>
+                    <input
+                      type="number"
+                      inputMode="decimal"
+                      value={incline}
+                      onChange={e => setIncline(e.target.value)}
+                      placeholder="0"
+                      className="input-field text-center text-lg font-bold"
+                    />
+                  </div>
                 </div>
-                <div>
-                  <label className="text-dark-300 text-xs font-medium mb-1 block">Reps</label>
-                  <input
-                    type="number"
-                    inputMode="decimal"
-                    value={reps}
-                    onChange={e => setReps(e.target.value)}
-                    placeholder="0"
-                    className="input-field text-center text-lg font-bold"
-                  />
+              ) : (
+                <div className="grid grid-cols-2 gap-3">
+                  <div>
+                    <label className="text-dark-300 text-xs font-medium mb-1 block">Weight</label>
+                    <input
+                      type="number"
+                      inputMode="decimal"
+                      value={weight}
+                      onChange={e => setWeight(e.target.value)}
+                      placeholder="0"
+                      className="input-field text-center text-lg font-bold"
+                      disabled={weightMode === 'bodyweight'}
+                    />
+                  </div>
+                  <div>
+                    <label className="text-dark-300 text-xs font-medium mb-1 block">Reps</label>
+                    <input
+                      type="number"
+                      inputMode="decimal"
+                      value={reps}
+                      onChange={e => setReps(e.target.value)}
+                      placeholder="0"
+                      className="input-field text-center text-lg font-bold"
+                    />
+                  </div>
                 </div>
-              </div>
+              )}
 
               {/* Unit & Weight Mode */}
               <div className="grid grid-cols-2 gap-3">
@@ -287,9 +410,10 @@ export default function ExerciseLogger({ exerciseId, exerciseName, onBack }: Pro
                 </div>
               </div>
 
-              {/* Toggles */}
-              <div className="space-y-3">
-                {/* Drop Set */}
+              {/* Toggles (Only for Strength) */}
+              {!isCardio && (
+                <div className="space-y-3">
+                  {/* Drop Set */}
                 <div className="flex items-center justify-between">
                   <span className="text-sm text-dark-100">Drop Set</span>
                   <button
@@ -379,6 +503,7 @@ export default function ExerciseLogger({ exerciseId, exerciseName, onBack }: Pro
                   />
                 </div>
               </div>
+              )}
 
               {/* Notes */}
               <div>
@@ -408,14 +533,30 @@ export default function ExerciseLogger({ exerciseId, exerciseName, onBack }: Pro
 
       {/* Add Set Button */}
       {!isAddingSet && (
-        <motion.button
-          onClick={() => setIsAddingSet(true)}
-          className="btn-primary"
-          whileTap={{ scale: 0.97 }}
-        >
-          <Plus className="w-5 h-5" />
-          {currentSets.length === 0 ? 'Start Set' : 'Add Set'}
-        </motion.button>
+        <div className="flex flex-col gap-3">
+          <motion.button
+            onClick={() => setIsAddingSet(true)}
+            className="btn-primary"
+            whileTap={{ scale: 0.97 }}
+          >
+            <Plus className="w-5 h-5" />
+            {currentSets.length === 0 ? 'Start Set' : 'Add Set'}
+          </motion.button>
+          
+          {currentSets.length > 0 && (
+            <motion.button
+              onClick={() => {
+                finishExercise(exerciseId);
+                onBack();
+              }}
+              className="w-full p-3 rounded-xl border border-green-500/30 text-green-400 font-semibold flex items-center justify-center gap-2 hover:bg-green-500/10 transition-colors"
+              whileTap={{ scale: 0.97 }}
+            >
+              <Check className="w-5 h-5" />
+              Finish Exercise
+            </motion.button>
+          )}
+        </div>
       )}
     </motion.div>
   );

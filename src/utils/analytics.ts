@@ -34,6 +34,13 @@ export interface BestSetPoint {
   reps: number;
 }
 
+export interface CardioProgressPoint {
+  session: string;
+  date: string;
+  distance: number;
+  time: number;
+}
+
 // ─── Compute Functions ────────────────────────────────────
 
 function setVolume(set: WorkoutSet): number {
@@ -186,4 +193,34 @@ export function computeBestSetProgression(
   }
 
   return points;
+}
+
+// 7. Cardio Progress Trend
+export function computeCardioProgress(
+  sessions: WorkoutSession[],
+  exercises: Exercise[]
+): CardioProgressPoint[] {
+  const cardioExerciseIds = new Set(
+    exercises.filter(e => e.category === 'cardio').map(e => e.id)
+  );
+
+  return sessions.map(session => {
+    let totalDistance = 0;
+    let totalTime = 0;
+
+    for (const log of session.exercises) {
+      if (!cardioExerciseIds.has(log.exerciseId)) continue;
+      for (const set of log.sets) {
+        totalDistance += (set.distance ?? 0);
+        totalTime += (set.time ?? 0);
+      }
+    }
+
+    return {
+      session: session.sessionLabel,
+      date: session.date ?? session.sessionLabel,
+      distance: Math.round(totalDistance * 10) / 10,
+      time: Math.round(totalTime),
+    };
+  });
 }

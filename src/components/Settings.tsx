@@ -2,7 +2,7 @@ import { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import {
   Download, Upload, RotateCcw, Shield, Database,
-  ChevronRight, Check, AlertTriangle
+  ChevronRight, Check, AlertTriangle, Cloud, CloudOff, CloudDrizzle, LogOut
 } from 'lucide-react';
 import { useWorkoutStore } from '../store/workoutStore';
 
@@ -10,12 +10,28 @@ export default function Settings() {
   const {
     settings, updateSettings, exportData, importData, resetToSeed, rebuildPRs,
     workoutHistory, exercises, muscleGroups, prRecords, updateExercise,
+    user, login, logout, syncToCloud, syncFromCloud
   } = useWorkoutStore();
 
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [importStatus, setImportStatus] = useState<string | null>(null);
   const [showResetConfirm, setShowResetConfirm] = useState(false);
   const [showRebuildConfirm, setShowRebuildConfirm] = useState(false);
+  const [syncStatus, setSyncStatus] = useState<string | null>(null);
+
+  const handleCloudSync = async (type: 'push' | 'pull') => {
+    setSyncStatus('syncing');
+    try {
+      if (type === 'push') await syncToCloud();
+      else await syncFromCloud();
+      setSyncStatus('success');
+      setTimeout(() => setSyncStatus(null), 3000);
+    } catch (e) {
+      console.error(e);
+      setSyncStatus('error');
+      setTimeout(() => setSyncStatus(null), 3000);
+    }
+  };
 
   const handleExport = async () => {
     const json = await exportData();
@@ -144,6 +160,77 @@ export default function Settings() {
             );
           })}
         </div>
+      </div>
+
+      {/* Cloud Sync */}
+      <div className="space-y-2 mb-6">
+        <h3 className="text-sm font-semibold text-dark-200 uppercase tracking-wider mb-3 flex items-center gap-2">
+          <Cloud className="w-4 h-4" /> Cloud Sync
+        </h3>
+
+        {!user ? (
+          <motion.button
+            onClick={login}
+            className="w-full glass-card p-4 flex items-center justify-between border-blue-500/30"
+            whileTap={{ scale: 0.98 }}
+          >
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-xl bg-blue-500/15 flex items-center justify-center">
+                <CloudOff className="w-5 h-5 text-blue-400" />
+              </div>
+              <div className="text-left">
+                <p className="text-white font-medium text-sm">Sign in with Google</p>
+                <p className="text-dark-300 text-xs">Sync data across devices</p>
+              </div>
+            </div>
+            <ChevronRight className="w-4 h-4 text-dark-400" />
+          </motion.button>
+        ) : (
+          <div className="glass-card p-4 space-y-4">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <div className="w-8 h-8 rounded-full bg-accent-500/20 flex items-center justify-center">
+                  <span className="text-accent-400 font-bold text-xs">{user.displayName?.[0] || 'U'}</span>
+                </div>
+                <div>
+                  <p className="text-white text-sm font-medium">{user.displayName || 'User'}</p>
+                  <p className="text-dark-300 text-xs">{user.email}</p>
+                </div>
+              </div>
+              <button onClick={logout} className="text-dark-400 hover:text-red-400 transition-colors p-2">
+                <LogOut className="w-4 h-4" />
+              </button>
+            </div>
+            
+            <div className="grid grid-cols-2 gap-2">
+              <button
+                onClick={() => handleCloudSync('push')}
+                disabled={syncStatus === 'syncing'}
+                className="btn-secondary py-2 flex items-center justify-center gap-2 text-xs"
+              >
+                <Upload className="w-3 h-3" /> Backup to Cloud
+              </button>
+              <button
+                onClick={() => handleCloudSync('pull')}
+                disabled={syncStatus === 'syncing'}
+                className="btn-secondary py-2 flex items-center justify-center gap-2 text-xs"
+              >
+                <Download className="w-3 h-3" /> Restore from Cloud
+              </button>
+            </div>
+
+            {syncStatus && (
+              <p className={`text-xs text-center font-medium ${
+                syncStatus === 'success' ? 'text-green-400' :
+                syncStatus === 'error' ? 'text-red-400' : 'text-accent-400 animate-pulse'
+              }`}>
+                {syncStatus === 'syncing' && 'Syncing...'}
+                {syncStatus === 'success' && '✓ Sync completed'}
+                {syncStatus === 'error' && '✗ Sync failed'}
+              </p>
+            )}
+          </div>
+        )}
       </div>
 
       {/* Export / Import */}

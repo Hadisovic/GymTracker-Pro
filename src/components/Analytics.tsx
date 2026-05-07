@@ -78,6 +78,36 @@ export default function Analytics() {
     return exercises.filter(e => ids.has(e.id));
   }, [workoutHistory, exercises]);
 
+  const muscleHeatmap = useMemo(() => {
+    const sevenDaysAgo = new Date();
+    sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
+    
+    const recentVolume = muscleGroups.map(mg => ({ id: mg.id, name: mg.name, volume: 0, color: mg.color }));
+    
+    workoutHistory.forEach(session => {
+      if (new Date(session.createdAt) >= sevenDaysAgo) {
+        session.exercises.forEach(exLog => {
+          const ex = exercises.find(e => e.id === exLog.exerciseId);
+          if (ex) {
+            const mg = recentVolume.find(m => m.id === ex.muscleGroupId);
+            if (mg) {
+               mg.volume += exLog.sets.reduce((sum, s) => sum + ((s.weight || 0) * (s.reps || 0)), 0);
+            }
+          }
+        });
+      }
+    });
+    
+    const maxVolume = Math.max(...recentVolume.map(m => m.volume), 1);
+    return recentVolume.map(m => {
+      const intensity = m.volume === 0 ? 0 : Math.max(0.2, m.volume / maxVolume); 
+      let status = 'Recovered';
+      if (intensity > 0.7) status = 'Fatigued';
+      else if (intensity > 0.3) status = 'Active';
+      return { ...m, intensity, status };
+    });
+  }, [workoutHistory, exercises, muscleGroups]);
+
   const tabs: { id: Tab; label: string }[] = [
     { id: 'overview', label: 'Overview' },
     { id: 'muscles', label: 'Muscles' },
@@ -176,6 +206,33 @@ export default function Analytics() {
       {/* Muscles Tab */}
       {tab === 'muscles' && (
         <div className="space-y-6">
+          {/* Muscle Heatmap */}
+          <div className="glass-card p-4">
+            <h3 className="text-sm font-semibold text-white mb-4">7-Day Muscle Fatigue Heatmap</h3>
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+              {muscleHeatmap.map(mg => (
+                <div 
+                  key={mg.id} 
+                  className="rounded-xl p-3 flex flex-col justify-between"
+                  style={{
+                    backgroundColor: mg.intensity > 0 ? `${mg.color}${Math.floor(mg.intensity * 80).toString(16).padStart(2, '0')}` : 'rgba(255,255,255,0.05)',
+                    border: `1px solid ${mg.intensity > 0 ? mg.color : 'rgba(255,255,255,0.1)'}`
+                  }}
+                >
+                  <span className="text-sm font-bold text-white mb-1">{mg.name}</span>
+                  <div className="flex items-center justify-between mt-2">
+                    <span className="text-xs font-medium" style={{ color: mg.intensity > 0 ? '#fff' : '#8888aa' }}>
+                      {mg.status}
+                    </span>
+                    {mg.intensity > 0 && (
+                      <Zap className="w-3 h-3 text-white opacity-80" />
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
           {/* Volume Pie */}
           <div className="glass-card p-4">
             <h3 className="text-sm font-semibold text-white mb-4">Volume by Muscle Group</h3>

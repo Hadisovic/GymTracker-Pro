@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
-  Check, Clock, XCircle, Dumbbell, ChevronRight, Trophy, Square
+  Check, Clock, XCircle, Dumbbell, ChevronRight, Trophy, Square,
+  Plus, Search, X
 } from 'lucide-react';
 import { useWorkoutStore } from '../store/workoutStore';
 import ExerciseLogger from './ExerciseLogger';
@@ -10,10 +11,12 @@ export default function ActiveWorkout() {
   const {
     activeWorkout, exercises, muscleGroups, latestLogs,
     setCurrentExercise, finishExercise, finishWorkout, cancelWorkout,
-    setCurrentView,
+    setCurrentView, addExerciseToActiveWorkout,
   } = useWorkoutStore();
 
   const [showCancelConfirm, setShowCancelConfirm] = useState(false);
+  const [showExerciseSelector, setShowExerciseSelector] = useState(false);
+  const [exerciseSearch, setExerciseSearch] = useState('');
 
   if (!activeWorkout) return null;
 
@@ -40,7 +43,7 @@ export default function ActiveWorkout() {
 
   const handleFinishWorkout = async () => {
     await finishWorkout();
-    setCurrentView('dashboard');
+    setCurrentView('workout-summary');
   };
 
   const handleCancel = () => {
@@ -174,6 +177,16 @@ export default function ActiveWorkout() {
         })}
       </div>
 
+      {/* Add Exercise Button */}
+      <motion.button
+        onClick={() => setShowExerciseSelector(true)}
+        className="w-full mb-6 p-4 rounded-xl border border-dashed border-dark-500 text-dark-300 font-medium flex items-center justify-center gap-2"
+        whileTap={{ scale: 0.98 }}
+      >
+        <Plus className="w-5 h-5" />
+        Add Exercise
+      </motion.button>
+
       {/* Action Buttons */}
       <div className="space-y-3">
         <motion.button
@@ -228,6 +241,78 @@ export default function ActiveWorkout() {
                 <button onClick={handleCancel} className="btn-danger flex-1">
                   Cancel
                 </button>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Exercise Selector Modal */}
+      <AnimatePresence>
+        {showExerciseSelector && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-end justify-center p-4"
+            style={{ background: 'rgba(0,0,0,0.7)' }}
+            onClick={() => setShowExerciseSelector(false)}
+          >
+            <motion.div
+              initial={{ y: '100%' }}
+              animate={{ y: 0 }}
+              exit={{ y: '100%' }}
+              transition={{ type: 'spring', damping: 25, stiffness: 300 }}
+              className="glass-card p-4 w-full h-[80vh] flex flex-col"
+              onClick={e => e.stopPropagation()}
+            >
+              <div className="flex items-center justify-between mb-4">
+                <h3 className="text-white font-semibold text-lg">Add Exercise</h3>
+                <button onClick={() => setShowExerciseSelector(false)} className="text-dark-300">
+                  <X className="w-6 h-6" />
+                </button>
+              </div>
+
+              <div className="relative mb-4">
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-dark-300" />
+                <input
+                  type="text"
+                  value={exerciseSearch}
+                  onChange={e => setExerciseSearch(e.target.value)}
+                  placeholder="Search exercises..."
+                  className="input-field pl-10 text-sm"
+                />
+              </div>
+
+              <div className="flex-1 overflow-y-auto space-y-2 pb-10">
+                {exercises
+                  .filter(ex => !activeWorkout.exerciseIds.includes(ex.id))
+                  .filter(ex => !exerciseSearch || ex.name.toLowerCase().includes(exerciseSearch.toLowerCase()))
+                  .map(ex => {
+                    const mg = muscleGroups.find(m => m.id === ex.muscleGroupId);
+                    return (
+                      <button
+                        key={ex.id}
+                        onClick={() => {
+                          addExerciseToActiveWorkout(ex.id);
+                          setShowExerciseSelector(false);
+                          setExerciseSearch('');
+                        }}
+                        className="w-full flex items-center gap-3 p-3 rounded-xl bg-dark-700/50 hover:bg-dark-600 transition-colors text-left"
+                      >
+                        <div
+                          className="w-8 h-8 rounded-lg flex flex-shrink-0 items-center justify-center"
+                          style={{ background: `${mg?.color}20` }}
+                        >
+                          <Square className="w-4 h-4" style={{ color: mg?.color }} />
+                        </div>
+                        <div className="min-w-0 flex-1">
+                          <p className="text-white text-sm font-medium truncate">{ex.name}</p>
+                          <p className="text-dark-400 text-xs truncate">{mg?.name}</p>
+                        </div>
+                      </button>
+                    );
+                  })}
               </div>
             </motion.div>
           </motion.div>
