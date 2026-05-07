@@ -416,7 +416,7 @@ export const useWorkoutStore = create<WorkoutStore>()(
 
   dismissSummary: () => set({ lastCompletedSessionId: null, currentView: 'dashboard' }),
 
-  logStandaloneCardio: async (exerciseId: string, set: WorkoutSet) => {
+  logStandaloneCardio: async (exerciseId: string, workoutSet: WorkoutSet) => {
     const state = get();
     const ex = state.exercises.find(e => e.id === exerciseId);
     if (!ex) return;
@@ -432,10 +432,10 @@ export const useWorkoutStore = create<WorkoutStore>()(
         exerciseId,
         exerciseName: ex.name,
         completed: true,
-        sets: [set]
+        sets: [workoutSet]
       }],
       createdAt: new Date().toISOString(),
-      duration: Math.round(set.time ?? 0),
+      duration: Math.round(workoutSet.time ?? 0),
     };
 
     // Update latest logs
@@ -443,7 +443,7 @@ export const useWorkoutStore = create<WorkoutStore>()(
     const ll: LatestLog = {
       exerciseId,
       exerciseName: ex.name,
-      sets: [set],
+      sets: [workoutSet],
       sessionId: session.id,
       sessionDate: session.date,
       sessionLabel: session.sessionLabel,

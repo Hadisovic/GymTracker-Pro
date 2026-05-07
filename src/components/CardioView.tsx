@@ -8,6 +8,7 @@ import {
 import { Activity, MapPin, Clock, Zap, Plus, X, ListFilter } from 'lucide-react';
 import { useWorkoutStore } from '../store/workoutStore';
 import { computeCardioProgress } from '../utils/analytics';
+import type { WorkoutSet } from '../types/workout';
 
 const chartTheme = {
   background: 'transparent',

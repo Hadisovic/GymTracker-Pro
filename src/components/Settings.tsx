@@ -2,7 +2,7 @@ import { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import {
   Download, Upload, RotateCcw, Shield, Database,
-  ChevronRight, Check, AlertTriangle, Cloud, CloudOff, CloudDrizzle, LogOut
+  ChevronRight, Check, AlertTriangle, Cloud, CloudOff, LogOut
 } from 'lucide-react';
 import { useWorkoutStore } from '../store/workoutStore';
 
