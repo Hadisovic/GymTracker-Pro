@@ -10,6 +10,7 @@ export const defaultMuscleGroups: MuscleGroup[] = [
   { id: 'legs',      name: 'Legs',      color: '#eab308' },
   { id: 'forearms',  name: 'Forearms',  color: '#64748b' },
   { id: 'abs',       name: 'Abs',       color: '#ec4899' },
+  { id: 'cardio',    name: 'Cardio',    color: '#f97316' },
 ];
 
 // ─── Exercises ────────────────────────────────────────────
@@ -59,6 +60,12 @@ export const defaultExercises: Exercise[] = [
   // Abs
   { id: 'cable-crunch',         name: 'Cable Crunch',                 aliases: ['Kneeling Cable Crunch'],                       muscleGroupId: 'abs', equipment: 'Cable' },
   { id: 'hanging-leg-raise',    name: 'Hanging Leg Raise',            aliases: ['Leg Raise'],                                   muscleGroupId: 'abs', equipment: 'Bodyweight' },
+
+  // Cardio
+  { id: 'treadmill',            name: 'Treadmill',                    aliases: ['Running', 'Walking'],                          muscleGroupId: 'cardio', equipment: 'Machine', category: 'cardio' },
+  { id: 'stairmaster',          name: 'Stairmaster',                  aliases: ['Stairs'],                                      muscleGroupId: 'cardio', equipment: 'Machine', category: 'cardio' },
+  { id: 'cycling',              name: 'Cycling',                      aliases: ['Stationary Bike', 'Bike'],                     muscleGroupId: 'cardio', equipment: 'Machine', category: 'cardio' },
+  { id: 'rowing',               name: 'Rowing Machine',               aliases: ['Erg', 'Rowing'],                               muscleGroupId: 'cardio', equipment: 'Machine', category: 'cardio' },
 ];
 
 // ─── Workout Presets ──────────────────────────────────────

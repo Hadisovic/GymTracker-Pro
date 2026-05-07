@@ -66,6 +66,7 @@ interface WorkoutStore {
   finishWorkout: () => Promise<void>;
   cancelWorkout: () => void;
   dismissSummary: () => void;
+  logStandaloneCardio: (exerciseId: string, set: WorkoutSet) => Promise<void>;
 
   // History
   updateSession: (session: WorkoutSession) => Promise<void>;
@@ -157,6 +158,24 @@ export const useWorkoutStore = create<WorkoutStore>()(
         return;
       }
 
+      let finalMgs = mgs;
+      let finalExs = exs;
+
+      // Migration: Add Cardio exercises if missing
+      if (!mgs.find(m => m.id === 'cardio')) {
+        const cardioMg = defaultMuscleGroups.find(m => m.id === 'cardio');
+        if (cardioMg) {
+          await db.muscleGroups.add(cardioMg);
+          finalMgs.push(cardioMg);
+          
+          const cardioExs = defaultExercises.filter(e => e.muscleGroupId === 'cardio');
+          for (const ex of cardioExs) {
+            await db.exercises.add(ex);
+            finalExs.push(ex);
+          }
+        }
+      }
+
       const latestLogsMap: Record<string, LatestLog> = {};
       for (const l of logs) latestLogsMap[l.exerciseId] = l;
 
@@ -165,8 +184,8 @@ export const useWorkoutStore = create<WorkoutStore>()(
       );
 
       set({
-        muscleGroups: mgs,
-        exercises: exs,
+        muscleGroups: finalMgs,
+        exercises: finalExs,
         workoutPresets: presets,
         workoutHistory: sortedHistory,
         latestLogs: latestLogsMap,
@@ -396,6 +415,51 @@ export const useWorkoutStore = create<WorkoutStore>()(
   cancelWorkout: () => set({ activeWorkout: null }),
 
   dismissSummary: () => set({ lastCompletedSessionId: null, currentView: 'dashboard' }),
+
+  logStandaloneCardio: async (exerciseId: string, set: WorkoutSet) => {
+    const state = get();
+    const ex = state.exercises.find(e => e.id === exerciseId);
+    if (!ex) return;
+
+    const sessionNumber = state.workoutHistory.length + 1;
+    const session: WorkoutSession = {
+      id: uuid(),
+      name: `Quick Cardio: ${ex.name}`,
+      date: new Date().toISOString(),
+      sessionLabel: `Session ${sessionNumber}`,
+      muscleGroupIds: [ex.muscleGroupId],
+      exercises: [{
+        exerciseId,
+        exerciseName: ex.name,
+        completed: true,
+        sets: [set]
+      }],
+      createdAt: new Date().toISOString(),
+      duration: Math.round(set.time ?? 0),
+    };
+
+    // Save to DB
+    await db.workoutHistory.add(session);
+
+    // Update latest logs
+    const newLatestLogs = { ...state.latestLogs };
+    const ll: LatestLog = {
+      exerciseId,
+      exerciseName: ex.name,
+      sets: [set],
+      sessionId: session.id,
+      sessionDate: session.date,
+      sessionLabel: session.sessionLabel,
+    };
+    newLatestLogs[exerciseId] = ll;
+    await db.latestLogs.put(ll);
+
+    // Update state
+    set({
+      workoutHistory: [...state.workoutHistory, session],
+      latestLogs: newLatestLogs,
+    });
+  },
 
   // ─── History ────────────────────────────────────────────
   updateSession: async (session) => {
