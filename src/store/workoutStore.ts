@@ -8,7 +8,7 @@ import type {
   WorkoutSet, AppSettings,
 } from '../types/workout';
 import { defaultMuscleGroups, defaultExercises, defaultWorkoutPresets } from '../data/seedWorkoutData';
-import { seedWorkoutHistory, buildLatestLogs } from '../data/seedWorkoutHistory';
+import { buildLatestLogs } from '../data/seedWorkoutHistory';
 import { detectPRs, rebuildAllPRs } from '../utils/prDetection';
 import type { User } from 'firebase/auth';
 import { loginWithGoogle, logout as firebaseLogout, db as firestoreDb } from '../lib/firebase';
@@ -649,14 +649,6 @@ export const useWorkoutStore = create<WorkoutStore>()(
     await db.muscleGroups.bulkAdd(defaultMuscleGroups);
     await db.exercises.bulkAdd(defaultExercises);
     await db.workoutPresets.bulkAdd(defaultWorkoutPresets);
-    await db.workoutHistory.bulkAdd(seedWorkoutHistory);
-
-    const latestLogs = buildLatestLogs(seedWorkoutHistory);
-    const logEntries = Object.values(latestLogs);
-    if (logEntries.length > 0) await db.latestLogs.bulkAdd(logEntries);
-
-    const allPRs = rebuildAllPRs(seedWorkoutHistory);
-    if (allPRs.length > 0) await db.prRecords.bulkAdd(allPRs);
 
     const defaultSettings: AppSettings = { defaultUnit: 'kg', theme: 'dark' };
     await db.settings.put({ id: 'main', ...defaultSettings });
@@ -665,9 +657,9 @@ export const useWorkoutStore = create<WorkoutStore>()(
       muscleGroups: defaultMuscleGroups,
       exercises: defaultExercises,
       workoutPresets: defaultWorkoutPresets,
-      workoutHistory: seedWorkoutHistory,
-      latestLogs,
-      prRecords: allPRs,
+      workoutHistory: [],
+      latestLogs: {},
+      prRecords: [],
       settings: defaultSettings,
       isInitialized: true,
       activeWorkout: null,

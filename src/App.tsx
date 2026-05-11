@@ -12,13 +12,14 @@ import Settings from './components/Settings';
 import LockScreen from './components/LockScreen';
 import WorkoutSummary from './components/WorkoutSummary';
 import CardioView from './components/CardioView';
+import Onboarding from './components/Onboarding';
 import { auth } from './lib/firebase';
 import { onAuthStateChanged } from 'firebase/auth';
 import AIAssistant from './components/AIAssistant';
 
 export default function App() {
   const { 
-    initialize, isInitialized, currentView, activeWorkout, setUser, user, loadUserData
+    initialize, isInitialized, currentView, activeWorkout, setUser, user, loadUserData, settings
   } = useWorkoutStore();
   
   const [isAuthReady, setIsAuthReady] = useState(false);
@@ -63,6 +64,10 @@ export default function App() {
         </div>
       </div>
     );
+  }
+
+  if (!settings?.profile?.isComplete) {
+    return <Onboarding />;
   }
 
   // If there's an active workout, show it regardless of nav

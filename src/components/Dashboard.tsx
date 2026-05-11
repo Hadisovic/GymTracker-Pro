@@ -16,6 +16,7 @@ export default function Dashboard() {
     muscleGroups,
     prRecords,
     setCurrentView,
+    settings,
   } = useWorkoutStore();
 
   const totalSessions = workoutHistory.length;
@@ -43,7 +44,9 @@ export default function Dashboard() {
     >
       {/* Greeting */}
       <div className="mb-6">
-        <h2 className="text-2xl font-bold text-white mb-1">Ready to lift? 💪</h2>
+        <h2 className="text-2xl font-bold text-white mb-1">
+          Ready to lift{settings?.profile?.name ? `, ${settings.profile.name}` : ''}? 💪
+        </h2>
         <p className="text-dark-200 text-sm">
           {lastSession
             ? `Last session: ${lastSession.name}`

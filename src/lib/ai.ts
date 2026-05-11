@@ -59,7 +59,11 @@ export async function processUserMessage(message: string, chatHistory: any[]): P
     systemInstruction: `You are a helpful, encouraging, and knowledgeable AI personal trainer integrated directly into the user's GymTracker application. 
     
     Here is the user's current workout context:
-    - User Name: ${store.user?.displayName || "Gym-goer"}
+    - Name: ${store.settings.profile?.name || store.user?.displayName || "Gym-goer"}
+    - Age: ${store.settings.profile?.age || "Not provided"}
+    - Weight: ${store.settings.profile?.weight ? store.settings.profile.weight + ' ' + store.settings.defaultUnit : "Not provided"}
+    - Height: ${store.settings.profile?.height ? store.settings.profile.height + ' cm' : "Not provided"}
+    - Primary Goal: ${store.settings.profile?.goal || "Not provided"}
     - Total Workouts Logged: ${store.workoutHistory.length}
     - Total PRs Achieved: ${store.prRecords.length}
     - Active Workout: ${store.activeWorkout ? "Currently doing " + store.activeWorkout.presetName : "None"}

@@ -139,8 +139,18 @@ export interface AppState {
   settings: AppSettings;
 }
 
+export interface UserProfile {
+  name: string;
+  age: number | null;
+  weight: number | null;
+  height: number | null;
+  goal: string;
+  isComplete: boolean;
+}
+
 export interface AppSettings {
   defaultUnit: WeightUnit;
   theme: 'dark' | 'light';
   aiApiKey?: string;
+  profile?: UserProfile;
 }
