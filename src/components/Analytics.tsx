@@ -79,23 +79,32 @@ export default function Analytics() {
   }, [workoutHistory, exercises]);
 
   const muscleHeatmap = useMemo(() => {
-    const sevenDaysAgo = new Date();
-    sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
+    const now = Date.now();
+    const sevenDaysMs = 7 * 24 * 60 * 60 * 1000;
     
     const recentVolume = muscleGroups.map(mg => ({ id: mg.id, name: mg.name, volume: 0, color: mg.color }));
     
     workoutHistory.forEach(session => {
-      if (new Date(session.createdAt) >= sevenDaysAgo) {
-        session.exercises.forEach(exLog => {
-          const ex = exercises.find(e => e.id === exLog.exerciseId);
-          if (ex) {
-            const mg = recentVolume.find(m => m.id === ex.muscleGroupId);
-            if (mg) {
-               mg.volume += exLog.sets.reduce((sum, s) => sum + ((s.weight || 0) * (s.reps || 0)), 0);
-            }
+      // Use actual workout date, fallback to createdAt
+      const sessionDate = session.date ? new Date(session.date).getTime() : new Date(session.createdAt).getTime();
+      const ageMs = now - sessionDate;
+      
+      // Only consider last 7 days
+      if (ageMs > sevenDaysMs || ageMs < 0) return;
+      
+      // Apply time decay: yesterday counts ~7x more than 6 days ago
+      const decayFactor = Math.exp(-ageMs / (2 * 24 * 60 * 60 * 1000)); // ~2-day half-life
+      
+      session.exercises.forEach(exLog => {
+        const ex = exercises.find(e => e.id === exLog.exerciseId);
+        if (ex) {
+          const mg = recentVolume.find(m => m.id === ex.muscleGroupId);
+          if (mg) {
+            const rawVolume = exLog.sets.reduce((sum, s) => sum + ((s.weight || 0) * (s.reps || 0)), 0);
+            mg.volume += rawVolume * decayFactor;
           }
-        });
-      }
+        }
+      });
     });
     
     const maxVolume = Math.max(...recentVolume.map(m => m.volume), 1);
@@ -376,7 +385,7 @@ export default function Analytics() {
               <div className="flex-1 min-w-0">
                 <p className="text-white text-sm font-medium truncate">{pr.exerciseName}</p>
                 <p className="text-dark-300 text-xs">
-                  {pr.type === 'weight' && `${pr.value}${pr.weight ? '' : ''} — Weight PR`}
+                  {pr.type === 'weight' && `${pr.value}kg — Weight PR`}
                   {pr.type === 'reps' && `${pr.value} reps @ ${pr.weight} — Rep PR`}
                   {pr.type === 'volume' && `${pr.value} volume — Volume PR`}
                   {pr.type === 'estimated' && `${pr.value} est. 1RM`}

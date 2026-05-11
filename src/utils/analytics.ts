@@ -1,4 +1,5 @@
-import type { WorkoutSession, WorkoutSet, MuscleGroup, Exercise } from '../types/workout';
+import type { WorkoutSession, MuscleGroup, Exercise } from '../types/workout';
+import { estimate1RM, setVolume } from './fitness';
 
 // ─── Chart Data Types ─────────────────────────────────────
 export interface PerformanceTrendPoint {
@@ -39,26 +40,6 @@ export interface CardioProgressPoint {
   date: string;
   distance: number;
   time: number;
-}
-
-// ─── Compute Functions ────────────────────────────────────
-
-function setVolume(set: WorkoutSet): number {
-  const w = set.weight ?? 0;
-  const r = set.reps ?? 0;
-  let vol = w * r;
-  if (set.drops) {
-    for (const d of set.drops) {
-      vol += (d.weight ?? 0) * (d.reps ?? 0);
-    }
-  }
-  return vol;
-}
-
-function estimate1RM(weight: number, reps: number): number {
-  if (reps <= 0 || weight <= 0) return 0;
-  if (reps === 1) return weight;
-  return weight * (36 / (37 - reps));
 }
 
 // 1. Overall performance trend
@@ -195,7 +176,7 @@ export function computeBestSetProgression(
   return points;
 }
 
-// 7. Cardio Progress Trend
+// 7. Cardio Progress Trend (filters out sessions with no cardio data)
 export function computeCardioProgress(
   sessions: WorkoutSession[],
   exercises: Exercise[]
@@ -204,7 +185,9 @@ export function computeCardioProgress(
     exercises.filter(e => e.category === 'cardio').map(e => e.id)
   );
 
-  return sessions.map(session => {
+  const points: CardioProgressPoint[] = [];
+
+  for (const session of sessions) {
     let totalDistance = 0;
     let totalTime = 0;
 
@@ -216,11 +199,16 @@ export function computeCardioProgress(
       }
     }
 
-    return {
-      session: session.sessionLabel,
-      date: session.date ?? session.sessionLabel,
-      distance: Math.round(totalDistance * 10) / 10,
-      time: Math.round(totalTime),
-    };
-  });
+    // Only include sessions that actually had cardio
+    if (totalDistance > 0 || totalTime > 0) {
+      points.push({
+        session: session.sessionLabel,
+        date: session.date ?? session.sessionLabel,
+        distance: Math.round(totalDistance * 10) / 10,
+        time: Math.round(totalTime),
+      });
+    }
+  }
+
+  return points;
 }

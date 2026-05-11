@@ -401,7 +401,12 @@ export const useWorkoutStore = create<WorkoutStore>()(
     const aw = state.activeWorkout;
     if (!aw) return;
 
-    const sessionNumber = state.workoutHistory.length + 1;
+    // Find max session number to avoid duplicates after deletions
+    const maxSessionNum = state.workoutHistory.reduce((max, s) => {
+      const match = s.sessionLabel.match(/Session (\d+)/);
+      return match ? Math.max(max, parseInt(match[1])) : max;
+    }, 0);
+    const sessionNumber = maxSessionNum + 1;
     const session: WorkoutSession = {
       id: uuid(),
       name: aw.presetName,
@@ -469,7 +474,11 @@ export const useWorkoutStore = create<WorkoutStore>()(
     const ex = state.exercises.find(e => e.id === exerciseId);
     if (!ex) return;
 
-    const sessionNumber = state.workoutHistory.length + 1;
+    const maxSessionNum = state.workoutHistory.reduce((max, s) => {
+      const match = s.sessionLabel.match(/Session (\d+)/);
+      return match ? Math.max(max, parseInt(match[1])) : max;
+    }, 0);
+    const sessionNumber = maxSessionNum + 1;
     const session: WorkoutSession = {
       id: uuid(),
       name: `Quick Cardio: ${ex.name}`,
@@ -581,6 +590,8 @@ export const useWorkoutStore = create<WorkoutStore>()(
   // ─── Import / Export ────────────────────────────────────
   exportData: async () => {
     const state = get();
+    // Strip sensitive data (API key) before exporting
+    const { aiApiKey, ...safeSettings } = state.settings;
     return JSON.stringify({
       version: 1,
       exportedAt: new Date().toISOString(),
@@ -590,7 +601,7 @@ export const useWorkoutStore = create<WorkoutStore>()(
       workoutHistory: state.workoutHistory,
       latestLogs: state.latestLogs,
       prRecords: state.prRecords,
-      settings: state.settings,
+      settings: safeSettings,
     }, null, 2);
   },
 

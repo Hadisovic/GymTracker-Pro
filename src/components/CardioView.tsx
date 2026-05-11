@@ -59,7 +59,7 @@ export default function CardioView() {
   }, [cardioExercises, formExId]);
 
   const data = useMemo(() => {
-    return computeCardioProgress([...workoutHistory].reverse(), exercises);
+    return computeCardioProgress(workoutHistory, exercises);
   }, [workoutHistory, exercises]);
 
   const handleApplyPreset = () => {
@@ -96,7 +96,7 @@ export default function CardioView() {
         weight: null,
         reps: null,
         unit: 'kg',
-        weightMode: 'machine',
+        weightMode: 'bodyweight' as const,
       };
       
       if (formTime) newSet.time = parseFloat(formTime);

@@ -1,26 +1,6 @@
 import type { WorkoutSession, WorkoutSet, PRRecord, PRBadge, PRType } from '../types/workout';
 import { v4 as uuid } from 'uuid';
-
-// Estimate 1RM using Brzycki formula
-function estimate1RM(weight: number, reps: number): number {
-  if (reps <= 0 || weight <= 0) return 0;
-  if (reps === 1) return weight;
-  return weight * (36 / (37 - reps));
-}
-
-// Calculate volume for a set (weight × reps)
-function setVolume(set: WorkoutSet): number {
-  const w = set.weight ?? 0;
-  const r = set.reps ?? 0;
-  let vol = w * r;
-  // Add drop set volume
-  if (set.drops) {
-    for (const drop of set.drops) {
-      vol += (drop.weight ?? 0) * (drop.reps ?? 0);
-    }
-  }
-  return vol;
-}
+import { estimate1RM, setVolume } from './fitness';
 
 export interface PRCheckResult {
   badges: PRBadge[];

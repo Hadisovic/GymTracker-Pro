@@ -106,7 +106,7 @@ export default function History() {
       </div>
 
       {/* Muscle Filter */}
-      <div className="flex gap-2 overflow-x-auto pb-3 mb-4 scrollbar-none">
+      <div className="flex gap-2 overflow-x-auto pb-3 mb-4 no-scrollbar">
         <button
           onClick={() => setFilterMuscle(null)}
           className={`muscle-chip flex-shrink-0 ${
