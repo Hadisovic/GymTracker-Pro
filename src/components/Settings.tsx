@@ -50,6 +50,11 @@ export default function Settings() {
     try {
       const json = await file.text();
       await importData(json);
+      try {
+        await syncToCloud();
+      } catch (e) {
+        console.warn("Auto-sync after import failed:", e);
+      }
       setImportStatus('success');
       setTimeout(() => setImportStatus(null), 3000);
     } catch {

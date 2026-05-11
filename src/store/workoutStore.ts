@@ -624,7 +624,15 @@ export const useWorkoutStore = create<WorkoutStore>()(
       }
 
       if (data.settings) {
-        await db.settings.put({ id: 'main', ...data.settings });
+        const currentSettings = get().settings;
+        const newSettings = { ...currentSettings, ...data.settings };
+        
+        // Preserve profile if the imported backup doesn't have one
+        if (!data.settings.profile && currentSettings.profile) {
+          newSettings.profile = currentSettings.profile;
+        }
+        
+        await db.settings.put({ id: 'main', ...newSettings });
       }
 
       // Reload
