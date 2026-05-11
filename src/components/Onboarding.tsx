@@ -2,18 +2,19 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useWorkoutStore } from '../store/workoutStore';
 import { User, Target, Dumbbell, Ruler, ChevronRight, ChevronLeft, Calendar } from 'lucide-react';
+import ScrollPicker from './ScrollPicker';
 
 export default function Onboarding() {
-  const { user, updateSettings, settings } = useWorkoutStore();
+  const { updateSettings, settings } = useWorkoutStore();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [step, setStep] = useState(0);
   const [direction, setDirection] = useState(1);
   
   const [formData, setFormData] = useState({
-    name: user?.displayName?.split(' ')[0] || '',
-    age: '',
-    weight: '',
-    height: '',
+    name: '', // Empty default to prevent auto-filling
+    age: 25,
+    weight: settings.defaultUnit === 'kg' ? 70.0 : 150.0,
+    height: 170,
     goal: 'Build Muscle',
   });
 
@@ -46,9 +47,9 @@ export default function Onboarding() {
       await updateSettings({
         profile: {
           name: formData.name,
-          age: formData.age ? parseInt(formData.age) : null,
-          weight: formData.weight ? parseFloat(formData.weight) : null,
-          height: formData.height ? parseFloat(formData.height) : null,
+          age: formData.age,
+          weight: formData.weight,
+          height: formData.height,
           goal: formData.goal,
           isComplete: true,
         }
@@ -133,14 +134,12 @@ export default function Onboarding() {
             </div>
             <h2 className="text-3xl font-bold text-white mb-2 text-center">How old are you?</h2>
             <p className="text-dark-300 mb-8 text-center">This helps tailor your fitness insights.</p>
-            <input
-              autoFocus
-              type="number"
+            <ScrollPicker
+              min={12}
+              max={100}
               value={formData.age}
-              onChange={(e) => setFormData(p => ({ ...p, age: e.target.value }))}
-              placeholder="Years"
-              onKeyDown={(e) => e.key === 'Enter' && handleNext()}
-              className="w-full max-w-xs bg-dark-800 text-white text-2xl font-bold rounded-2xl px-6 py-5 outline-none focus:ring-2 focus:ring-orange-500/50 transition-all text-center placeholder-dark-400"
+              onChange={(val) => setFormData(p => ({ ...p, age: val }))}
+              unit="yrs"
             />
           </motion.div>
         );
@@ -152,18 +151,13 @@ export default function Onboarding() {
             </div>
             <h2 className="text-3xl font-bold text-white mb-2 text-center">How tall are you?</h2>
             <p className="text-dark-300 mb-8 text-center">Used to calculate BMI and ideal ranges.</p>
-            <div className="relative w-full max-w-xs">
-              <input
-                autoFocus
-                type="number"
-                value={formData.height}
-                onChange={(e) => setFormData(p => ({ ...p, height: e.target.value }))}
-                placeholder="0"
-                onKeyDown={(e) => e.key === 'Enter' && handleNext()}
-                className="w-full bg-dark-800 text-white text-3xl font-bold rounded-2xl px-6 py-6 outline-none focus:ring-2 focus:ring-purple-500/50 transition-all text-center placeholder-dark-400"
-              />
-              <span className="absolute right-6 top-1/2 -translate-y-1/2 text-dark-300 font-bold text-xl">cm</span>
-            </div>
+            <ScrollPicker
+              min={100}
+              max={250}
+              value={formData.height}
+              onChange={(val) => setFormData(p => ({ ...p, height: val }))}
+              unit="cm"
+            />
           </motion.div>
         );
       case 4:
@@ -174,19 +168,14 @@ export default function Onboarding() {
             </div>
             <h2 className="text-3xl font-bold text-white mb-2 text-center">What's your current weight?</h2>
             <p className="text-dark-300 mb-8 text-center">Track your progress automatically.</p>
-            <div className="relative w-full max-w-xs">
-              <input
-                autoFocus
-                type="number"
-                step="0.1"
-                value={formData.weight}
-                onChange={(e) => setFormData(p => ({ ...p, weight: e.target.value }))}
-                placeholder="0.0"
-                onKeyDown={(e) => e.key === 'Enter' && handleNext()}
-                className="w-full bg-dark-800 text-white text-3xl font-bold rounded-2xl px-6 py-6 outline-none focus:ring-2 focus:ring-emerald-500/50 transition-all text-center placeholder-dark-400"
-              />
-              <span className="absolute right-6 top-1/2 -translate-y-1/2 text-dark-300 font-bold text-xl">{settings.defaultUnit}</span>
-            </div>
+            <ScrollPicker
+              min={settings.defaultUnit === 'kg' ? 30 : 60}
+              max={settings.defaultUnit === 'kg' ? 200 : 400}
+              step={0.5}
+              value={formData.weight}
+              onChange={(val) => setFormData(p => ({ ...p, weight: val }))}
+              unit={settings.defaultUnit}
+            />
           </motion.div>
         );
       case 5:
