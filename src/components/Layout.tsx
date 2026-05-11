@@ -23,31 +23,43 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       {/* Header */}
       <header className="sticky top-0 z-40 px-4 py-3 flex items-center gap-3"
         style={{
-          background: 'linear-gradient(to bottom, rgba(10,10,15,0.98), rgba(10,10,15,0.9))',
+          background: 'linear-gradient(to bottom, rgba(8,8,13,0.98), rgba(8,8,13,0.88))',
           borderBottom: '1px solid rgba(255,255,255,0.05)',
-          backdropFilter: 'blur(20px)',
+          backdropFilter: 'blur(24px) saturate(1.3)',
         }}
       >
-        <div className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-accent-500 to-purple-600 flex items-center justify-center">
+        <div className="flex items-center gap-2.5">
+          <motion.div 
+            className="w-8 h-8 rounded-lg flex items-center justify-center relative"
+            style={{ background: 'linear-gradient(135deg, #6366f1, #a855f7)' }}
+            whileHover={{ scale: 1.1, rotate: 5 }}
+            whileTap={{ scale: 0.95 }}
+          >
             <Flame className="w-5 h-5 text-white" />
-          </div>
-          <h1 className="text-lg font-bold bg-gradient-to-r from-white to-dark-200 bg-clip-text text-transparent">
+            {/* Animated glow ring */}
+            <motion.div
+              className="absolute inset-0 rounded-lg"
+              style={{ border: '1px solid rgba(99,102,241,0.4)' }}
+              animate={{ scale: [1, 1.3, 1], opacity: [0.5, 0, 0.5] }}
+              transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+            />
+          </motion.div>
+          <h1 className="text-lg font-extrabold text-shimmer tracking-tight">
             GymTracker Pro
           </h1>
         </div>
         {activeWorkout && (
           <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            className="ml-auto flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold"
+            initial={{ opacity: 0, scale: 0.8, x: 20 }}
+            animate={{ opacity: 1, scale: 1, x: 0 }}
+            className="ml-auto flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-bold tracking-wider"
             style={{
-              background: 'linear-gradient(135deg, rgba(34,197,94,0.2), rgba(34,197,94,0.1))',
+              background: 'linear-gradient(135deg, rgba(34,197,94,0.2), rgba(34,197,94,0.08))',
               border: '1px solid rgba(34,197,94,0.3)',
               color: '#4ade80',
             }}
           >
-            <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+            <span className="w-2 h-2 rounded-full bg-green-400 live-dot" />
             LIVE
           </motion.div>
         )}
@@ -65,30 +77,49 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             const isActive = currentView === item.id;
             const Icon = item.icon;
             return (
-              <button
+              <motion.button
                 key={item.id}
                 onClick={() => setCurrentView(item.id)}
-                className="flex flex-col items-center gap-0.5 py-1 px-1 rounded-xl transition-all duration-200 relative"
+                className="flex flex-col items-center gap-0.5 py-1 px-1 rounded-xl relative"
                 style={{ minWidth: '3rem' }}
+                whileTap={{ scale: 0.85 }}
               >
                 {isActive && (
                   <motion.div
                     layoutId="nav-indicator"
-                    className="absolute -top-1 w-8 h-1 rounded-full bg-accent-500"
+                    className="absolute -top-1 w-8 h-1 rounded-full"
+                    style={{
+                      background: 'linear-gradient(90deg, #6366f1, #a855f7)',
+                      boxShadow: '0 0 8px rgba(99,102,241,0.5)',
+                    }}
                     transition={{ type: 'spring', stiffness: 500, damping: 30 }}
                   />
                 )}
-                <Icon
-                  className={`w-5 h-5 transition-colors duration-200 ${
-                    isActive ? 'text-accent-400' : 'text-dark-300'
-                  }`}
-                />
-                <span className={`text-[0.625rem] font-medium transition-colors duration-200 ${
-                  isActive ? 'text-accent-400' : 'text-dark-300'
+                <motion.div
+                  animate={isActive ? { scale: [1, 1.15, 1] } : { scale: 1 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <Icon
+                    className={`w-5 h-5 transition-colors duration-300 ${
+                      isActive ? 'text-accent-400' : 'text-dark-400'
+                    }`}
+                  />
+                </motion.div>
+                <span className={`text-[0.6rem] font-semibold transition-colors duration-300 ${
+                  isActive ? 'text-accent-400' : 'text-dark-400'
                 }`}>
                   {item.label}
                 </span>
-              </button>
+                {/* Active glow dot */}
+                {isActive && (
+                  <motion.div
+                    layoutId="nav-glow"
+                    className="absolute -bottom-0.5 w-1 h-1 rounded-full bg-accent-400"
+                    style={{ boxShadow: '0 0 6px rgba(99,102,241,0.6)' }}
+                    transition={{ type: 'spring', stiffness: 500, damping: 30 }}
+                  />
+                )}
+              </motion.button>
             );
           })}
         </div>
