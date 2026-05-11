@@ -671,6 +671,12 @@ export const useWorkoutStore = create<WorkoutStore>()(
     const newSettings = { ...current, ...updates };
     await db.settings.put({ id: 'main', ...newSettings });
     set({ settings: newSettings });
+
+    try {
+      await get().syncToCloud();
+    } catch (e) {
+      console.warn("Failed to auto-sync settings:", e);
+    }
   },
 }), {
   name: 'gymtracker-active-workout',
