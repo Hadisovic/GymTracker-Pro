@@ -12,6 +12,7 @@ export default function AIAssistant() {
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
   
   const { settings } = useWorkoutStore();
 
@@ -23,11 +24,11 @@ export default function AIAssistant() {
     scrollToBottom();
   }, [messages, isLoading]);
 
-  const handleSend = async (e?: React.FormEvent) => {
+  const handleSend = async (e?: React.FormEvent, presetMessage?: string) => {
     e?.preventDefault();
-    if (!input.trim() || isLoading) return;
+    const userMsg = (presetMessage || input).trim();
+    if (!userMsg || isLoading) return;
     
-    const userMsg = input.trim();
     setInput('');
     const newHistory = [...messages, { role: 'user' as const, content: userMsg }];
     setMessages(newHistory);
@@ -79,6 +80,24 @@ export default function AIAssistant() {
                         ⚠️ Please add your Gemini API Key in Settings first.
                       </p>
                     )}
+                    {settings.aiApiKey && (
+                      <div className="flex flex-wrap gap-2 justify-center mt-6">
+                        {[
+                          "Analyze my recent workouts",
+                          "What is my Bench Press PR?",
+                          "Start a 15m cardio run",
+                          "Generate a quick core routine",
+                        ].map(suggestion => (
+                          <button
+                            key={suggestion}
+                            onClick={() => handleSend(undefined, suggestion)}
+                            className="bg-dark-700 hover:bg-dark-600 text-xs text-dark-100 border border-dark-500 rounded-full px-3 py-1.5 transition-colors"
+                          >
+                            {suggestion}
+                          </button>
+                        ))}
+                      </div>
+                    )}
                   </div>
                 )}
                 
@@ -120,8 +139,9 @@ export default function AIAssistant() {
 
               {/* Input Area */}
               <div className="p-3 bg-dark-800 border-t border-dark-600">
-                <form onSubmit={handleSend} className="flex gap-2">
+                <form onSubmit={(e) => handleSend(e)} className="flex gap-2">
                   <input
+                    ref={inputRef}
                     type="text"
                     value={input}
                     onChange={e => setInput(e.target.value)}
