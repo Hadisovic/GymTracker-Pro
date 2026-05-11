@@ -35,11 +35,11 @@ export default function App() {
   useEffect(() => {
     const init = async () => {
       await initialize();
-      if (!localStorage.getItem('gymtracker_data_imported')) {
+      if (!localStorage.getItem('gymtracker_data_imported_v2')) {
         const { importData } = useWorkoutStore.getState();
         try {
           await importData(JSON.stringify(backupData));
-          localStorage.setItem('gymtracker_data_imported', 'true');
+          localStorage.setItem('gymtracker_data_imported_v2', 'true');
         } catch (e) {
           console.error("Failed to auto-import backup data", e);
         }

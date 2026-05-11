@@ -25,6 +25,9 @@ if (isConfigured) {
     auth = getAuth(app);
     db = getFirestore(app);
     googleProvider = new GoogleAuthProvider();
+    googleProvider.setCustomParameters({
+      prompt: 'select_account'
+    });
   } catch (e) {
     console.warn("Firebase initialization failed:", e);
   }
@@ -38,7 +41,7 @@ export const loginWithGoogle = async () => {
     const result = await signInWithPopup(auth, googleProvider);
     return result.user;
   } catch (error) {
-    console.error("Google Sign-In Error:", error);
+    console.error("Google Sign-In Error details:", error);
     throw error;
   }
 };

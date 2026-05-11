@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-05-07T15:49:21.402Z",
+  "exportedAt": "2026-05-11T18:51:08.589Z",
   "muscleGroups": [
     {
       "id": "abs",
@@ -15,6 +15,11 @@
     {
       "id": "biceps",
       "name": "Biceps",
+      "color": "#f97316"
+    },
+    {
+      "id": "cardio",
+      "name": "Cardio",
       "color": "#f97316"
     },
     {
@@ -138,6 +143,17 @@
       "muscleGroupId": "back",
       "equipment": "Cable Machine",
       "defaultUnit": "lbs"
+    },
+    {
+      "id": "cycling",
+      "name": "Cycling",
+      "aliases": [
+        "Stationary Bike",
+        "Bike"
+      ],
+      "muscleGroupId": "cardio",
+      "equipment": "Machine",
+      "category": "cardio"
     },
     {
       "id": "ez-preacher-curl",
@@ -272,6 +288,17 @@
       "equipment": "Barbell / Dumbbells"
     },
     {
+      "id": "rowing",
+      "name": "Rowing Machine",
+      "aliases": [
+        "Erg",
+        "Rowing"
+      ],
+      "muscleGroupId": "cardio",
+      "equipment": "Machine",
+      "category": "cardio"
+    },
+    {
       "id": "shoulder-press",
       "name": "Shoulder Press Machine",
       "aliases": [
@@ -304,6 +331,16 @@
       "defaultUnit": "kg"
     },
     {
+      "id": "stairmaster",
+      "name": "Stairmaster",
+      "aliases": [
+        "Stairs"
+      ],
+      "muscleGroupId": "cardio",
+      "equipment": "Machine",
+      "category": "cardio"
+    },
+    {
       "id": "t-bar-row",
       "name": "T-Bar Row",
       "aliases": [
@@ -313,6 +350,17 @@
       "muscleGroupId": "back",
       "equipment": "T-Bar",
       "defaultUnit": "lbs"
+    },
+    {
+      "id": "treadmill",
+      "name": "Treadmill",
+      "aliases": [
+        "Running",
+        "Walking"
+      ],
+      "muscleGroupId": "cardio",
+      "equipment": "Machine",
+      "category": "cardio"
     },
     {
       "id": "triceps-machine",
@@ -343,7 +391,8 @@
         "Lat Pulldown Wide"
       ],
       "muscleGroupId": "back",
-      "equipment": "Cable Machine"
+      "equipment": "Cable Machine",
+      "defaultUnit": "lbs"
     },
     {
       "id": "wrist-curl",
@@ -2251,6 +2300,254 @@
       ],
       "createdAt": "2026-05-06T17:01:19.110Z",
       "duration": 13
+    },
+    {
+      "id": "5629d103-6a6f-4b2a-9d5b-249697767144",
+      "name": "Chest + Back",
+      "date": "2026-05-11T15:50:07.452Z",
+      "sessionLabel": "Session 10",
+      "muscleGroupIds": [
+        "chest",
+        "back"
+      ],
+      "exercises": [
+        {
+          "exerciseId": "cable-fly",
+          "exerciseName": "Cable Fly",
+          "sets": [
+            {
+              "id": "ae3f055d-0332-42b7-9693-2bf252d88605",
+              "setNumber": 1,
+              "weight": 20,
+              "reps": 12,
+              "unit": "kg",
+              "weightMode": "machine",
+              "timestamp": "2026-05-11T14:51:29.066Z"
+            },
+            {
+              "id": "c1a4bc89-e362-4198-b90b-28085f7cca65",
+              "setNumber": 2,
+              "weight": 20,
+              "reps": 10,
+              "unit": "kg",
+              "weightMode": "machine",
+              "timestamp": "2026-05-11T14:58:31.923Z"
+            },
+            {
+              "id": "5ca59949-c576-4887-b527-fe0a188f45cc",
+              "setNumber": 3,
+              "weight": 20,
+              "reps": 8,
+              "unit": "kg",
+              "weightMode": "machine",
+              "isDropSet": true,
+              "drops": [
+                {
+                  "weight": 10,
+                  "reps": 10,
+                  "toFailure": true
+                }
+              ],
+              "timestamp": "2026-05-11T14:58:44.060Z"
+            }
+          ],
+          "completed": true
+        },
+        {
+          "exerciseId": "cable-row-single",
+          "exerciseName": "Single-arm Cable Row",
+          "sets": [
+            {
+              "id": "d6028fb2-fc96-448d-8c3e-f310d400fe8c",
+              "setNumber": 1,
+              "weight": 65,
+              "reps": 12,
+              "unit": "kg",
+              "weightMode": "machine",
+              "timestamp": "2026-05-11T15:49:35.600Z"
+            },
+            {
+              "id": "58925b6e-16ec-493f-bf1e-e3ab8e5ac89a",
+              "setNumber": 2,
+              "weight": 65,
+              "reps": 10,
+              "unit": "kg",
+              "weightMode": "machine",
+              "timestamp": "2026-05-11T15:49:40.739Z"
+            }
+          ],
+          "completed": true
+        },
+        {
+          "exerciseId": "close-lat-pulldown",
+          "exerciseName": "Close Grip Lat Pulldown",
+          "sets": [
+            {
+              "id": "39f3c779-c464-4d14-9cc2-aa804d504cb2",
+              "setNumber": 1,
+              "weight": 130,
+              "reps": 12,
+              "unit": "lbs",
+              "weightMode": "machine",
+              "timestamp": "2026-05-11T15:06:52.683Z"
+            },
+            {
+              "id": "c821d99d-5c79-4ae6-8f53-ec333579f35a",
+              "setNumber": 2,
+              "weight": 145,
+              "reps": 6,
+              "unit": "lbs",
+              "weightMode": "machine",
+              "assistedReps": 2,
+              "timestamp": "2026-05-11T15:08:53.576Z"
+            },
+            {
+              "id": "94c8aff1-f35b-4244-b1f2-e7e23a7f4c8a",
+              "setNumber": 3,
+              "weight": 145,
+              "reps": 6,
+              "unit": "lbs",
+              "weightMode": "machine",
+              "isDropSet": true,
+              "drops": [
+                {
+                  "weight": 100,
+                  "reps": 12
+                },
+                {
+                  "weight": 70,
+                  "reps": 12,
+                  "toFailure": true
+                }
+              ],
+              "timestamp": "2026-05-11T15:26:24.635Z"
+            }
+          ],
+          "completed": true
+        },
+        {
+          "exerciseId": "flat-press",
+          "exerciseName": "Flat Press",
+          "sets": [
+            {
+              "id": "6c85d8ca-c157-4b54-81ce-48b27b37f2f8",
+              "setNumber": 1,
+              "weight": 25,
+              "reps": 11,
+              "unit": "kg",
+              "weightMode": "dumbbell",
+              "timestamp": "2026-05-11T15:26:44.696Z"
+            },
+            {
+              "id": "b3d23471-141a-4948-96c1-d7f8aadfb88c",
+              "setNumber": 2,
+              "weight": 25,
+              "reps": 8,
+              "unit": "kg",
+              "weightMode": "dumbbell",
+              "timestamp": "2026-05-11T15:26:53.212Z"
+            }
+          ],
+          "completed": true
+        },
+        {
+          "exerciseId": "incline-db-bench",
+          "exerciseName": "Incline DB Bench Press",
+          "sets": [
+            {
+              "id": "eb611800-1d75-4b2a-9e7a-f92f99ad58ee",
+              "setNumber": 1,
+              "weight": 22.5,
+              "reps": 10,
+              "unit": "kg",
+              "weightMode": "dumbbell",
+              "timestamp": "2026-05-11T14:30:23.325Z"
+            },
+            {
+              "id": "bf0acc3a-4a35-4372-8884-7350f9880f53",
+              "setNumber": 2,
+              "weight": 25,
+              "reps": 10,
+              "unit": "kg",
+              "weightMode": "dumbbell",
+              "toFailure": true,
+              "timestamp": "2026-05-11T14:32:11.959Z"
+            },
+            {
+              "id": "c4b29f82-3722-4539-ad5c-0e89f5bdb178",
+              "setNumber": 3,
+              "weight": 25,
+              "reps": 7,
+              "unit": "kg",
+              "weightMode": "dumbbell",
+              "timestamp": "2026-05-11T14:37:16.000Z"
+            }
+          ],
+          "completed": true
+        },
+        {
+          "exerciseId": "t-bar-row",
+          "exerciseName": "T-Bar Row",
+          "sets": [
+            {
+              "id": "2e768d2c-3414-465a-8622-1e406d807ca1",
+              "setNumber": 1,
+              "weight": 132,
+              "reps": 12,
+              "unit": "lbs",
+              "weightMode": "machine",
+              "timestamp": "2026-05-11T15:28:04.142Z"
+            },
+            {
+              "id": "8566ffcb-4bf3-427c-bf48-9d485ba5612d",
+              "setNumber": 2,
+              "weight": 132,
+              "reps": 10,
+              "unit": "lbs",
+              "weightMode": "machine",
+              "timestamp": "2026-05-11T15:31:45.358Z"
+            }
+          ],
+          "completed": true
+        },
+        {
+          "exerciseId": "wide-lat-pulldown",
+          "exerciseName": "Wide Lat Pulldown",
+          "sets": [
+            {
+              "id": "7a1fff68-0346-4ca3-ac3b-ae3f56c47698",
+              "setNumber": 1,
+              "weight": 115,
+              "reps": 12,
+              "unit": "lbs",
+              "weightMode": "machine",
+              "timestamp": "2026-05-11T14:41:37.217Z"
+            },
+            {
+              "id": "7f6034e9-4816-4973-a4ee-2d385546da0a",
+              "setNumber": 2,
+              "weight": 130,
+              "reps": 10,
+              "unit": "lbs",
+              "weightMode": "machine",
+              "timestamp": "2026-05-11T14:43:47.340Z"
+            },
+            {
+              "id": "1b158e52-0696-45ca-bc91-19a2b4a4657e",
+              "setNumber": 3,
+              "weight": 130,
+              "reps": 8,
+              "unit": "lbs",
+              "weightMode": "machine",
+              "assistedReps": 2,
+              "timestamp": "2026-05-11T14:49:23.190Z"
+            }
+          ],
+          "completed": true
+        }
+      ],
+      "createdAt": "2026-05-11T15:50:07.452Z",
+      "duration": 80
     }
   ],
   "latestLogs": {
@@ -2331,25 +2628,25 @@
       "exerciseName": "Cable Fly",
       "sets": [
         {
-          "id": "76b9d3c7-f12e-480d-8dc4-61d15f670ade",
+          "id": "ae3f055d-0332-42b7-9693-2bf252d88605",
           "setNumber": 1,
           "weight": 20,
           "reps": 12,
           "unit": "kg",
           "weightMode": "machine",
-          "timestamp": "2026-05-04T11:08:48.094Z"
+          "timestamp": "2026-05-11T14:51:29.066Z"
         },
         {
-          "id": "19192525-81ca-4355-bd84-b101a63e6abd",
+          "id": "c1a4bc89-e362-4198-b90b-28085f7cca65",
           "setNumber": 2,
           "weight": 20,
           "reps": 10,
           "unit": "kg",
           "weightMode": "machine",
-          "timestamp": "2026-05-04T11:08:54.543Z"
+          "timestamp": "2026-05-11T14:58:31.923Z"
         },
         {
-          "id": "202a8083-921d-4dca-a2ca-98b02803a60a",
+          "id": "5ca59949-c576-4887-b527-fe0a188f45cc",
           "setNumber": 3,
           "weight": 20,
           "reps": 8,
@@ -2359,17 +2656,16 @@
           "drops": [
             {
               "weight": 10,
-              "reps": 8,
+              "reps": 10,
               "toFailure": true
             }
           ],
-          "toFailure": true,
-          "timestamp": "2026-05-04T11:11:39.426Z"
+          "timestamp": "2026-05-11T14:58:44.060Z"
         }
       ],
-      "sessionId": "14e1eb95-0ca2-4579-9f26-afd6c249f306",
-      "sessionDate": "2026-05-04T12:01:01.188Z",
-      "sessionLabel": "Session 8"
+      "sessionId": "5629d103-6a6f-4b2a-9d5b-249697767144",
+      "sessionDate": "2026-05-11T15:50:07.452Z",
+      "sessionLabel": "Session 10"
     },
     "cable-lateral-raises": {
       "exerciseId": "cable-lateral-raises",
@@ -2455,28 +2751,27 @@
       "exerciseName": "Single-arm Cable Row",
       "sets": [
         {
-          "id": "07248edd-f880-407d-989b-05713e6887f4",
+          "id": "d6028fb2-fc96-448d-8c3e-f310d400fe8c",
           "setNumber": 1,
           "weight": 65,
           "reps": 12,
           "unit": "kg",
           "weightMode": "machine",
-          "timestamp": "2026-05-04T11:53:25.832Z"
+          "timestamp": "2026-05-11T15:49:35.600Z"
         },
         {
-          "id": "7bd1f8ff-f7c8-4c89-8c48-f232f7376b41",
+          "id": "58925b6e-16ec-493f-bf1e-e3ab8e5ac89a",
           "setNumber": 2,
           "weight": 65,
           "reps": 10,
           "unit": "kg",
           "weightMode": "machine",
-          "toFailure": true,
-          "timestamp": "2026-05-04T11:53:32.737Z"
+          "timestamp": "2026-05-11T15:49:40.739Z"
         }
       ],
-      "sessionId": "14e1eb95-0ca2-4579-9f26-afd6c249f306",
-      "sessionDate": "2026-05-04T12:01:01.188Z",
-      "sessionLabel": "Session 8"
+      "sessionId": "5629d103-6a6f-4b2a-9d5b-249697767144",
+      "sessionDate": "2026-05-11T15:50:07.452Z",
+      "sessionLabel": "Session 10"
     },
     "calf-raises": {
       "exerciseId": "calf-raises",
@@ -2527,28 +2822,28 @@
       "exerciseName": "Close Grip Lat Pulldown",
       "sets": [
         {
-          "id": "0ac8fd2f-728a-44ae-815d-9e0e90aec492",
+          "id": "39f3c779-c464-4d14-9cc2-aa804d504cb2",
           "setNumber": 1,
           "weight": 130,
           "reps": 12,
           "unit": "lbs",
           "weightMode": "machine",
-          "timestamp": "2026-05-04T11:16:54.190Z"
+          "timestamp": "2026-05-11T15:06:52.683Z"
         },
         {
-          "id": "116d10ad-0511-436b-9cd4-14c76eb5d122",
+          "id": "c821d99d-5c79-4ae6-8f53-ec333579f35a",
           "setNumber": 2,
-          "weight": 130,
-          "reps": 10,
+          "weight": 145,
+          "reps": 6,
           "unit": "lbs",
           "weightMode": "machine",
           "assistedReps": 2,
-          "timestamp": "2026-05-04T11:25:22.940Z"
+          "timestamp": "2026-05-11T15:08:53.576Z"
         },
         {
-          "id": "2634a486-0e07-455b-b730-645ae7165419",
+          "id": "94c8aff1-f35b-4244-b1f2-e7e23a7f4c8a",
           "setNumber": 3,
-          "weight": 130,
+          "weight": 145,
           "reps": 6,
           "unit": "lbs",
           "weightMode": "machine",
@@ -2556,21 +2851,20 @@
           "drops": [
             {
               "weight": 100,
-              "reps": 10
+              "reps": 12
             },
             {
               "weight": 70,
-              "reps": 12
+              "reps": 12,
+              "toFailure": true
             }
           ],
-          "assistedReps": 2,
-          "toFailure": true,
-          "timestamp": "2026-05-04T11:26:18.639Z"
+          "timestamp": "2026-05-11T15:26:24.635Z"
         }
       ],
-      "sessionId": "14e1eb95-0ca2-4579-9f26-afd6c249f306",
-      "sessionDate": "2026-05-04T12:01:01.188Z",
-      "sessionLabel": "Session 8"
+      "sessionId": "5629d103-6a6f-4b2a-9d5b-249697767144",
+      "sessionDate": "2026-05-11T15:50:07.452Z",
+      "sessionLabel": "Session 10"
     },
     "ez-preacher-curl": {
       "exerciseId": "ez-preacher-curl",
@@ -2629,28 +2923,27 @@
       "exerciseName": "Flat Press",
       "sets": [
         {
-          "id": "4b79f2f5-6577-4b7f-91b2-ef7f8e3626ef",
+          "id": "6c85d8ca-c157-4b54-81ce-48b27b37f2f8",
           "setNumber": 1,
-          "weight": 20,
-          "reps": 12,
+          "weight": 25,
+          "reps": 11,
           "unit": "kg",
-          "weightMode": "machine",
-          "timestamp": "2026-05-04T11:30:20.757Z"
+          "weightMode": "dumbbell",
+          "timestamp": "2026-05-11T15:26:44.696Z"
         },
         {
-          "id": "a4914d46-cf62-445b-8eee-80dc82d79165",
+          "id": "b3d23471-141a-4948-96c1-d7f8aadfb88c",
           "setNumber": 2,
-          "weight": null,
-          "reps": 12,
+          "weight": 25,
+          "reps": 8,
           "unit": "kg",
-          "weightMode": "bodyweight",
-          "toFailure": true,
-          "timestamp": "2026-05-04T11:39:57.095Z"
+          "weightMode": "dumbbell",
+          "timestamp": "2026-05-11T15:26:53.212Z"
         }
       ],
-      "sessionId": "14e1eb95-0ca2-4579-9f26-afd6c249f306",
-      "sessionDate": "2026-05-04T12:01:01.188Z",
-      "sessionLabel": "Session 8"
+      "sessionId": "5629d103-6a6f-4b2a-9d5b-249697767144",
+      "sessionDate": "2026-05-11T15:50:07.452Z",
+      "sessionLabel": "Session 10"
     },
     "hammer-curl": {
       "exerciseId": "hammer-curl",
@@ -2723,37 +3016,37 @@
       "exerciseName": "Incline DB Bench Press",
       "sets": [
         {
-          "id": "4cb84d22-a6a8-42e4-8808-295ee823df48",
+          "id": "eb611800-1d75-4b2a-9e7a-f92f99ad58ee",
           "setNumber": 1,
-          "weight": 20,
+          "weight": 22.5,
           "reps": 10,
           "unit": "kg",
-          "weightMode": "each_side",
-          "timestamp": "2026-05-04T10:42:54.207Z"
+          "weightMode": "dumbbell",
+          "timestamp": "2026-05-11T14:30:23.325Z"
         },
         {
-          "id": "6105498f-989f-4d7d-90ce-ab1816a17572",
+          "id": "bf0acc3a-4a35-4372-8884-7350f9880f53",
           "setNumber": 2,
-          "weight": 20,
-          "reps": 9,
+          "weight": 25,
+          "reps": 10,
           "unit": "kg",
-          "weightMode": "each_side",
-          "timestamp": "2026-05-04T10:46:12.742Z"
+          "weightMode": "dumbbell",
+          "toFailure": true,
+          "timestamp": "2026-05-11T14:32:11.959Z"
         },
         {
-          "id": "a0836c1e-478f-497e-8f8b-2d68b6252ed4",
+          "id": "c4b29f82-3722-4539-ad5c-0e89f5bdb178",
           "setNumber": 3,
-          "weight": 20,
-          "reps": 4.5,
+          "weight": 25,
+          "reps": 7,
           "unit": "kg",
-          "weightMode": "each_side",
-          "toFailure": true,
-          "timestamp": "2026-05-04T10:49:28.694Z"
+          "weightMode": "dumbbell",
+          "timestamp": "2026-05-11T14:37:16.000Z"
         }
       ],
-      "sessionId": "14e1eb95-0ca2-4579-9f26-afd6c249f306",
-      "sessionDate": "2026-05-04T12:01:01.188Z",
-      "sessionLabel": "Session 8"
+      "sessionId": "5629d103-6a6f-4b2a-9d5b-249697767144",
+      "sessionDate": "2026-05-11T15:50:07.452Z",
+      "sessionLabel": "Session 10"
     },
     "lateral-raises": {
       "exerciseId": "lateral-raises",
@@ -3003,37 +3296,27 @@
       "exerciseName": "T-Bar Row",
       "sets": [
         {
-          "id": "45bc6106-4f9a-4a26-a85f-5171463191fc",
+          "id": "2e768d2c-3414-465a-8622-1e406d807ca1",
           "setNumber": 1,
           "weight": 132,
           "reps": 12,
           "unit": "lbs",
           "weightMode": "machine",
-          "timestamp": "2026-05-04T10:52:45.048Z"
+          "timestamp": "2026-05-11T15:28:04.142Z"
         },
         {
-          "id": "7588bca4-33ad-49bf-82ca-a4f6196cb7b6",
+          "id": "8566ffcb-4bf3-427c-bf48-9d485ba5612d",
           "setNumber": 2,
           "weight": 132,
           "reps": 10,
           "unit": "lbs",
           "weightMode": "machine",
-          "timestamp": "2026-05-04T10:55:14.002Z"
-        },
-        {
-          "id": "2f5164bb-f66e-4bbf-ad3d-f0736e08c394",
-          "setNumber": 3,
-          "weight": 132,
-          "reps": 8,
-          "unit": "lbs",
-          "weightMode": "machine",
-          "toFailure": true,
-          "timestamp": "2026-05-04T10:59:31.520Z"
+          "timestamp": "2026-05-11T15:31:45.358Z"
         }
       ],
-      "sessionId": "14e1eb95-0ca2-4579-9f26-afd6c249f306",
-      "sessionDate": "2026-05-04T12:01:01.188Z",
-      "sessionLabel": "Session 8"
+      "sessionId": "5629d103-6a6f-4b2a-9d5b-249697767144",
+      "sessionDate": "2026-05-11T15:50:07.452Z",
+      "sessionLabel": "Session 10"
     },
     "triceps-machine": {
       "exerciseId": "triceps-machine",
@@ -3110,45 +3393,40 @@
     },
     "wide-lat-pulldown": {
       "exerciseId": "wide-lat-pulldown",
-      "exerciseName": "Wide Grip Lat Pulldown",
+      "exerciseName": "Wide Lat Pulldown",
       "sets": [
         {
-          "id": "b78bd3bb-a040-462d-bfb0-3ba309c450c4",
+          "id": "7a1fff68-0346-4ca3-ac3b-ae3f56c47698",
           "setNumber": 1,
-          "weight": 100,
+          "weight": 115,
+          "reps": 12,
+          "unit": "lbs",
+          "weightMode": "machine",
+          "timestamp": "2026-05-11T14:41:37.217Z"
+        },
+        {
+          "id": "7f6034e9-4816-4973-a4ee-2d385546da0a",
+          "setNumber": 2,
+          "weight": 130,
           "reps": 10,
           "unit": "lbs",
-          "weightMode": "machine"
+          "weightMode": "machine",
+          "timestamp": "2026-05-11T14:43:47.340Z"
         },
         {
-          "id": "95da5dfb-1ffe-4983-b789-cb0b0dc80179",
-          "setNumber": 2,
-          "weight": 100,
-          "reps": 8,
-          "unit": "lbs",
-          "weightMode": "machine"
-        },
-        {
-          "id": "00b96b47-86d3-46d5-a6e8-c39fcded237c",
+          "id": "1b158e52-0696-45ca-bc91-19a2b4a4657e",
           "setNumber": 3,
-          "weight": 100,
+          "weight": 130,
           "reps": 8,
           "unit": "lbs",
           "weightMode": "machine",
-          "isDropSet": true,
-          "drops": [
-            {
-              "weight": 0,
-              "reps": null,
-              "toFailure": true
-            }
-          ],
-          "notes": "Drop set to failure"
+          "assistedReps": 2,
+          "timestamp": "2026-05-11T14:49:23.190Z"
         }
       ],
-      "sessionId": "session-3",
-      "sessionDate": null,
-      "sessionLabel": "Session 3"
+      "sessionId": "5629d103-6a6f-4b2a-9d5b-249697767144",
+      "sessionDate": "2026-05-11T15:50:07.452Z",
+      "sessionLabel": "Session 10"
     }
   },
   "prRecords": [
@@ -3379,6 +3657,19 @@
       "detectedAt": "2026-05-02T16:36:48.042Z"
     },
     {
+      "id": "152ce3dd-1429-48a3-bd7c-adf36bd4ca5f",
+      "exerciseId": "close-lat-pulldown",
+      "exerciseName": "Close Grip Lat Pulldown",
+      "type": "reps",
+      "value": 6,
+      "weight": 145,
+      "reps": 6,
+      "sessionId": "5629d103-6a6f-4b2a-9d5b-249697767144",
+      "sessionLabel": "Session 10",
+      "date": "2026-05-11T15:50:07.452Z",
+      "detectedAt": "2026-05-11T15:50:07.486Z"
+    },
+    {
       "id": "171c4610-684a-4311-be6a-3ac4e3094a7f",
       "exerciseId": "single-preacher-curl",
       "exerciseName": "Single-arm Preacher Curl",
@@ -3485,6 +3776,18 @@
       "detectedAt": "2026-05-02T16:36:48.042Z"
     },
     {
+      "id": "1f1f34f4-cb9e-46cf-977b-95f9f00aa0fe",
+      "exerciseId": "incline-db-bench",
+      "exerciseName": "Incline DB Bench Press",
+      "type": "weight",
+      "value": 25,
+      "weight": 25,
+      "sessionId": "5629d103-6a6f-4b2a-9d5b-249697767144",
+      "sessionLabel": "Session 10",
+      "date": "2026-05-11T15:50:07.452Z",
+      "detectedAt": "2026-05-11T15:50:07.491Z"
+    },
+    {
       "id": "1f7af55d-55cc-47e0-9de5-a7a3f870aba5",
       "exerciseId": "cable-curl-behind",
       "exerciseName": "Cable Curl Behind Body",
@@ -3505,6 +3808,19 @@
       "sessionLabel": "Session 8",
       "date": "2026-05-04T12:01:01.188Z",
       "detectedAt": "2026-05-04T12:01:01.210Z"
+    },
+    {
+      "id": "217cfe35-b56e-4734-8157-013f1f3d9304",
+      "exerciseId": "wide-lat-pulldown",
+      "exerciseName": "Wide Lat Pulldown",
+      "type": "reps",
+      "value": 10,
+      "weight": 130,
+      "reps": 10,
+      "sessionId": "5629d103-6a6f-4b2a-9d5b-249697767144",
+      "sessionLabel": "Session 10",
+      "date": "2026-05-11T15:50:07.452Z",
+      "detectedAt": "2026-05-11T15:50:07.495Z"
     },
     {
       "id": "232a638d-65cf-4961-83ad-d505de34094a",
@@ -3652,6 +3968,19 @@
       "sessionLabel": "Session 4",
       "date": null,
       "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "32249746-2f45-4842-9377-739dc4bac5e3",
+      "exerciseId": "wide-lat-pulldown",
+      "exerciseName": "Wide Lat Pulldown",
+      "type": "reps",
+      "value": 12,
+      "weight": 115,
+      "reps": 12,
+      "sessionId": "5629d103-6a6f-4b2a-9d5b-249697767144",
+      "sessionLabel": "Session 10",
+      "date": "2026-05-11T15:50:07.452Z",
+      "detectedAt": "2026-05-11T15:50:07.495Z"
     },
     {
       "id": "33d78477-54b7-4bed-80cd-4a3ffdee80a3",
@@ -3859,6 +4188,19 @@
       "detectedAt": "2026-05-02T16:36:48.042Z"
     },
     {
+      "id": "4e54a362-993a-43d1-b42d-c8adc7bfe0df",
+      "exerciseId": "flat-press",
+      "exerciseName": "Flat Press",
+      "type": "reps",
+      "value": 11,
+      "weight": 25,
+      "reps": 11,
+      "sessionId": "5629d103-6a6f-4b2a-9d5b-249697767144",
+      "sessionLabel": "Session 10",
+      "date": "2026-05-11T15:50:07.452Z",
+      "detectedAt": "2026-05-11T15:50:07.488Z"
+    },
+    {
       "id": "4fbaed42-b628-4e60-bfe4-b85b681f1a8e",
       "exerciseId": "shoulder-press",
       "exerciseName": "Shoulder Press Machine",
@@ -3980,6 +4322,17 @@
       "detectedAt": "2026-05-02T16:36:48.042Z"
     },
     {
+      "id": "5c7940bb-29b2-4e78-9cdd-69275eabf1a4",
+      "exerciseId": "cable-fly",
+      "exerciseName": "Cable Fly",
+      "type": "volume",
+      "value": 700,
+      "sessionId": "5629d103-6a6f-4b2a-9d5b-249697767144",
+      "sessionLabel": "Session 10",
+      "date": "2026-05-11T15:50:07.452Z",
+      "detectedAt": "2026-05-11T15:50:07.484Z"
+    },
+    {
       "id": "5d35a299-ae0a-40ed-b70d-b098d0e79dae",
       "exerciseId": "face-pull",
       "exerciseName": "Face Pull",
@@ -4036,6 +4389,17 @@
       "sessionLabel": "Session 5",
       "date": null,
       "detectedAt": "2026-05-02T16:36:48.042Z"
+    },
+    {
+      "id": "62d7903f-a62f-4e29-bfde-919a78e87945",
+      "exerciseId": "flat-press",
+      "exerciseName": "Flat Press",
+      "type": "volume",
+      "value": 475,
+      "sessionId": "5629d103-6a6f-4b2a-9d5b-249697767144",
+      "sessionLabel": "Session 10",
+      "date": "2026-05-11T15:50:07.452Z",
+      "detectedAt": "2026-05-11T15:50:07.488Z"
     },
     {
       "id": "62ed30ef-d15f-41b8-9a49-c42be754c7e3",
@@ -4104,6 +4468,18 @@
       "sessionLabel": "Session 9",
       "date": "2026-05-06T17:01:19.110Z",
       "detectedAt": "2026-05-06T17:01:19.140Z"
+    },
+    {
+      "id": "66dd8765-a604-44d7-91d8-73fecad8e0cb",
+      "exerciseId": "flat-press",
+      "exerciseName": "Flat Press",
+      "type": "weight",
+      "value": 25,
+      "weight": 25,
+      "sessionId": "5629d103-6a6f-4b2a-9d5b-249697767144",
+      "sessionLabel": "Session 10",
+      "date": "2026-05-11T15:50:07.452Z",
+      "detectedAt": "2026-05-11T15:50:07.488Z"
     },
     {
       "id": "6cfc3dc0-bf63-4073-b90c-4bfc9aae911f",
@@ -4272,6 +4648,17 @@
       "sessionLabel": "Session 8",
       "date": "2026-05-04T12:01:01.188Z",
       "detectedAt": "2026-05-04T12:01:01.221Z"
+    },
+    {
+      "id": "792e9732-ae23-4a1c-b471-1671b598ed63",
+      "exerciseId": "flat-press",
+      "exerciseName": "Flat Press",
+      "type": "estimated",
+      "value": 34.6,
+      "sessionId": "5629d103-6a6f-4b2a-9d5b-249697767144",
+      "sessionLabel": "Session 10",
+      "date": "2026-05-11T15:50:07.452Z",
+      "detectedAt": "2026-05-11T15:50:07.488Z"
     },
     {
       "id": "796a50de-bc57-4513-9242-39668d836d8f",
@@ -4653,6 +5040,30 @@
       "detectedAt": "2026-05-02T16:36:48.042Z"
     },
     {
+      "id": "a1ddafa8-4303-4e23-967f-2a2ff4308c65",
+      "exerciseId": "incline-db-bench",
+      "exerciseName": "Incline DB Bench Press",
+      "type": "estimated",
+      "value": 33.3,
+      "sessionId": "5629d103-6a6f-4b2a-9d5b-249697767144",
+      "sessionLabel": "Session 10",
+      "date": "2026-05-11T15:50:07.452Z",
+      "detectedAt": "2026-05-11T15:50:07.491Z"
+    },
+    {
+      "id": "a2196c65-afdf-442d-a1d2-21d00623906b",
+      "exerciseId": "incline-db-bench",
+      "exerciseName": "Incline DB Bench Press",
+      "type": "reps",
+      "value": 10,
+      "weight": 25,
+      "reps": 10,
+      "sessionId": "5629d103-6a6f-4b2a-9d5b-249697767144",
+      "sessionLabel": "Session 10",
+      "date": "2026-05-11T15:50:07.452Z",
+      "detectedAt": "2026-05-11T15:50:07.491Z"
+    },
+    {
       "id": "a3af3785-1b72-4cbb-9105-e12d84aba24d",
       "exerciseId": "incline-db-bench",
       "exerciseName": "Incline Press",
@@ -4748,6 +5159,18 @@
       "detectedAt": "2026-05-02T16:36:48.042Z"
     },
     {
+      "id": "ad160298-7de4-425e-8c97-87d8c944d3bb",
+      "exerciseId": "close-lat-pulldown",
+      "exerciseName": "Close Grip Lat Pulldown",
+      "type": "weight",
+      "value": 145,
+      "weight": 145,
+      "sessionId": "5629d103-6a6f-4b2a-9d5b-249697767144",
+      "sessionLabel": "Session 10",
+      "date": "2026-05-11T15:50:07.452Z",
+      "detectedAt": "2026-05-11T15:50:07.486Z"
+    },
+    {
       "id": "afdff4bb-7321-4690-a61a-1ded9ff22026",
       "exerciseId": "cable-curl-behind",
       "exerciseName": "Cable Curl Behind Body",
@@ -4809,6 +5232,18 @@
       "detectedAt": "2026-05-02T16:36:48.042Z"
     },
     {
+      "id": "b817b3d4-1ad2-41f8-960f-1bcfc977da72",
+      "exerciseId": "wide-lat-pulldown",
+      "exerciseName": "Wide Lat Pulldown",
+      "type": "weight",
+      "value": 130,
+      "weight": 130,
+      "sessionId": "5629d103-6a6f-4b2a-9d5b-249697767144",
+      "sessionLabel": "Session 10",
+      "date": "2026-05-11T15:50:07.452Z",
+      "detectedAt": "2026-05-11T15:50:07.495Z"
+    },
+    {
       "id": "b894ed2d-9bc0-4efd-b903-7fa4d20dc013",
       "exerciseId": "overhead-triceps",
       "exerciseName": "Overhead Triceps",
@@ -4855,6 +5290,28 @@
       "detectedAt": "2026-05-02T16:36:48.042Z"
     },
     {
+      "id": "bf64290b-0be0-4461-8606-48f959dddb2a",
+      "exerciseId": "wide-lat-pulldown",
+      "exerciseName": "Wide Lat Pulldown",
+      "type": "volume",
+      "value": 3720,
+      "sessionId": "5629d103-6a6f-4b2a-9d5b-249697767144",
+      "sessionLabel": "Session 10",
+      "date": "2026-05-11T15:50:07.452Z",
+      "detectedAt": "2026-05-11T15:50:07.495Z"
+    },
+    {
+      "id": "c0c43b43-d77f-4b3d-970b-e6fc85242f90",
+      "exerciseId": "wide-lat-pulldown",
+      "exerciseName": "Wide Lat Pulldown",
+      "type": "estimated",
+      "value": 173.3,
+      "sessionId": "5629d103-6a6f-4b2a-9d5b-249697767144",
+      "sessionLabel": "Session 10",
+      "date": "2026-05-11T15:50:07.452Z",
+      "detectedAt": "2026-05-11T15:50:07.495Z"
+    },
+    {
       "id": "c3d62e90-da16-4dbf-a91d-76c890fab742",
       "exerciseId": "lateral-raises",
       "exerciseName": "Lateral Raises",
@@ -4875,6 +5332,17 @@
       "sessionLabel": "Session 9",
       "date": "2026-05-06T17:01:19.110Z",
       "detectedAt": "2026-05-06T17:01:19.143Z"
+    },
+    {
+      "id": "c6ccd169-346b-4420-a5cf-1f8aa2d239c4",
+      "exerciseId": "incline-db-bench",
+      "exerciseName": "Incline DB Bench Press",
+      "type": "volume",
+      "value": 650,
+      "sessionId": "5629d103-6a6f-4b2a-9d5b-249697767144",
+      "sessionLabel": "Session 10",
+      "date": "2026-05-11T15:50:07.452Z",
+      "detectedAt": "2026-05-11T15:50:07.491Z"
     },
     {
       "id": "c883c259-43ed-40a7-bf68-0cbcd46d0644",
@@ -5155,6 +5623,19 @@
       "sessionLabel": "Session 6",
       "date": null,
       "detectedAt": "2026-05-02T16:36:48.043Z"
+    },
+    {
+      "id": "e48dd214-19eb-4a3b-8889-1551500cde97",
+      "exerciseId": "incline-db-bench",
+      "exerciseName": "Incline DB Bench Press",
+      "type": "reps",
+      "value": 10,
+      "weight": 22.5,
+      "reps": 10,
+      "sessionId": "5629d103-6a6f-4b2a-9d5b-249697767144",
+      "sessionLabel": "Session 10",
+      "date": "2026-05-11T15:50:07.452Z",
+      "detectedAt": "2026-05-11T15:50:07.491Z"
     },
     {
       "id": "e4b7b505-e5be-418c-bdab-a6be7844cf76",
