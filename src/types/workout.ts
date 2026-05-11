@@ -142,4 +142,5 @@ export interface AppState {
 export interface AppSettings {
   defaultUnit: WeightUnit;
   theme: 'dark' | 'light';
+  aiApiKey?: string;
 }

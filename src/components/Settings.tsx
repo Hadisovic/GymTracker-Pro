@@ -2,7 +2,7 @@ import { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import {
   Download, Upload, RotateCcw, Shield, Database,
-  ChevronRight, Check, AlertTriangle, Cloud, CloudOff, LogOut
+  ChevronRight, Check, AlertTriangle, Cloud, LogOut, Bot
 } from 'lucide-react';
 import { useWorkoutStore } from '../store/workoutStore';
 
@@ -10,7 +10,7 @@ export default function Settings() {
   const {
     settings, updateSettings, exportData, importData, resetToSeed, rebuildPRs,
     workoutHistory, exercises, muscleGroups, prRecords, updateExercise,
-    user, login, logout, syncToCloud, syncFromCloud
+    user, logout, syncToCloud, syncFromCloud
   } = useWorkoutStore();
 
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -125,6 +125,36 @@ export default function Settings() {
         </div>
       </div>
 
+      {/* AI Configuration */}
+      <div className="glass-card p-4 mb-4">
+        <div className="flex items-start gap-3 mb-3">
+          <div className="w-8 h-8 rounded-full bg-purple-500/20 flex items-center justify-center shrink-0">
+            <Bot className="w-4 h-4 text-purple-400" />
+          </div>
+          <div className="flex-1">
+            <p className="text-white font-medium text-sm">AI Assistant (Gemini)</p>
+            <p className="text-dark-300 text-xs mt-0.5">
+              Enter your Google Gemini API Key to enable the smart assistant. Keys are stored securely in your browser and never sent to our servers.
+            </p>
+          </div>
+        </div>
+        <input
+          type="password"
+          placeholder="Paste your Gemini API Key here..."
+          value={settings.aiApiKey || ''}
+          onChange={(e) => updateSettings({ aiApiKey: e.target.value })}
+          className="w-full bg-dark-800 border border-dark-600 rounded-lg px-3 py-2 text-sm text-white placeholder-dark-400 focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-colors"
+        />
+        <a 
+          href="https://aistudio.google.com/app/apikey" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="text-xs text-purple-400 hover:text-purple-300 mt-2 inline-block"
+        >
+          Get a free API key &rarr;
+        </a>
+      </div>
+
       {/* Exercise Units */}
       <div className="glass-card p-4 mb-6">
         <div className="mb-3">
@@ -168,24 +198,7 @@ export default function Settings() {
           <Cloud className="w-4 h-4" /> Cloud Sync
         </h3>
 
-        {!user ? (
-          <motion.button
-            onClick={login}
-            className="w-full glass-card p-4 flex items-center justify-between border-blue-500/30"
-            whileTap={{ scale: 0.98 }}
-          >
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-blue-500/15 flex items-center justify-center">
-                <CloudOff className="w-5 h-5 text-blue-400" />
-              </div>
-              <div className="text-left">
-                <p className="text-white font-medium text-sm">Sign in with Google</p>
-                <p className="text-dark-300 text-xs">Sync data across devices</p>
-              </div>
-            </div>
-            <ChevronRight className="w-4 h-4 text-dark-400" />
-          </motion.button>
-        ) : (
+        {user && (
           <div className="glass-card p-4 space-y-4">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
@@ -197,7 +210,7 @@ export default function Settings() {
                   <p className="text-dark-300 text-xs">{user.email}</p>
                 </div>
               </div>
-              <button onClick={logout} className="text-dark-400 hover:text-red-400 transition-colors p-2">
+              <button onClick={logout} className="text-dark-400 hover:text-red-400 transition-colors p-2" title="Sign Out">
                 <LogOut className="w-4 h-4" />
               </button>
             </div>
@@ -208,14 +221,14 @@ export default function Settings() {
                 disabled={syncStatus === 'syncing'}
                 className="btn-secondary py-2 flex items-center justify-center gap-2 text-xs"
               >
-                <Upload className="w-3 h-3" /> Backup to Cloud
+                <Upload className="w-3 h-3" /> Force Backup
               </button>
               <button
                 onClick={() => handleCloudSync('pull')}
                 disabled={syncStatus === 'syncing'}
                 className="btn-secondary py-2 flex items-center justify-center gap-2 text-xs"
               >
-                <Download className="w-3 h-3" /> Restore from Cloud
+                <Download className="w-3 h-3" /> Force Restore
               </button>
             </div>
 
@@ -232,6 +245,7 @@ export default function Settings() {
           </div>
         )}
       </div>
+
 
       {/* Export / Import */}
       <div className="space-y-2 mb-6">

@@ -31,11 +31,12 @@ interface WorkoutStore {
 
   // Init
   initialize: () => Promise<void>;
+  loadUserData: () => Promise<void>;
   setUser: (user: User | null) => void;
   login: () => Promise<void>;
   logout: () => Promise<void>;
   syncToCloud: () => Promise<void>;
-  syncFromCloud: () => Promise<void>;
+  syncFromCloud: () => Promise<boolean>;
 
   // Navigation
   setCurrentView: (view: string) => void;
@@ -113,7 +114,29 @@ export const useWorkoutStore = create<WorkoutStore>()(
 
   logout: async () => {
     await firebaseLogout();
-    set({ user: null });
+    
+    // Wipe local database on logout for data isolation
+    await Promise.all([
+      db.muscleGroups.clear(),
+      db.exercises.clear(),
+      db.workoutPresets.clear(),
+      db.workoutHistory.clear(),
+      db.latestLogs.clear(),
+      db.prRecords.clear(),
+      db.settings.clear(),
+    ]);
+
+    set({ 
+      user: null,
+      muscleGroups: [],
+      exercises: [],
+      workoutPresets: [],
+      workoutHistory: [],
+      latestLogs: {},
+      prRecords: [],
+      activeWorkout: null,
+      isInitialized: false 
+    });
   },
 
   syncToCloud: async () => {
@@ -135,8 +158,27 @@ export const useWorkoutStore = create<WorkoutStore>()(
     const snap = await getDoc(docRef);
     if (snap.exists() && snap.data().data) {
       await state.importData(snap.data().data);
+      return true;
     } else {
-      throw new Error("No cloud backup found");
+      return false; // No cloud backup found
+    }
+  },
+
+  loadUserData: async () => {
+    try {
+      const state = get();
+      if (!state.user) return;
+      
+      const hasCloudData = await state.syncFromCloud();
+      if (!hasCloudData) {
+        // Brand new user, seed their empty dashboard and push it to their cloud
+        await state.resetToSeed();
+        await state.syncToCloud();
+      }
+    } catch (err) {
+      console.error('Failed to load user data from cloud:', err);
+      // Fallback to empty/seed if network error
+      await get().resetToSeed();
     }
   },
 
@@ -410,6 +452,12 @@ export const useWorkoutStore = create<WorkoutStore>()(
       activeWorkout: null,
       lastCompletedSessionId: session.id,
     });
+    
+    try {
+      await get().syncToCloud();
+    } catch (e) {
+      console.warn("Failed to auto-sync workout:", e);
+    }
   },
 
   cancelWorkout: () => set({ activeWorkout: null }),
@@ -463,6 +511,12 @@ export const useWorkoutStore = create<WorkoutStore>()(
       workoutHistory: [...state.workoutHistory, session],
       latestLogs: newLatestLogs,
     });
+    
+    try {
+      await get().syncToCloud();
+    } catch (e) {
+      console.warn("Failed to auto-sync cardio:", e);
+    }
   },
 
   // ─── History ────────────────────────────────────────────
@@ -480,6 +534,12 @@ export const useWorkoutStore = create<WorkoutStore>()(
       workoutHistory: s.workoutHistory.map(h => h.id === session.id ? session : h),
       latestLogs: newLatestLogs,
     }));
+    
+    try {
+      await get().syncToCloud();
+    } catch (e) {
+      console.warn("Failed to auto-sync updateSession:", e);
+    }
   },
 
   deleteSession: async (id) => {
@@ -494,6 +554,12 @@ export const useWorkoutStore = create<WorkoutStore>()(
       workoutHistory: remaining,
       latestLogs: newLatestLogs,
     });
+    
+    try {
+      await get().syncToCloud();
+    } catch (e) {
+      console.warn("Failed to auto-sync deleteSession:", e);
+    }
   },
 
   updateLatestLog: async (log) => {

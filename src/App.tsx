@@ -12,44 +12,46 @@ import Settings from './components/Settings';
 import LockScreen from './components/LockScreen';
 import WorkoutSummary from './components/WorkoutSummary';
 import CardioView from './components/CardioView';
-import backupData from './data/backup.json';
 import { auth } from './lib/firebase';
 import { onAuthStateChanged } from 'firebase/auth';
+import AIAssistant from './components/AIAssistant';
 
 export default function App() {
   const { 
-    initialize, isInitialized, currentView, activeWorkout, setUser 
+    initialize, isInitialized, currentView, activeWorkout, setUser, user, loadUserData
   } = useWorkoutStore();
-  const [isAuthenticated, setIsAuthenticated] = useState(() => {
-    return localStorage.getItem('gymtracker_auth') === 'true';
-  });
+  
+  const [isAuthReady, setIsAuthReady] = useState(false);
 
   useEffect(() => {
     if (!auth) return;
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      setUser(user);
+    const unsubscribe = onAuthStateChanged(auth, (firebaseUser) => {
+      setUser(firebaseUser);
+      setIsAuthReady(true);
     });
     return () => unsubscribe();
   }, [setUser]);
 
   useEffect(() => {
     const init = async () => {
-      await initialize();
-      if (!localStorage.getItem('gymtracker_data_imported_v2')) {
-        const { importData } = useWorkoutStore.getState();
-        try {
-          await importData(JSON.stringify(backupData));
-          localStorage.setItem('gymtracker_data_imported_v2', 'true');
-        } catch (e) {
-          console.error("Failed to auto-import backup data", e);
-        }
+      if (isAuthReady && user && !isInitialized) {
+        await initialize();
+        await loadUserData();
       }
     };
     init();
-  }, [initialize]);
+  }, [isAuthReady, user, isInitialized, initialize, loadUserData]);
 
-  if (!isAuthenticated) {
-    return <LockScreen onUnlock={() => setIsAuthenticated(true)} />;
+  if (!isAuthReady) {
+    return (
+      <div className="flex items-center justify-center min-h-screen bg-dark-900">
+        <div className="w-12 h-12 rounded-full border-2 border-accent-500 border-t-transparent animate-spin" />
+      </div>
+    );
+  }
+
+  if (!user) {
+    return <LockScreen />;
   }
 
   if (!isInitialized) {
@@ -57,7 +59,7 @@ export default function App() {
       <div className="flex items-center justify-center min-h-screen bg-dark-900">
         <div className="flex flex-col items-center gap-4">
           <div className="w-12 h-12 rounded-full border-2 border-accent-500 border-t-transparent animate-spin" />
-          <p className="text-dark-200 text-sm">Loading GymTracker Pro...</p>
+          <p className="text-dark-200 text-sm">Syncing your data...</p>
         </div>
       </div>
     );
@@ -79,6 +81,7 @@ export default function App() {
         {view === 'settings' && <Settings key="settings" />}
         {view === 'workout-summary' && <WorkoutSummary key="summary" />}
       </AnimatePresence>
+      <AIAssistant />
     </Layout>
   );
 }
