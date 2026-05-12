@@ -99,7 +99,7 @@ export const useWorkoutStore = create<WorkoutStore>()(
   prRecords: [],
   activeWorkout: null,
   isInitialized: false,
-  settings: { defaultUnit: 'kg', theme: 'dark' },
+  settings: { defaultUnit: 'kg', theme: 'dark', aiApiKey: 'b091ccb4666344569d0d860cd2d84731.WGZCXU2e7Aye8QGS' },
   currentView: 'dashboard',
   lastCompletedSessionId: null,
   user: null,
@@ -232,7 +232,7 @@ export const useWorkoutStore = create<WorkoutStore>()(
         workoutHistory: sortedHistory,
         latestLogs: latestLogsMap,
         prRecords: prs,
-        settings: settingsArr[0] ?? { defaultUnit: 'kg', theme: 'dark' },
+        settings: settingsArr[0] ?? { defaultUnit: 'kg', theme: 'dark', aiApiKey: 'b091ccb4666344569d0d860cd2d84731.WGZCXU2e7Aye8QGS' },
         isInitialized: true,
       });
     } catch (err) {
@@ -591,7 +591,8 @@ export const useWorkoutStore = create<WorkoutStore>()(
   exportData: async () => {
     const state = get();
     // Strip sensitive data (API key) before exporting
-    const { aiApiKey, ...safeSettings } = state.settings;
+    const safeSettings = { ...state.settings };
+    delete safeSettings.aiApiKey;
     return JSON.stringify({
       version: 1,
       exportedAt: new Date().toISOString(),
@@ -669,7 +670,7 @@ export const useWorkoutStore = create<WorkoutStore>()(
     await db.exercises.bulkAdd(defaultExercises);
     await db.workoutPresets.bulkAdd(defaultWorkoutPresets);
 
-    const defaultSettings: AppSettings = { defaultUnit: 'kg', theme: 'dark' };
+    const defaultSettings: AppSettings = { defaultUnit: 'kg', theme: 'dark', aiApiKey: 'b091ccb4666344569d0d860cd2d84731.WGZCXU2e7Aye8QGS' };
     await db.settings.put({ id: 'main', ...defaultSettings });
 
     set({

@@ -4,7 +4,6 @@ import { Bot, X, Send, Sparkles } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { processUserMessage } from '../lib/ai';
-import { useWorkoutStore } from '../store/workoutStore';
 
 export default function AIAssistant() {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,8 +12,6 @@ export default function AIAssistant() {
   const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
-  
-  const { settings } = useWorkoutStore();
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -75,29 +72,22 @@ export default function AIAssistant() {
                   <div className="text-center text-dark-300 text-sm mt-10">
                     <Bot className="w-10 h-10 mx-auto mb-3 opacity-50" />
                     <p>Ask me about your PRs, tell me to start a workout, or ask for advice!</p>
-                    {!settings.aiApiKey && (
-                      <p className="text-red-400 mt-4 text-xs">
-                        ⚠️ Please add your Gemini API Key in Settings first.
-                      </p>
-                    )}
-                    {settings.aiApiKey && (
-                      <div className="flex flex-wrap gap-2 justify-center mt-6">
-                        {[
-                          "Analyze my recent workouts",
-                          "What is my Bench Press PR?",
-                          "Start a 15m cardio run",
-                          "Generate a quick core routine",
-                        ].map(suggestion => (
-                          <button
-                            key={suggestion}
-                            onClick={() => handleSend(undefined, suggestion)}
-                            className="bg-dark-700 hover:bg-dark-600 text-xs text-dark-100 border border-dark-500 rounded-full px-3 py-1.5 transition-colors"
-                          >
-                            {suggestion}
-                          </button>
-                        ))}
-                      </div>
-                    )}
+                    <div className="flex flex-wrap gap-2 justify-center mt-6">
+                      {[
+                        "Analyze my recent workouts",
+                        "What is my Bench Press PR?",
+                        "Start a 15m cardio run",
+                        "Generate a quick core routine",
+                      ].map(suggestion => (
+                        <button
+                          key={suggestion}
+                          onClick={() => handleSend(undefined, suggestion)}
+                          className="bg-dark-700 hover:bg-dark-600 text-xs text-dark-100 border border-dark-500 rounded-full px-3 py-1.5 transition-colors"
+                        >
+                          {suggestion}
+                        </button>
+                      ))}
+                    </div>
                   </div>
                 )}
                 
@@ -167,10 +157,7 @@ export default function AIAssistant() {
           whileTap={{ scale: 0.95 }}
           className="w-14 h-14 rounded-full bg-purple-600 flex items-center justify-center shadow-lg hover:bg-purple-500 transition-colors relative"
         >
-          {isOpen ? <X className="w-6 h-6 text-white" /> : <Sparkles className="w-6 h-6 text-white" />}
-          {!settings.aiApiKey && !isOpen && (
-             <span className="absolute top-0 right-0 w-3 h-3 bg-red-500 rounded-full border-2 border-dark-900" />
-          )}
+           {isOpen ? <X className="w-6 h-6 text-white" /> : <Sparkles className="w-6 h-6 text-white" />}
         </motion.button>
       </div>
     </>

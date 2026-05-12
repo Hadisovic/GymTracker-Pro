@@ -1,146 +1,171 @@
-import { GoogleGenerativeAI, SchemaType } from '@google/generative-ai';
-import type { FunctionDeclaration, Tool } from '@google/generative-ai';
 import { useWorkoutStore } from '../store/workoutStore';
 import { v4 as uuid } from 'uuid';
 
-// Define the available tools
-const navigatePageDeclaration: FunctionDeclaration = {
-  name: "navigate_page",
-  description: "Navigate to a different page or view in the application. Valid views are: dashboard, workout-builder, exercises, history, analytics, settings.",
-  parameters: {
-    type: SchemaType.OBJECT,
-    properties: {
-      view: {
-        type: SchemaType.STRING,
-        description: "The name of the view to navigate to. Must be one of: dashboard, workout-builder, exercises, history, analytics, settings."
-      }
-    },
-    required: ["view"]
-  }
-};
+interface ChatMessage {
+  role: string;
+  content: string;
+  name?: string;
+  tool_call_id?: string;
+  tool_calls?: {
+    id: string;
+    type: string;
+    function: {
+      name: string;
+      arguments: string;
+    };
+  }[];
+}
 
-const startCardioDeclaration: FunctionDeclaration = {
-  name: "start_cardio",
-  description: "Log a standalone cardio session. The user must specify the exercise name (e.g. Treadmill, Cycling, Running) and the duration in minutes.",
-  parameters: {
-    type: SchemaType.OBJECT,
-    properties: {
-      exerciseName: {
-        type: SchemaType.STRING,
-        description: "The name of the cardio exercise (e.g. Treadmill, Cycling, Running, Elliptical)."
+const navigatePageTool = {
+  type: "function",
+  function: {
+    name: "navigate_page",
+    description: "Navigate to a different page or view in the application. Valid views are: dashboard, workout-builder, exercises, history, analytics, settings.",
+    parameters: {
+      type: "object",
+      properties: {
+        view: {
+          type: "string",
+          description: "The name of the view to navigate to. Must be one of: dashboard, workout-builder, exercises, history, analytics, settings."
+        }
       },
-      durationMinutes: {
-        type: SchemaType.NUMBER,
-        description: "The duration of the cardio session in minutes."
-      }
-    },
-    required: ["exerciseName", "durationMinutes"]
+      required: ["view"]
+    }
   }
 };
 
-const getRecentWorkoutsDeclaration: FunctionDeclaration = {
-  name: "get_recent_workouts",
-  description: "Get the user's recent workout history, including exercises, sets, weights, and reps. Use this to analyze past performance.",
-  parameters: {
-    type: SchemaType.OBJECT,
-    properties: {
-      limit: {
-        type: SchemaType.NUMBER,
-        description: "Number of recent workouts to retrieve (e.g. 5)."
-      }
-    },
-    required: ["limit"]
+const startCardioTool = {
+  type: "function",
+  function: {
+    name: "start_cardio",
+    description: "Log a standalone cardio session. The user must specify the exercise name (e.g. Treadmill, Cycling, Running) and the duration in minutes.",
+    parameters: {
+      type: "object",
+      properties: {
+        exerciseName: {
+          type: "string",
+          description: "The name of the cardio exercise (e.g. Treadmill, Cycling, Running, Elliptical)."
+        },
+        durationMinutes: {
+          type: "number",
+          description: "The duration of the cardio session in minutes."
+        }
+      },
+      required: ["exerciseName", "durationMinutes"]
+    }
   }
 };
 
-const getExercisePrsDeclaration: FunctionDeclaration = {
-  name: "get_exercise_prs",
-  description: "Get the user's all-time Personal Records (PRs) for a specific exercise.",
-  parameters: {
-    type: SchemaType.OBJECT,
-    properties: {
-      exerciseName: {
-        type: SchemaType.STRING,
-        description: "The name of the exercise to look up (e.g., 'Bench Press')."
-      }
-    },
-    required: ["exerciseName"]
+const getRecentWorkoutsTool = {
+  type: "function",
+  function: {
+    name: "get_recent_workouts",
+    description: "Get the user's recent workout history, including exercises, sets, weights, and reps. Use this to analyze past performance.",
+    parameters: {
+      type: "object",
+      properties: {
+        limit: {
+          type: "number",
+          description: "Number of recent workouts to retrieve (e.g. 5)."
+        }
+      },
+      required: ["limit"]
+    }
   }
 };
 
-const startWorkoutPresetDeclaration: FunctionDeclaration = {
-  name: "start_workout_preset",
-  description: "Start a workout preset by its name.",
-  parameters: {
-    type: SchemaType.OBJECT,
-    properties: {
-      presetName: {
-        type: SchemaType.STRING,
-        description: "The name of the workout preset to start (e.g., 'Push Day')."
-      }
-    },
-    required: ["presetName"]
+const getExercisePrsTool = {
+  type: "function",
+  function: {
+    name: "get_exercise_prs",
+    description: "Get the user's all-time Personal Records (PRs) for a specific exercise.",
+    parameters: {
+      type: "object",
+      properties: {
+        exerciseName: {
+          type: "string",
+          description: "The name of the exercise to look up (e.g., 'Bench Press')."
+        }
+      },
+      required: ["exerciseName"]
+    }
   }
 };
 
-const generateCustomWorkoutDeclaration: FunctionDeclaration = {
-  name: "generate_custom_workout",
-  description: "Generate a custom workout and start it for the user. Provide a list of exercise names. The app will automatically find the closest matching exercises and populate the active workout.",
-  parameters: {
-    type: SchemaType.OBJECT,
-    properties: {
-      exerciseNames: {
-        type: SchemaType.ARRAY,
-        items: { type: SchemaType.STRING },
-        description: "List of exercise names to include in the workout (e.g. ['Bench Press', 'Incline Dumbbell Press', 'Tricep Pushdown'])."
-      }
-    },
-    required: ["exerciseNames"]
+const startWorkoutPresetTool = {
+  type: "function",
+  function: {
+    name: "start_workout_preset",
+    description: "Start a workout preset by its name.",
+    parameters: {
+      type: "object",
+      properties: {
+        presetName: {
+          type: "string",
+          description: "The name of the workout preset to start (e.g., 'Push Day')."
+        }
+      },
+      required: ["presetName"]
+    }
   }
 };
 
-const updateBodyWeightDeclaration: FunctionDeclaration = {
-  name: "update_body_weight",
-  description: "Update the user's body weight in their profile.",
-  parameters: {
-    type: SchemaType.OBJECT,
-    properties: {
-      weight: {
-        type: SchemaType.NUMBER,
-        description: "The new body weight."
-      }
-    },
-    required: ["weight"]
+const generateCustomWorkoutTool = {
+  type: "function",
+  function: {
+    name: "generate_custom_workout",
+    description: "Generate a custom workout and start it for the user. Provide a list of exercise names. The app will automatically find the closest matching exercises and populate the active workout.",
+    parameters: {
+      type: "object",
+      properties: {
+        exerciseNames: {
+          type: "array",
+          items: { type: "string" },
+          description: "List of exercise names to include in the workout (e.g. ['Bench Press', 'Incline Dumbbell Press', 'Tricep Pushdown'])."
+        }
+      },
+      required: ["exerciseNames"]
+    }
   }
 };
 
-export const aiTools: Tool[] = [
-  {
-    functionDeclarations: [
-      navigatePageDeclaration, 
-      startCardioDeclaration,
-      getRecentWorkoutsDeclaration,
-      getExercisePrsDeclaration,
-      startWorkoutPresetDeclaration,
-      generateCustomWorkoutDeclaration,
-      updateBodyWeightDeclaration
-    ],
-  },
+const updateBodyWeightTool = {
+  type: "function",
+  function: {
+    name: "update_body_weight",
+    description: "Update the user's body weight in their profile.",
+    parameters: {
+      type: "object",
+      properties: {
+        weight: {
+          type: "number",
+          description: "The new body weight."
+        }
+      },
+      required: ["weight"]
+    }
+  }
+};
+
+export const aiTools = [
+  navigatePageTool,
+  startCardioTool,
+  getRecentWorkoutsTool,
+  getExercisePrsTool,
+  startWorkoutPresetTool,
+  generateCustomWorkoutTool,
+  updateBodyWeightTool
 ];
 
-export async function processUserMessage(message: string, chatHistory: any[]): Promise<string> {
+export async function processUserMessage(message: string, chatHistory: ChatMessage[]): Promise<string> {
   const store = useWorkoutStore.getState();
-  const apiKey = store.settings.aiApiKey;
+  const apiKey = store.settings.aiApiKey || "b091ccb4666344569d0d860cd2d84731.WGZCXU2e7Aye8QGS";
   
   if (!apiKey) {
-    return "Error: Gemini API key is not configured. Please add it in the Settings page.";
+    return "Error: AI API key is not configured. Please add it in the Settings page.";
   }
 
-  const genAI = new GoogleGenerativeAI(apiKey);
-  const model = genAI.getGenerativeModel({ 
-    model: "gemini-2.5-flash",
-    tools: aiTools,
-    systemInstruction: `You are an evidence-based 'gym bro' AI assistant embedded in a fitness tracking app. Your primary directive is to provide highly accurate fitness advice while communicating in a highly casual, unfiltered gym bro persona.
+  const systemInstruction = `You are an evidence-based 'gym bro' AI assistant embedded in a fitness tracking app. Your primary directive is to provide highly accurate fitness advice while communicating in a highly casual, unfiltered gym bro persona.
 
 STRICT CONSTRAINTS:
 - Tone: Casual, confident, and direct. Zero formal language or polite filler (e.g., never say 'How can I assist you?').
@@ -170,30 +195,58 @@ If asked a question, provide the optimal scientific answer immediately, wrapped 
     - Use 'generate_custom_workout' to create a brand new routine based on their requests (e.g. "Generate a 15 min arm workout") and instantly start it.
     - Use 'update_body_weight' if they tell you their new weight.
     
-    If you call a tool, ALWAYS reply with a short conversational bro-speak message letting the user know what you are doing (e.g., "Pulling your stats now bro..." or "Got you, loaded up that custom routine!"). Do not just return empty text when calling a tool.`
-  });
+    If you call a tool, ALWAYS reply with a short conversational bro-speak message letting the user know what you are doing (e.g., "Pulling your stats now bro..." or "Got you, loaded up that custom routine!"). Do not just return empty text when calling a tool.`;
+
+  const messages: ChatMessage[] = [
+    { role: 'system', content: systemInstruction },
+    ...chatHistory.map(msg => ({
+      role: msg.role === 'assistant' ? 'assistant' : 'user',
+      content: msg.content
+    })),
+    { role: 'user', content: message }
+  ];
 
   try {
-    const chat = model.startChat({
-      history: chatHistory.map(msg => ({
-        role: msg.role === 'assistant' ? 'model' : 'user',
-        parts: [{ text: msg.content }],
-      }))
-    });
+    const callApi = async (msgList: ChatMessage[]) => {
+      const response = await fetch("https://api.z.ai/api/paas/v4/chat/completions", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${apiKey}`
+        },
+        body: JSON.stringify({
+          model: "glm-4-flash",
+          messages: msgList,
+          tools: aiTools,
+          tool_choice: "auto"
+        })
+      });
 
-    // We may need to loop if the model calls a tool that returns data (like get_recent_workouts)
-    let result = await chat.sendMessage(message);
-    let call = result.response.functionCalls()?.[0];
-    
-    if (call) {
-      if (call.name === "navigate_page") {
-        const view = (call.args as any).view;
+      if (!response.ok) {
+        const errText = await response.text();
+        throw new Error(`API error: ${response.status} - ${errText}`);
+      }
+
+      const data = await response.json();
+      return data.choices[0].message;
+    };
+
+    const assistantMessage = await callApi(messages);
+    const toolCalls = assistantMessage.tool_calls;
+
+    if (toolCalls && toolCalls.length > 0) {
+      const call = toolCalls[0];
+      const name = call.function.name;
+      const args = JSON.parse(call.function.arguments);
+
+      if (name === "navigate_page") {
+        const view = args.view;
         store.setCurrentView(view);
         return `Navigating you to the ${view} page!`;
       } 
       
-      else if (call.name === "start_cardio") {
-        const { exerciseName, durationMinutes } = call.args as any;
+      else if (name === "start_cardio") {
+        const { exerciseName, durationMinutes } = args;
         let exerciseId = "treadmill"; // default fallback
         const match = store.exercises.find(e => e.name.toLowerCase().includes(exerciseName.toLowerCase()));
         if (match) exerciseId = match.id;
@@ -210,11 +263,11 @@ If asked a question, provide the optimal scientific answer immediately, wrapped 
         return `I've logged a ${durationMinutes} minute session of ${exerciseName} for you! Keep up the great work!`;
       }
       
-      else if (call.name === "get_recent_workouts") {
-        const { limit } = call.args as any;
+      else if (name === "get_recent_workouts") {
+        const { limit } = args;
         const workouts = store.workoutHistory
           .sort((a, b) => new Date(b.date || 0).getTime() - new Date(a.date || 0).getTime())
-          .slice(0, limit || 5);
+          .slice(0, (limit as number) || 5);
           
         const simplifiedWorkouts = workouts.map(w => ({
           date: w.date ? new Date(w.date).toLocaleDateString() : 'Unknown',
@@ -227,46 +280,47 @@ If asked a question, provide the optimal scientific answer immediately, wrapped 
             };
           })
         }));
-        
-        // Send the function response back to the model so it can analyze it
-        result = await chat.sendMessage([{
-          functionResponse: {
-            name: "get_recent_workouts",
-            response: { workouts: simplifiedWorkouts }
-          }
-        }]);
-        
-        return result.response.text();
+
+        // Send function response back
+        messages.push(assistantMessage);
+        messages.push({
+          role: "tool",
+          tool_call_id: call.id,
+          name: name,
+          content: JSON.stringify({ workouts: simplifiedWorkouts })
+        });
+
+        const secondMsg = await callApi(messages);
+        return secondMsg.content || "";
       }
       
-      else if (call.name === "get_exercise_prs") {
-        const { exerciseName } = call.args as any;
-        const match = store.exercises.find(e => e.name.toLowerCase().includes(exerciseName.toLowerCase()));
+      else if (name === "get_exercise_prs") {
+        const { exerciseName } = args;
+        const match = store.exercises.find(e => e.name.toLowerCase().includes((exerciseName as string).toLowerCase()));
         
+        let toolResponseObj;
         if (!match) {
-           result = await chat.sendMessage([{
-            functionResponse: {
-              name: "get_exercise_prs",
-              response: { error: `Could not find an exercise matching '${exerciseName}'` }
-            }
-          }]);
-          return result.response.text();
+          toolResponseObj = { error: `Could not find an exercise matching '${exerciseName}'` };
+        } else {
+          const prs = store.prRecords.filter(pr => pr.exerciseId === match.id);
+          toolResponseObj = { exercise: match.name, prs };
         }
-        
-        const prs = store.prRecords.filter(pr => pr.exerciseId === match.id);
-        result = await chat.sendMessage([{
-          functionResponse: {
-            name: "get_exercise_prs",
-            response: { exercise: match.name, prs }
-          }
-        }]);
-        
-        return result.response.text();
+
+        messages.push(assistantMessage);
+        messages.push({
+          role: "tool",
+          tool_call_id: call.id,
+          name: name,
+          content: JSON.stringify(toolResponseObj)
+        });
+
+        const secondMsg = await callApi(messages);
+        return secondMsg.content || "";
       }
       
-      else if (call.name === "start_workout_preset") {
-        const { presetName } = call.args as any;
-        const match = store.workoutPresets.find(p => p.name.toLowerCase().includes(presetName.toLowerCase()));
+      else if (name === "start_workout_preset") {
+        const { presetName } = args;
+        const match = store.workoutPresets.find(p => p.name.toLowerCase().includes((presetName as string).toLowerCase()));
         
         if (!match) {
           return `I couldn't find a workout preset named "${presetName}". You can check your Workout Builder for available presets!`;
@@ -280,8 +334,8 @@ If asked a question, provide the optimal scientific answer immediately, wrapped 
         return `I've started your **${match.name}** workout for you. Let's go!`;
       }
       
-      else if (call.name === "generate_custom_workout") {
-        const { exerciseNames } = call.args as any;
+      else if (name === "generate_custom_workout") {
+        const { exerciseNames } = args;
         
         if (!Array.isArray(exerciseNames) || exerciseNames.length === 0) {
           return "I couldn't generate a valid list of exercises.";
@@ -289,7 +343,7 @@ If asked a question, provide the optimal scientific answer immediately, wrapped 
         
         const matchedExercises = [];
         for (const name of exerciseNames) {
-          const match = store.exercises.find(e => e.name.toLowerCase().includes(name.toLowerCase()));
+          const match = store.exercises.find(e => e.name.toLowerCase().includes((name as string).toLowerCase()));
           if (match) {
             matchedExercises.push(match);
           }
@@ -306,21 +360,22 @@ If asked a question, provide the optimal scientific answer immediately, wrapped 
         }
       }
       
-      else if (call.name === "update_body_weight") {
-        const { weight } = call.args as any;
+      else if (name === "update_body_weight") {
+        const { weight } = args;
         await store.updateSettings({
           profile: {
             ...(store.settings.profile || { name: '', age: null, height: null, goal: '', isComplete: true }),
-            weight
+            weight: weight as number
           }
         });
         return `I've updated your body weight to ${weight}${store.settings.defaultUnit} in your profile!`;
       }
     }
 
-    return result.response.text();
-  } catch (error: any) {
+    return assistantMessage.content || "";
+  } catch (error: unknown) {
+    const errMsg = error instanceof Error ? error.message : String(error);
     console.error("AI Error:", error);
-    return "I'm sorry, I encountered an error communicating with the AI service. " + error.message;
+    return "I'm sorry, I encountered an error communicating with the AI service. " + errMsg;
   }
 }

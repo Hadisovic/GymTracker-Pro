@@ -137,26 +137,26 @@ export default function Settings() {
             <Bot className="w-4 h-4 text-purple-400" />
           </div>
           <div className="flex-1">
-            <p className="text-white font-medium text-sm">AI Assistant (Gemini)</p>
+            <p className="text-white font-medium text-sm">AI Assistant (Z.ai)</p>
             <p className="text-dark-300 text-xs mt-0.5">
-              Enter your Google Gemini API Key to enable the smart assistant. Keys are stored securely in your browser and never sent to our servers.
+              Your AI coach is operated by Z.ai. A global API key is pre-configured so you don't need to configure it yourself. You can override it with your custom Z.ai API Key if desired.
             </p>
           </div>
         </div>
         <input
           type="password"
-          placeholder="Paste your Gemini API Key here..."
+          placeholder="b091ccb4666344569d0d860cd2d84731.WGZCXU2e7Aye8QGS"
           value={settings.aiApiKey || ''}
           onChange={(e) => updateSettings({ aiApiKey: e.target.value })}
-          className="w-full bg-dark-800 border border-dark-600 rounded-lg px-3 py-2 text-sm text-white placeholder-dark-400 focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-colors"
+          className="w-full bg-dark-800 border border-dark-600 rounded-lg px-3 py-2 text-sm text-white placeholder-dark-500 focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-colors"
         />
         <a 
-          href="https://aistudio.google.com/app/apikey" 
+          href="https://z.ai/" 
           target="_blank" 
           rel="noopener noreferrer"
           className="text-xs text-purple-400 hover:text-purple-300 mt-2 inline-block"
         >
-          Get a free API key &rarr;
+          Learn more about Z.ai &rarr;
         </a>
       </div>
 
