@@ -215,7 +215,7 @@ If asked a question, provide the optimal scientific answer immediately, wrapped 
           "Authorization": `Bearer ${apiKey}`
         },
         body: JSON.stringify({
-          model: "glm-4-flash",
+          model: "glm-4.5-flash",
           messages: msgList,
           tools: aiTools,
           tool_choice: "auto"
