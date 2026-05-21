@@ -6,12 +6,10 @@ import Dashboard from './components/Dashboard';
 import WorkoutBuilder from './components/WorkoutBuilder';
 import ActiveWorkout from './components/ActiveWorkout';
 import ExerciseLibrary from './components/ExerciseLibrary';
-import History from './components/History';
 import Analytics from './components/Analytics';
 import Settings from './components/Settings';
 import LockScreen from './components/LockScreen';
 import WorkoutSummary from './components/WorkoutSummary';
-import CardioView from './components/CardioView';
 import Onboarding from './components/Onboarding';
 import { auth } from './lib/firebase';
 import { onAuthStateChanged } from 'firebase/auth';
@@ -71,7 +69,10 @@ export default function App() {
   }
 
   // If there's an active workout, show it regardless of nav
-  const view = activeWorkout ? 'active-workout' : currentView;
+  let view = activeWorkout ? 'active-workout' : currentView;
+  if (view === 'history' || view === 'cardio') {
+    view = 'analytics';
+  }
 
   return (
     <Layout>
@@ -80,9 +81,7 @@ export default function App() {
         {view === 'workout-builder' && <WorkoutBuilder key="builder" />}
         {view === 'active-workout' && <ActiveWorkout key="active" />}
         {view === 'exercises' && <ExerciseLibrary key="exercises" />}
-        {view === 'history' && <History key="history" />}
         {view === 'analytics' && <Analytics key="analytics" />}
-        {view === 'cardio' && <CardioView key="cardio" />}
         {view === 'settings' && <Settings key="settings" />}
         {view === 'workout-summary' && <WorkoutSummary key="summary" />}
       </AnimatePresence>

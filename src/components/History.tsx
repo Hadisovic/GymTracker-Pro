@@ -7,7 +7,7 @@ import {
 import { useWorkoutStore } from '../store/workoutStore';
 import type { WorkoutSession, WorkoutSet } from '../types/workout';
 
-export default function History() {
+export default function History({ isNested = false }: { isNested?: boolean }) {
   const { workoutHistory, muscleGroups, exercises, updateSession, deleteSession } = useWorkoutStore();
 
   const [search, setSearch] = useState('');
@@ -78,15 +78,9 @@ export default function History() {
     return parts.join(' ');
   };
 
-  return (
-    <motion.div
-      className="page-container"
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -20 }}
-      transition={{ duration: 0.3 }}
-    >
-      <h2 className="text-xl font-bold text-white mb-4">Workout History</h2>
+  const content = (
+    <>
+      {!isNested && <h2 className="text-xl font-bold text-white mb-4">Workout History</h2>}
 
       {/* Search */}
       <div className="relative mb-3">
@@ -328,6 +322,22 @@ export default function History() {
           </motion.div>
         )}
       </AnimatePresence>
+    </>
+  );
+
+  if (isNested) {
+    return <div className="space-y-4 pb-24">{content}</div>;
+  }
+
+  return (
+    <motion.div
+      className="page-container pb-24"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -20 }}
+      transition={{ duration: 0.3 }}
+    >
+      {content}
     </motion.div>
   );
 }

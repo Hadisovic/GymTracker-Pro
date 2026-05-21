@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Plus, Edit3, Trash2, Search, X, Save, SlidersHorizontal } from 'lucide-react';
+import { Plus, Edit3, Trash2, Search, X, Save, SlidersHorizontal, Activity } from 'lucide-react';
 import { v4 as uuid } from 'uuid';
 import { useWorkoutStore } from '../store/workoutStore';
 import type { Exercise } from '../types/workout';
+import { MuscleMap } from './MuscleMap';
 
 // ─── Real-Time PR Badges Subcomponent ───────────────────────
 function ExercisePRDisplay({ exerciseId }: { exerciseId: string }) {
@@ -53,6 +54,7 @@ export default function ExerciseLibrary() {
   const [filterCustomOnly, setFilterCustomOnly] = useState(false);
   const [sortBy, setSortBy] = useState<'alphabetical' | 'popularity' | 'recency'>('popularity');
   const [showFilters, setShowFilters] = useState(false);
+  const [showMap, setShowMap] = useState(true);
 
   // Form state
   const [formName, setFormName] = useState('');
@@ -167,6 +169,18 @@ export default function ExerciseLibrary() {
         <h2 className="text-xl font-bold text-white">Exercise Library</h2>
         <div className="flex gap-2">
           <motion.button
+            onClick={() => setShowMap(!showMap)}
+            className={`w-9 h-9 rounded-xl flex items-center justify-center transition-all ${
+              showMap
+                ? 'bg-cyan-500/20 text-cyan-400 border border-cyan-500/30'
+                : 'bg-dark-600 text-dark-300 border border-transparent'
+            }`}
+            whileTap={{ scale: 0.9 }}
+            title="Toggle Muscle Recovery Map"
+          >
+            <Activity className="w-4 h-4" />
+          </motion.button>
+          <motion.button
             onClick={() => setShowFilters(!showFilters)}
             className={`w-9 h-9 rounded-xl flex items-center justify-center transition-all ${
               showFilters || selectedEquipment || filterCustomOnly || sortBy !== 'popularity'
@@ -186,6 +200,24 @@ export default function ExerciseLibrary() {
           </motion.button>
         </div>
       </div>
+
+      {/* Muscle Recovery Map */}
+      <AnimatePresence>
+        {showMap && (
+          <motion.div
+            initial={{ opacity: 0, height: 0, marginBottom: 0 }}
+            animate={{ opacity: 1, height: 'auto', marginBottom: 16 }}
+            exit={{ opacity: 0, height: 0, marginBottom: 0 }}
+            className="overflow-hidden"
+          >
+            <MuscleMap
+              onSelectMuscles={(ids) => setSelectedMuscle(ids[0] || null)}
+              selectedMuscleIds={selectedMuscle ? [selectedMuscle] : []}
+              multiSelect={false}
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Advanced Filters Block */}
       <AnimatePresence>

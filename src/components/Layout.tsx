@@ -1,17 +1,14 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import {
-  LayoutDashboard, Dumbbell, BookOpen, Clock, BarChart3, Settings,
-  Flame, Activity, Cloud, CloudOff, Loader2, Check
+  LayoutDashboard, BookOpen, BarChart3, Settings,
+  Flame, Cloud, CloudOff, Loader2, Check
 } from 'lucide-react';
 import { useWorkoutStore } from '../store/workoutStore';
 
 const navItems = [
   { id: 'dashboard', label: 'Home', icon: LayoutDashboard },
   { id: 'exercises', label: 'Exercises', icon: BookOpen },
-  { id: 'workout-builder', label: 'Workout', icon: Dumbbell },
-  { id: 'history', label: 'History', icon: Clock },
-  { id: 'analytics', label: 'Charts', icon: BarChart3 },
-  { id: 'cardio', label: 'Cardio', icon: Activity },
+  { id: 'analytics', label: 'Tracker', icon: BarChart3 },
   { id: 'settings', label: 'Settings', icon: Settings },
 ];
 
@@ -156,7 +153,16 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <nav className="bottom-nav">
         <div className="flex items-center justify-around py-2 px-1 max-w-lg mx-auto">
           {navItems.map(item => {
-            const isActive = currentView === item.id;
+            const getActiveTab = (view: string) => {
+              if (['dashboard', 'workout-builder', 'workout-summary', 'active-workout'].includes(view)) {
+                return 'dashboard';
+              }
+              if (['analytics', 'history', 'cardio'].includes(view)) {
+                return 'analytics';
+              }
+              return view;
+            };
+            const isActive = getActiveTab(currentView) === item.id;
             const Icon = item.icon;
             return (
               <motion.button
