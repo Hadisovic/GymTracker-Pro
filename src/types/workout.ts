@@ -29,6 +29,7 @@ export interface WorkoutSet {
   speed?: number;       // km/h or mph
   incline?: number;     // level
   timestamp?: string;
+  completed?: boolean;  // Tracks checkmark completion in active workout logger
 }
 
 // ─── Exercise Definition ──────────────────────────────────
@@ -41,6 +42,11 @@ export interface Exercise {
   notes?: string;
   category?: 'strength' | 'cardio';
   defaultUnit?: WeightUnit;
+  isCustom?: boolean;            // Identifies user-created exercises
+  difficulty?: 'beginner' | 'intermediate' | 'advanced';
+  userTags?: string[];           // Custom tags (e.g. "injury-friendly", "finisher")
+  usageCount?: number;           // Tracking popularity for smart sorting
+  lastPerformedAt?: string;      // ISO timestamp for recency weighting
 }
 
 // ─── Muscle Group ─────────────────────────────────────────

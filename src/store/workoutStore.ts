@@ -38,6 +38,7 @@ interface WorkoutStore {
   logout: () => Promise<void>;
   syncToCloud: () => Promise<void>;
   syncFromCloud: () => Promise<boolean>;
+  quickAddExerciseToWorkout: (name: string, muscleGroupId: string, equipment?: string) => Promise<string>;
 
   // Navigation
   setCurrentView: (view: string) => void;
@@ -255,6 +256,34 @@ export const useWorkoutStore = create<WorkoutStore>()(
             await this.resetToSeed();
           }
         }
+      },
+
+      async quickAddExerciseToWorkout(name: string, muscleGroupId: string, equipment?: string) {
+        const newId = uuid();
+        const newEx: Exercise = {
+          id: newId,
+          name,
+          muscleGroupId,
+          equipment,
+          category: 'strength',
+          isCustom: true,
+          usageCount: 1,
+          lastPerformedAt: new Date().toISOString()
+        };
+
+        // 1. Add to local IndexedDB
+        await db.exercises.add(newEx);
+
+        // 2. Update state list
+        set(s => ({ exercises: [...s.exercises, newEx] }));
+
+        // 3. Auto-insert into active workout if currently running
+        const state = get();
+        if (state.activeWorkout) {
+          state.addExerciseToActiveWorkout(newId);
+        }
+
+        return newId;
       },
 
       initialize: async () => {
@@ -496,8 +525,10 @@ export const useWorkoutStore = create<WorkoutStore>()(
         // Save to DB
         await db.workoutHistory.add(session);
 
-        // Update latest logs
+        // Update latest logs and exercise popularity/recency metrics
         const newLatestLogs = { ...state.latestLogs };
+        const updatedExercises = [...state.exercises];
+        const nowStr = new Date().toISOString();
         for (const log of session.exercises) {
           const ll: LatestLog = {
             exerciseId: log.exerciseId,
@@ -509,6 +540,17 @@ export const useWorkoutStore = create<WorkoutStore>()(
           };
           newLatestLogs[log.exerciseId] = ll;
           await db.latestLogs.put(ll);
+
+          // Update usage counts and recency in IndexedDB and state
+          const exIndex = updatedExercises.findIndex(e => e.id === log.exerciseId);
+          if (exIndex !== -1) {
+            const currentEx = updatedExercises[exIndex];
+            const usageCount = (currentEx.usageCount ?? 0) + 1;
+            const lastPerformedAt = nowStr;
+            const newEx = { ...currentEx, usageCount, lastPerformedAt };
+            updatedExercises[exIndex] = newEx;
+            await db.exercises.update(log.exerciseId, { usageCount, lastPerformedAt });
+          }
         }
 
         // Detect PRs
@@ -529,6 +571,7 @@ export const useWorkoutStore = create<WorkoutStore>()(
           workoutHistory: [...state.workoutHistory, session],
           latestLogs: newLatestLogs,
           prRecords: newPRs,
+          exercises: updatedExercises,
           activeWorkout: null,
           lastCompletedSessionId: session.id,
         });
